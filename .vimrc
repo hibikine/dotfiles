@@ -42,6 +42,7 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
+" vimprocを最初にインスコ
 if dein#check_install(['vimproc'])
   call dein#install(['vimproc'])
 endif
