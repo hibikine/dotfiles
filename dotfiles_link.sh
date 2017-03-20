@@ -1,5 +1,6 @@
 #!/bin/sh
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
+mkdir -v -p ~/.vim/rc
 ln -sf ~/dotfiles/dein.toml ~/.vim/rc
 ln -sf ~/dotfiles/dein_lazy.toml ~/.vim/rc
 if [ "$(uname)" == 'Darwin' ]; then
@@ -15,5 +16,4 @@ fi
 
 if [ $OS == 'Cygwin' ]; then
     echo "Your platform is Cygwin."
-    ln -sf '~/dotfiles/Vivaldi/User Data/Default' '~/AppData/Local/Vivaldi/User Data'
 fi
