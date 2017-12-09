@@ -121,5 +121,6 @@ call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
+noremap <silent><C-e> :NERDTreeToggle<CR>
 autocmd colorscheme molokai highlight Visual ctermbg=8
 syntax on

@@ -94,6 +94,9 @@ repo = 'pangloss/vim-javascript'
 repo = 'Galooshi/vim-import-js'
 
 [[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+
+[[plugins]]
 repo = 'vim-syntastic/syntastic'
 hook_add = '''
     let g:syntastic_python_checkers = ['pyflakes', 'pep8']
@@ -107,3 +110,7 @@ repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
