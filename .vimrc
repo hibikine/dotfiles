@@ -4,6 +4,7 @@ filetype plugin indent on
 set ruler
 set number
 set fenc=utf-8
+set ff=unix
 set cursorline
 set cursorcolumn
 set expandtab
