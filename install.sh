@@ -1,8 +1,17 @@
-#!/bin/zsh
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
 for f in .??*
 do
     [[ "$f" == ".git" ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
 
-    ln -sf ~/dotfiles/$f ~/$f
+    echo $f
+    if [ -d "${f}" ]; then
+	    ln -sf $SCRIPT_DIR/$f/ ~/$f
+    else
+	    ln -sf $SCRIPT_DIR/$f ~/$f
+    fi
 done
+
