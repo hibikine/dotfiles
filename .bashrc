@@ -114,3 +114,6 @@ if ! shopt -oq posix; then
 fi
 export GOPATH=/home/kage/go
 export PATH=$PATH:/home/kage/go/bin:/usr/local/go/bin
+alias gitlog='git log --oneline --decorate=full --graph'
+alias likdl='cd ~/src/like-dl'
+

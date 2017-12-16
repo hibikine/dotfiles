@@ -4,6 +4,7 @@ filetype plugin indent on
 set ruler
 set number
 set fenc=utf-8
+set ff=unix
 set cursorline
 set cursorcolumn
 set expandtab
@@ -121,5 +122,6 @@ call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
+noremap <silent><C-e> :NERDTreeToggle<CR>
 autocmd colorscheme molokai highlight Visual ctermbg=8
 syntax on
