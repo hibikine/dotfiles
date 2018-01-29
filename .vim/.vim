@@ -1,1 +1,0 @@
-/home/kage/dotfiles/.vim/
