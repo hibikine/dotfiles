@@ -48,3 +48,7 @@ esac
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
     "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
+# get php document
+wget -O - 'http://jp2.php.net/distributions/manual/php_manual_ja.tar.gz' |
+    tar zxvf - -C $HOME/.vim/vim-ref
+
