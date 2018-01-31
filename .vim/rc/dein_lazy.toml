@@ -148,3 +148,9 @@ repo = 'ctjhoa/spacevim'
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
+[[plugins]]
+repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
