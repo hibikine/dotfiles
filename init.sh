@@ -8,7 +8,7 @@ case ${info[0]} in
         # Set japan repository
         sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
         # Add vim repository
-        sudo add-apt-repository ppa:jonathonf/vim
+        sudo add-apt-repository ppa:jonathonf/vim -y
         ;;
     debian)
         # Set japan repository
