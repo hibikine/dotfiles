@@ -52,6 +52,9 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/rupa/z/master/z.sh
 sudo chmod 755 /usr/local/bin/z.sh
 
+# install cz-cli
+yarn global add commitizen
+
 # get php document
 wget -O - 'http://jp2.php.net/distributions/manual/php_manual_ja.tar.gz' |
     tar zxvf - -C $HOME/.vim/vim-ref
