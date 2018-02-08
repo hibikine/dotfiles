@@ -14,7 +14,13 @@ get_os_bit() {
 
 # Get Linux distribution name
 get_os_distribution() {
-    if   [ -e /etc/debian_version ] ||
+    if [ "$(uname)" == 'Darwin' ]; then
+        # Mac
+        distri_name="osx"
+    elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then
+        # Cygwin
+        distri_name="cygwin"
+    elif   [ -e /etc/debian_version ] ||
          [ -e /etc/debian_release ]; then
         # Check Ubuntu or Debian
         if [ -e /etc/lsb-release ]; then
