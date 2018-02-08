@@ -3,3 +3,5 @@
 	name = Hibikine Kage
 [push]
 	default = simple
+[core]
+	editor = vim
