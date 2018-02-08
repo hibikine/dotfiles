@@ -8,7 +8,7 @@ case ${info[0]} in
         # Set japan repository
         sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
         # Add vim repository
-        sudo add-apt-repository ppa:jonathonf/vim
+        sudo add-apt-repository ppa:jonathonf/vim -y
         ;;
     debian)
         # Set japan repository
@@ -23,7 +23,7 @@ case ${info[0]} in
         sudo dd-apt-repository ppa:ondrej/php
         sudo apt-get update && \
             sudo apt-get install build-essential curl git nodejs npm openssl \
-            php7.0 php7.0-mbstring php7.0-mysql php7.0-sqlite3 php7.0-zip php7.0-xml \
+            php7.1 php7.1-mbstring php7.1-mysql php7.1-sqlite3 php7.1-zip php7.1-xml \
             pkg-config python3-taglib sqlite3 vim zsh -y && \
             sudo apt-get upgrade -y && \
             sudo apt-get autoremove -y
