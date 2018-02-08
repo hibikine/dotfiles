@@ -4,4 +4,6 @@
 %ALLUSERSPROFILE%\chocolatey\bin\choco install googlechrome -y
 %ALLUSERSPROFILE%\chocolatey\bin\choco install javaruntime -y
 %ALLUSERSPROFILE%\chocolatey\bin\choco install nodejs.install -y
+%ALLUSERSPROFILE%\chocolatey\bin\choco install composer -y
+composer global require friendsofphp/php-cs-fixer
 
