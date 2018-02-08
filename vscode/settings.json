@@ -1,2 +1,18 @@
 {
+    "files.autoSave": "onFocusChange",
+    "editor.fontFamily": "Ricty, Consolas, 'Courier New', monospace",
+    "editor.wordWrap": "on",
+    "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
+    "prettier.eslintIntegration": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.packageManager": "yarn",
+    "tslint.packageManager": "yarn",
+    "php.validate.executablePath": "C:\\tools\\php72\\php.exe",
+    "phpfmt.php_bin": "C:\\tools\\php72\\php.exe",
+    "php-cs-fixer.autoFixBySemicolon": true,
+    "php-cs-fixer.allowRisky": true,
+    "php-cs-fixer.executablePath": "C:\\Users\\Kage\\AppData\\Roaming\\Composer\\vendor\\bin\\php-cs-fixer.bat",
 }
