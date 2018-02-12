@@ -1,37 +1,30 @@
-{
-    // ディレクトリの設定
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true
-    },
-    "search.exclude": {
-        "**/node_modules": true
-    },
-    // 見た目に関する設定
-    "workbench.colorTheme": "Visual Studio Dark",
-    "editor.fontFamily": "Ricty, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 14,
-    "editor.wordWrap": "on",
-    // フォーマットと保存時の処理
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
-    "files.autoSave": "onFocusChange",
-    "files.trimTrailingWhitespace": true,
-    // git
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    // prettier
-    "prettier.singleQuote": true,
-    "prettier.arrowParens": "always",
-    "prettier.eslintIntegration": true,
-    // PHP
-    "php.executablePath": "/usr/local/bin/php",
-    "php.validate.executablePath": "/usr/local/bin/php",
-    "php.validate.run": "onType",
-    "workbench.editor.enablePreview": false,
-    "prettier.bracketSpacing": false
-}
+{                                                                          
+        "files.exclude": {                                                     
+                    "**/.git": true,                                                   
+                            "**/.svn": true,                                                   
+                                    "**/.hg": true,                                                    
+                                            "**/CVS": true,                                                    
+                                                    "**/.DS_Store": true                                               
+                                                        },                                                                     
+                                                            "search.exclude": {                                                    
+                                                                        "**/node_modules": true                                            
+                                                                            },                                                                     
+                                                                                "workbench.colorTheme": "Visual Studio Dark",                          
+                                                                                    "php.executablePath": "/usr/local/bin/php",                            
+                                                                                        "editor.formatOnSave": true,                                           
+                                                                                            "editor.formatOnType": true,                                           
+                                                                                                "editor.formatOnPaste": true,                                          
+                                                                                                    "editor.fontFamily": "Ricty, Menlo, Monaco, 'Courier New', monospace", 
+                                                                                                        "editor.fontSize": 14,                                                 
+                                                                                                            "files.autoSave": "onFocusChange",                                     
+                                                                                                                "editor.wordWrap": "on",                                               
+                                                                                                                    "prettier.singleQuote": true,                                          
+                                                                                                                        "prettier.arrowParens": "always",                                      
+                                                                                                                            "prettier.eslintIntegration": true,                                    
+                                                                                                                                "git.autofetch": true,                                                 
+                                                                                                                                    "git.enableSmartCommit": true,                                         
+                                                                                                                                        "files.trimTrailingWhitespace": true,                                  
+                                                                                                                                            "php.validate.executablePath": "/usr/local/bin/php",                   
+                                                                                                                                                "php.validate.run": "onType",                                          
+                                                                                                                                                    "workbench.editor.enablePreview": false                                
+}                                                                          
