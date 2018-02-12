@@ -15,4 +15,12 @@
     "php-cs-fixer.autoFixBySemicolon": true,
     "php-cs-fixer.allowRisky": true,
     "php-cs-fixer.executablePath": "C:\\Users\\Kage\\AppData\\Roaming\\Composer\\vendor\\bin\\php-cs-fixer.bat",
+    "window.zoomLevel": 0,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.requireConfig": false,
+    "prettier.stylelintIntegration": true,
+    "gitProjectManager.baseProjectsFolders": [
+        "C:\\Users\\Kage\\src"
+    ],
 }
