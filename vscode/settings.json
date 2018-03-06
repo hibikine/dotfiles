@@ -28,5 +28,10 @@
     "php.validate.run": "onType",
     "workbench.editor.enablePreview": false,
     "workbench.statusBar.feedback.visible": false,
-    "prettier.trailingComma": "es5"
+    "prettier.trailingComma": "es5",
+    "gitlens.blame.highlight.locations": [
+        "gutter",
+        "line",
+        "overview"
+    ]
 }
