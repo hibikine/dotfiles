@@ -58,7 +58,7 @@ case ${info[0]} in
     ubuntu | debian)
         # Install packages
         show_section "Add Repos"
-        sudo dd-apt-repository ppa:ondrej/php
+        sudo add-apt-repository ppa:ondrej/php
         show_section "Update and install packages"
         sudo apt-get update && \
             sudo apt-get install automake build-essential curl git ncurses nodejs npm openssl \
