@@ -34,63 +34,75 @@ case ${info[0]} in
         ;;
 esac
 
-# Install packages
 case ${info[0]} in
     osx)
-        # Add Repos
-        show_section "Add Repos"
-        brew tap homebrew/dupes
-        brew tap homebrew/versions
-        brew tap homebrew/homebrew-php
-        brew update
-        # Install zsh
-        brew install zsh
-        # Install Node
-        show_section "Install Node.js"
-        brew install nodebrew && \
-            nodebrew install-binary latest && \
-            nodebrew use latest
-        # Install php
-        show_section "Install PHP"
-        brew install php71 && \
-            brew install homebrew/php/composer
+        brew install git
+        brew install fish
         ;;
-    ubuntu | debian)
-        # Install packages
-        show_section "Add Repos"
-        sudo dd-apt-repository ppa:ondrej/php
-        show_section "Update and install packages"
-        sudo apt-get update && \
-            sudo apt-get install automake build-essential curl git ncurses nodejs npm openssl \
-            php7.1 php7.1-mbstring php7.1-mysql php7.1-sqlite3 php7.1-zip php7.1-xml \
-            pkg-config python3-taglib silversearcher-ag sqlite3 vim zsh -y && \
-            sudo apt-get upgrade -y && \
-            sudo apt-get autoremove -y
-        # Upgrade node
-        show_section "Upgrade Node.js"
-        sudo npm cache clean && \
-            sudo npm install n -g && \
-            sudo n latest && \
-            sudo ln -sf /usr/local/bin/node /usr/bin/node && \
-            apt-get purge -y nodejs npm && \
-        # Install yarn
-        show_section "Install Yarn"
-        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
-            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
-            sudo apt-get update && \
-            sudo apt-get install yarn -y && \
-            sudo apt-get autoremove -y
-        # Install composer
-        show_section "Install Composer"
-        curl -sS https://getcomposer.org/installer | php && \
-            sudo mv composer.phar /usr/local/bin/composer && \
-            sudo chmod +x /usr/local/bin/composer
-        # install z
-        show_section "Install z"
-        sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/rupa/z/master/z.sh && \
-            sudo chmod 755 /usr/local/bin/z.sh
-        ;;
+    ubuntu)
+        sudo apt-get install curl git vim
 esac
+
+if [ $1 = 'full' ]; then
+    # Install packages
+    case ${info[0]} in
+        osx)
+            # Add Repos
+            show_section "Add Repos"
+            brew tap homebrew/dupes
+            brew tap homebrew/versions
+            brew tap homebrew/homebrew-php
+            brew update
+            # Install zsh
+            brew install zsh
+            # Install Node
+            show_section "Install Node.js"
+            brew install nodebrew && \
+                nodebrew install-binary latest && \
+                nodebrew use latest
+            # Install php
+            show_section "Install PHP"
+            brew install php71 && \
+                brew install homebrew/php/composer
+            ;;
+        ubuntu | debian)
+            # Install packages
+            show_section "Add Repos"
+            sudo add-apt-repository ppa:ondrej/php
+            show_section "Update and install packages"
+            sudo apt-get update && \
+                sudo apt-get install automake build-essential ncurses nodejs npm openssl \
+                php7.1 php7.1-mbstring php7.1-mysql php7.1-sqlite3 php7.1-zip php7.1-xml \
+                pkg-config python3-taglib silversearcher-ag sqlite3 -y && \
+                sudo apt-get upgrade -y && \
+                sudo apt-get autoremove -y
+            # Upgrade node
+            show_section "Upgrade Node.js"
+            sudo npm cache clean && \
+                sudo npm install n -g && \
+                sudo n latest && \
+                sudo ln -sf /usr/local/bin/node /usr/bin/node && \
+                apt-get purge -y nodejs npm && \
+            # Install yarn
+            show_section "Install Yarn"
+            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+                echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
+                sudo apt-get update && \
+                sudo apt-get install yarn -y && \
+                sudo apt-get autoremove -y
+            # Install composer
+            
+            show_section "Install Composer"
+            curl -sS https://getcomposer.org/installer | php && \
+                sudo mv composer.phar /usr/local/bin/composer && \
+                sudo chmod +x /usr/local/bin/composer
+            # install z
+            show_section "Install z"
+            sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/rupa/z/master/z.sh && \
+                sudo chmod 755 /usr/local/bin/z.sh
+            ;;
+    esac
+fi
 
 # install prezto
 if [ ! -e ${ZDOTDIR:-$HOME}/.zprezto ]; then
@@ -98,8 +110,10 @@ if [ ! -e ${ZDOTDIR:-$HOME}/.zprezto ]; then
         "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# install cz-cli
-yarn global add commitizen
+if [ $1 = 'full' ]; then
+    # install cz-cli
+    yarn global add commitizen
+fi
 
 # install tig
 if [ $(installed_command tig) -eq 0 ]; then
@@ -125,7 +139,6 @@ fi
 
 # wip
 if [ $(installed_comand z) -eq 0 ]; then
-
 fi
 
 # get php document

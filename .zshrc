@@ -24,4 +24,5 @@ alias lasimg="cd /mnt/c/Users/Kage/src/lastyearimages/"
 alias winHome="cd /mnt/c/Users/$USER/"
 alias owcl="cd /mnt/e/ownCloud/"
 alias getmyip="curl inet-ip.info"
+export PATH=$PATH:$HOME/.cargo/bin
 
