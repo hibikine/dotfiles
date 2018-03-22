@@ -1,4 +1,15 @@
 {
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -19,8 +30,7 @@
     "files.autoSave": "onFocusChange",
     "editor.wordWrap": "on",
     "prettier.singleQuote": true,
-    "prettier.arrowParens": "always",
-    "prettier.eslintIntegration": true,
+    "prettier.eslintIntegration": false,
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "files.trimTrailingWhitespace": true,
@@ -28,10 +38,14 @@
     "php.validate.run": "onType",
     "workbench.editor.enablePreview": false,
     "workbench.statusBar.feedback.visible": false,
-    "prettier.trailingComma": "es5",
+    "prettier.trailingComma": "all",
     "gitlens.blame.highlight.locations": [
         "gutter",
         "line",
         "overview"
-    ]
+    ],
+    "diffEditor.ignoreTrimWhitespace": true,
+    "gitlens.keymap": "alternate",
+    "jest.enableSnapshotUpdateMessages": false,
+    "editor.detectIndentation": false
 }
