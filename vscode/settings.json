@@ -47,5 +47,6 @@
     "diffEditor.ignoreTrimWhitespace": true,
     "gitlens.keymap": "alternate",
     "jest.enableSnapshotUpdateMessages": false,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "vim.useSystemClipboard": true
 }

@@ -115,3 +115,6 @@ nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 noremap <silent><C-e> :NERDTreeToggle<CR>
 autocmd colorscheme molokai highlight Visual ctermbg=8
 syntax on
+
+inoremap <silent> jj <ESC>
+
