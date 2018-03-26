@@ -23,7 +23,9 @@ alias cd..="cd .."
 alias lasimg="cd /mnt/c/Users/Kage/src/lastyearimages/"
 alias winHome="cd /mnt/c/Users/$USER/"
 alias owcl="cd /mnt/e/ownCloud/"
+alias ch="cd ~/src/cheetah_app/"
+alias chdocker="cd ~/src/cheetah_app/cheetah_docker/ && docker-compose up -d"
+alias chwatch="cd ~/src/cheetah_app/ && yarn watch"
 alias getmyip="curl inet-ip.info"
-alias ch="cd ~/src/cheetah_app"
 export PATH=$PATH:$HOME/.cargo/bin
 
