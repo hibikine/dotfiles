@@ -48,5 +48,6 @@
     "gitlens.keymap": "alternate",
     "jest.enableSnapshotUpdateMessages": false,
     "editor.detectIndentation": false,
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "vim.easymotion": true
 }
