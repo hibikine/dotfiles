@@ -13,6 +13,9 @@ fi
 # z
 . /usr/local/bin/z.sh
 
+source $HOME/src/google-cloud-sdk/completion.zsh.inc
+source $HOME/src/google-cloud-sdk/path.zsh.inc
+
 # Customize to your needs...
 PURE_PROMPT_SYMBOL=">"
 alias hyperlog="git log --oneline --graph --decorate=full"
@@ -23,4 +26,6 @@ alias owcl="cd /mnt/e/ownCloud/"
 alias ch="cd ~/src/cheetah_app/"
 alias chdocker="cd ~/src/cheetah_app/cheetah_docker/ && docker-compose up -d"
 alias chwatch="cd ~/src/cheetah_app/ && yarn watch"
+alias getmyip="curl inet-ip.info"
+export PATH=$PATH:$HOME/.cargo/bin
 
