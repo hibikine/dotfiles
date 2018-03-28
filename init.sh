@@ -28,8 +28,8 @@ case ${info[0]} in
         sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
         # Add vim repository
         sudo apt-get update && \
-            sudo apt-get install software-properties-common
-        sudo add-apt-repository ppa:neovim-ppa/stable \
+            sudo apt-get install -y software-properties-common
+        sudo add-apt-repository -y ppa:neovim-ppa/stable \
         sudo apt-get update
         ;;
     debian)
@@ -44,15 +44,15 @@ case ${info[0]} in
         brew install neovim
         ;;
     debian)
-        sudo apt-get install curl git
-        sudo apt-get install neovim python-neovim python3-neovim
+        sudo apt-get install -y curl git
+        sudo apt-get install -y neovim python-neovim python3-neovim
         ;;
     ubuntu)
-        sudo apt-get install curl git
-        sudo apt-get install python-dev python-pip python3-dev \
-            sudo apt-get install python3-setuptools \
+        sudo apt-get install -y curl git
+        sudo apt-get install -y python-dev python-pip python3-dev \
+            sudo apt-get install -y python3-setuptools \
             sudo easy_install3 pip \
-            sudo apt-get install neovim \
+            sudo apt-get install -y neovim \
             sudo update-alternatives --install /usr/bin/vi vi /use/bin/nvim 60 \
             sudo update-alternatives --config vi \
             sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60 \
