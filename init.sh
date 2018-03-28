@@ -27,7 +27,7 @@ case ${info[0]} in
         # Set japan repository
         sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
         # Add vim repository
-        sudo add-apt-repository ppa:jonathonf/vim -y
+        sudo add-apt-repository -y ppa:jonathonf/vim -y
         ;;
     debian)
         # Set japan repository
@@ -69,7 +69,7 @@ if [[ $1 = 'full' ]]; then
         ubuntu | debian)
             # Install packages
             show_section "Add Repos"
-            sudo add-apt-repository ppa:ondrej/php
+            sudo add-apt-repository -y ppa:ondrej/php
             show_section "Update and install packages"
             sudo apt-get update && \
                 sudo apt-get install automake build-essential ncurses nodejs npm openssl \
