@@ -1,0 +1,6 @@
+install:
+    - ./init.sh
+    - ./install.sh
+script:
+    - ./tests/test.sh
+
