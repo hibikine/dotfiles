@@ -27,7 +27,10 @@ case ${info[0]} in
         # Set japan repository
         sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
         # Add vim repository
-        sudo add-apt-repository -y ppa:jonathonf/vim -y
+        sudo apt-get update && \
+            sudo apt-get install software-properties-common
+        sudo add-apt-repository ppa:neovim-ppa/stable \
+        sudo apt-get update
         ;;
     debian)
         # Set japan repository
@@ -38,10 +41,25 @@ esac
 case ${info[0]} in
     osx)
         brew install git
-        brew install fish
+        brew install neovim
+        ;;
+    debian)
+        sudo apt-get install curl git
+        sudo apt-get install neovim python-neovim python3-neovim
         ;;
     ubuntu)
-        sudo apt-get install curl git vim
+        sudo apt-get install curl git
+        sudo apt-get install python-dev python-pip python3-dev \
+            sudo apt-get install python3-setuptools \
+            sudo easy_install3 pip \
+            sudo apt-get install neovim \
+            sudo update-alternatives --install /usr/bin/vi vi /use/bin/nvim 60 \
+            sudo update-alternatives --config vi \
+            sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60 \
+            sudo update-alternatives --config vim \
+            sudo update-alternatives --instlal /usr/bin/editor editor /usr/bin/nvim 60 \
+            sudo update-alternatives --config editor
+        ;;
 esac
 
 if [[ $1 = 'full' ]]; then
