@@ -1,6 +1,6 @@
 sudo: required
 install:
-    - ./init.sh
+    - ./init.sh full
     - ./install.sh
 script:
     - ./tests/test.sh
