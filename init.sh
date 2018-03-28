@@ -1,3 +1,4 @@
+#!/bin/bash
 # declare OS
 declare -a info=($(./get_os_info.sh))
 script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
