@@ -1,3 +1,4 @@
+sudo: required
 install:
     - ./init.sh
     - ./install.sh
