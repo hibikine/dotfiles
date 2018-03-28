@@ -72,7 +72,7 @@ if [[ $1 = 'full' ]]; then
             sudo add-apt-repository -y ppa:ondrej/php
             show_section "Update and install packages"
             sudo apt-get update && \
-                sudo apt-get install automake build-essential ncurses nodejs npm openssl \
+                sudo apt-get install automake build-essential nodejs npm openssl \
                 pkg-config python3-taglib silversearcher-ag sqlite3 -y && \
                 sudo apt-get upgrade -y && \
                 sudo apt-get autoremove -y
