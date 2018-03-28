@@ -121,7 +121,7 @@ if [ $1 = 'full' ]; then
 fi
 
 # install tig
-if [ $(installed_command tig) -eq 0 ]; then
+if [[ $(installed_command tig) -eq 0 ]]; then
     case ${info[0]} in
         osx)
             brew install tig
@@ -143,7 +143,7 @@ if [ $(installed_command tig) -eq 0 ]; then
 fi
 
 # wip
-if [ $(installed_comand z) -eq 0 ]; then
+if [[ $(installed_comand z) -eq 0 ]]; then
 fi
 
 # get php document
