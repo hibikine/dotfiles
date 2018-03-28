@@ -100,6 +100,11 @@ if [[ $1 = 'full' ]]; then
             show_section "Install z"
             sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/rupa/z/master/z.sh && \
                 sudo chmod 755 /usr/local/bin/z.sh
+            # Install gcloud
+            export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+            echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+            curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+            sudo apt-get update && sudo apt-get install google-cloud-sdk
             ;;
     esac
 fi
