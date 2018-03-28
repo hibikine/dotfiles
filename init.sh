@@ -44,7 +44,7 @@ case ${info[0]} in
         sudo apt-get install curl git vim
 esac
 
-if [ $1 = 'full' ]; then
+if [[ $1 = 'full' ]]; then
     # Install packages
     case ${info[0]} in
         osx)
@@ -73,7 +73,6 @@ if [ $1 = 'full' ]; then
             show_section "Update and install packages"
             sudo apt-get update && \
                 sudo apt-get install automake build-essential ncurses nodejs npm openssl \
-                php7.1 php7.1-mbstring php7.1-mysql php7.1-sqlite3 php7.1-zip php7.1-xml \
                 pkg-config python3-taglib silversearcher-ag sqlite3 -y && \
                 sudo apt-get upgrade -y && \
                 sudo apt-get autoremove -y
