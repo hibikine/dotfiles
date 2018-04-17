@@ -44,5 +44,6 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "git.enableSmartCommit": true
 }
