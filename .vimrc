@@ -1,6 +1,24 @@
+" Vundle setting
+set nocompatible
+filetype off
+set rtp+=$HOME/.vim/bundle/Vundle.vim " vundleのインストール先
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kana/vim-submode'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Shougo/unite.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-scripts/AnsiEsc.vim'
+Plugin 'bronson/vim-trailing-whitespace'
+
+filetype plugin indent on
+
 set encoding=utf-8
 scriptencoding: Vim
-filetype plugin indent on
 set ruler
 set number
 set fenc=utf-8
@@ -22,30 +40,7 @@ set backspace=indent,eol,start
 set clipboard=unnamed,autoselect
 set list
 
-let s:dein_dir = expand('~/.cache/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
-
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-  let s:toml = '~/.vim/rc/dein.toml'
-  let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  call dein#end()
-  call dein#save_state()
-endif
-
-if dein#check_install()
-  call dein#install()
-endif
-
+inoremap jj <ESC>
 
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
@@ -112,14 +107,29 @@ nnoremap sQ :<C-u>bd<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+" Unite.vim Settings
+" 入力モードで開始する
+let g:unite_enable_start_insert=1
+" バッファ一覧
+noremap <C-P> :Unite buffer<CR>
+" ファイル一覧
+noremap <C-N> :Unite -buffer-name=file file<CR>
+" 最近使ったファイルの一覧
+noremap <C-Z> :Unite file_mru<CR>
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+
+" 起動時にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup = 1
 
 noremap <silent><C-e> :NERDTreeToggle<CR>
 autocmd colorscheme molokai highlight Visual ctermbg=8
