@@ -107,7 +107,6 @@ nnoremap sQ :<C-u>bd<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
-
 " Unite.vim Settings
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
@@ -134,3 +133,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 noremap <silent><C-e> :NERDTreeToggle<CR>
 autocmd colorscheme molokai highlight Visual ctermbg=8
 syntax on
+
+inoremap <silent> jj <ESC>
+
