@@ -1,3 +1,9 @@
+source ~/.zplug/init.zsh
+zplug "sorin-ionescu/prezto"
+zplug "walesmd/caniuse.plugin.zsh"
+zplug "b4b4r07/zsh-gomi", if:"which fzf"
+zplug load --verbose
+
 #
 # Executes commands at the start of an interactive session.
 #
@@ -28,4 +34,7 @@ alias chdocker="cd ~/src/cheetah_app/cheetah_docker/ && docker-compose up -d"
 alias chwatch="cd ~/src/cheetah_app/ && yarn watch"
 alias getmyip="curl inet-ip.info"
 export PATH=$PATH:$HOME/.cargo/bin
+alias startdevserver="gcloud compute instances start dev-2"
+alias stopdevserver="gcloud compute instaces stop dev-2"
+
 

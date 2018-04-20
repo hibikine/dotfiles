@@ -104,11 +104,10 @@ if [ $1 = 'full' ]; then
     esac
 fi
 
-# install prezto
-if [ ! -e ${ZDOTDIR:-$HOME}/.zprezto ]; then
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
-        "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# install zplug
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+zplug install
+ln -s $HOME/.zplug/repos/sorin-ionescu/prezto $HOME/.zprezto
 
 if [ $1 = 'full' ]; then
     # install cz-cli
