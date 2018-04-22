@@ -1,18 +1,24 @@
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug "sorin-ionescu/prezto"
+#zplug "sorin-ionescu/prezto"
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure"
 zplug "rupa/z"
 zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/zsh-gomi", if:"which fzf"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search", defer:2
 zplug "zsh-users/zsh-completions"
+zplug "chrissicool/zsh-256color"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
 zplug "mrowa44/emojify", as:command
 zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
-zstyle ':prezto:module:prompt' theme 'pure'
+zplug "liangguohuan/zsh-dircolors-solarized"
+#zstyle prompt theme 'pure'
 #zplug "modules/history",    from:prezto 
 #zplug "modules/utility",    from:prezto 
 #zplug "modules/ruby",       from:prezto 
@@ -21,10 +27,7 @@ zstyle ':prezto:module:prompt' theme 'pure'
 #zplug "modules/directory",  from:prezto
 
 zplug load --verbose
-
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+#zstyle ':prezto:module:prompt' theme 'pure'
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
