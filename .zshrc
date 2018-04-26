@@ -12,6 +12,7 @@ zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
 zplug "mrowa44/emojify", as:command
 zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
+zplug "walesmd/caniuse.plugin.zsh"
 zstyle ':prezto:module:prompt' theme 'pure'
 #zplug "modules/history",    from:prezto 
 #zplug "modules/utility",    from:prezto 
@@ -19,7 +20,6 @@ zstyle ':prezto:module:prompt' theme 'pure'
 #zplug "modules/ssh",        from:prezto 
 #zplug "modules/terminal",   from:prezto 
 #zplug "modules/directory",  from:prezto
-
 zplug load --verbose
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -44,6 +44,9 @@ alias chwatch="cd ~/src/cheetah_app/ && yarn watch"
 alias getmyip="curl inet-ip.info"
 alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
 export PATH=$PATH:$HOME/.cargo/bin
+alias startdevserver="gcloud compute instances start dev-2"
+alias stopdevserver="gcloud compute instaces stop dev-2"
+
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
