@@ -7,3 +7,5 @@
     name = Hibikine Kage
 [core]
     autoCRLF = input
+[push]
+	default = simple
