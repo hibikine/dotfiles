@@ -34,11 +34,17 @@ if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/path.zsh.inc
 fi
 
-# Customize to your needs...
+# pure config
 PURE_PROMPT_SYMBOL=">"
+
+# Home
+WHOAMI=$(whoami)
+
+# Aliases
 alias hyperlog="git log --oneline --graph --decorate=full"
 alias cd..="cd .."
 alias lasimg="cd /mnt/c/Users/Kage/src/lastyearimages/"
+alias webcr="cd /mnt/c/Users/${WHOAMI}/src/webcraft/"
 alias winHome="cd /mnt/c/Users/$USER/"
 alias owcl="cd /mnt/e/ownCloud/"
 alias ch="cd ~/src/cheetah_app/"
@@ -49,7 +55,23 @@ alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
 export PATH=$PATH:$HOME/.cargo/bin
 alias startdevserver="gcloud compute instances start dev-2"
 alias stopdevserver="gcloud compute instaces stop dev-2"
+alias grep='grep --color'
+alias df='df -h'
 
+# ls aliases
+alias ll='ls -la --color=auto'
+alias la='ls -la --color=auto'
+alias sl='ls'
+
+# git aliases
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gs='git status'
+alias gst='git status'
+alias gb='git branch'
+alias gcm='git checkout master'
+alias gpom='git pull origin master'
+alias gmm='git merge master'
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
