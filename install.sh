@@ -15,6 +15,8 @@ do
     fi
 done
 
+ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
+
 # declare OS
 if [ "$(uname)" == 'Darwin' ]; then
   OS='Mac'

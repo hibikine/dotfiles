@@ -1,3 +1,4 @@
+#!/bin/bash
 # declare OS
 declare -a info=($(./get_os_info.sh))
 script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
@@ -26,7 +27,10 @@ case ${info[0]} in
         # Set japan repository
         sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
         # Add vim repository
-        sudo add-apt-repository ppa:jonathonf/vim -y
+        sudo apt-get update && \
+            sudo apt-get install -y software-properties-common
+        sudo add-apt-repository -y ppa:neovim-ppa/stable \
+        sudo apt-get update
         ;;
     debian)
         # Set japan repository
@@ -34,75 +38,107 @@ case ${info[0]} in
         ;;
 esac
 
-# Install packages
 case ${info[0]} in
     osx)
-        # Add Repos
-        show_section "Add Repos"
-        brew tap homebrew/dupes
-        brew tap homebrew/versions
-        brew tap homebrew/homebrew-php
-        brew update
-        # Install zsh
-        brew install zsh
-        # Install Node
-        show_section "Install Node.js"
-        brew install nodebrew && \
-            nodebrew install-binary latest && \
-            nodebrew use latest
-        # Install php
-        show_section "Install PHP"
-        brew install php71 && \
-            brew install homebrew/php/composer
+        brew install git
+        brew install neovim
         ;;
-    ubuntu | debian)
-        # Install packages
-        show_section "Add Repos"
-        sudo dd-apt-repository ppa:ondrej/php
-        show_section "Update and install packages"
-        sudo apt-get update && \
-            sudo apt-get install automake build-essential curl git ncurses nodejs npm openssl \
-            php7.1 php7.1-mbstring php7.1-mysql php7.1-sqlite3 php7.1-zip php7.1-xml \
-            pkg-config python3-taglib silversearcher-ag sqlite3 vim zsh -y && \
-            sudo apt-get upgrade -y && \
-            sudo apt-get autoremove -y
-        # Upgrade node
-        show_section "Upgrade Node.js"
-        sudo npm cache clean && \
-            sudo npm install n -g && \
-            sudo n latest && \
-            sudo ln -sf /usr/local/bin/node /usr/bin/node && \
-            apt-get purge -y nodejs npm && \
-        # Install yarn
-        show_section "Install Yarn"
-        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
-            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
-            sudo apt-get update && \
-            sudo apt-get install yarn -y && \
-            sudo apt-get autoremove -y
-        # Install composer
-        show_section "Install Composer"
-        curl -sS https://getcomposer.org/installer | php && \
-            sudo mv composer.phar /usr/local/bin/composer && \
-            sudo chmod +x /usr/local/bin/composer
-        # install z
-        show_section "Install z"
-        sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/rupa/z/master/z.sh && \
-            sudo chmod 755 /usr/local/bin/z.sh
+    debian)
+        sudo apt-get install -y curl git
+        sudo apt-get install -y neovim python-neovim python3-neovim
+        ;;
+    ubuntu)
+        sudo apt-get install -y curl git
+        sudo apt-get install -y python-dev python-pip python3-dev \
+            sudo apt-get install -y python3-setuptools \
+            sudo easy_install3 pip \
+            sudo apt-get install -y neovim \
+            sudo update-alternatives --install /usr/bin/vi vi /use/bin/nvim 60 \
+            sudo update-alternatives --config vi \
+            sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60 \
+            sudo update-alternatives --config vim \
+            sudo update-alternatives --instlal /usr/bin/editor editor /usr/bin/nvim 60 \
+            sudo update-alternatives --config editor
         ;;
 esac
 
-# install prezto
-if [ ! -e ${ZDOTDIR:-$HOME}/.zprezto ]; then
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" && \
-        "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ $1 = 'full' ]]; then
+    # Install packages
+    case ${info[0]} in
+        osx)
+            # Add Repos
+            show_section "Add Repos"
+            brew tap homebrew/dupes
+            brew tap homebrew/versions
+            brew tap homebrew/homebrew-php
+            brew update
+            # Install zsh
+            brew install zsh
+            # Install Node
+            show_section "Install Node.js"
+            brew install nodebrew && \
+                nodebrew install-binary latest && \
+                nodebrew use latest
+            # Install php
+            show_section "Install PHP"
+            brew install php71 && \
+                brew install homebrew/php/composer
+            ;;
+        ubuntu | debian)
+            # Install packages
+            show_section "Add Repos"
+            sudo add-apt-repository -y ppa:ondrej/php
+            show_section "Update and install packages"
+            sudo apt-get update && \
+                sudo apt-get install nodejs npm openssl \
+                pkg-config silversearcher-ag -y && \
+                sudo apt-get upgrade -y && \
+                sudo apt-get autoremove -y
+            # Upgrade node
+            show_section "Upgrade Node.js"
+            sudo npm cache clean && \
+                sudo npm install n -g && \
+                sudo n latest && \
+                sudo ln -sf /usr/local/bin/node /usr/bin/node && \
+                apt-get purge -y nodejs npm && \
+            # Install yarn
+            show_section "Install Yarn"
+            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+                echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
+                sudo apt-get update && \
+                sudo apt-get install yarn -y && \
+                sudo apt-get autoremove -y
+            # Install composer
+            
+            show_section "Install Composer"
+            curl -sS https://getcomposer.org/installer | php && \
+                sudo mv composer.phar /usr/local/bin/composer && \
+                sudo chmod +x /usr/local/bin/composer
+            # install z
+            show_section "Install z"
+            sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/rupa/z/master/z.sh && \
+                sudo chmod 755 /usr/local/bin/z.sh
+            # Install gcloud
+            export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+            echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+            curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+            sudo apt-get update && sudo apt-get install google-cloud-sdk
+            ;;
+    esac
 fi
 
-# install cz-cli
-yarn global add commitizen
+# install zplug
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+zplug install
+ln -s $HOME/.zplug/repos/sorin-ionescu/prezto $HOME/.zprezto
+
+if [ $1 = 'full' ]; then
+    # install cz-cli
+    yarn global add commitizen
+fi
 
 # install tig
-if [ $(installed_command tig) -eq 0 ]; then
+if [[ $(installed_command tig) -eq 0 ]]; then
     case ${info[0]} in
         osx)
             brew install tig
@@ -124,8 +160,7 @@ if [ $(installed_command tig) -eq 0 ]; then
 fi
 
 # wip
-if [ $(installed_comand z) -eq 0 ]; then
-
+if [[ $(installed_comand z) -eq 0 ]]; then
 fi
 
 # get php document

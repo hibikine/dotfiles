@@ -1,12 +1,12 @@
+[diff]
+    tool = default-difftool
+[diff "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [user]
-	email = goodsmile314159@gmail.com
-	name = Hibikine Kage
-[push]
-	default = simple
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+    email = goodsmile314159@gmail.com
+    name = Hibikine Kage
 [core]
-	editor = vim
+    autoCRLF = input
+    editor = vim
+[push]
+    default = simple

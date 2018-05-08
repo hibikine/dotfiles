@@ -1,30 +1,64 @@
-{                                                                          
-        "files.exclude": {                                                     
-                    "**/.git": true,                                                   
-                            "**/.svn": true,                                                   
-                                    "**/.hg": true,                                                    
-                                            "**/CVS": true,                                                    
-                                                    "**/.DS_Store": true                                               
-                                                        },                                                                     
-                                                            "search.exclude": {                                                    
-                                                                        "**/node_modules": true                                            
-                                                                            },                                                                     
-                                                                                "workbench.colorTheme": "Visual Studio Dark",                          
-                                                                                    "php.executablePath": "/usr/local/bin/php",                            
-                                                                                        "editor.formatOnSave": true,                                           
-                                                                                            "editor.formatOnType": true,                                           
-                                                                                                "editor.formatOnPaste": true,                                          
-                                                                                                    "editor.fontFamily": "Ricty, Menlo, Monaco, 'Courier New', monospace", 
-                                                                                                        "editor.fontSize": 14,                                                 
-                                                                                                            "files.autoSave": "onFocusChange",                                     
-                                                                                                                "editor.wordWrap": "on",                                               
-                                                                                                                    "prettier.singleQuote": true,                                          
-                                                                                                                        "prettier.arrowParens": "always",                                      
-                                                                                                                            "prettier.eslintIntegration": true,                                    
-                                                                                                                                "git.autofetch": true,                                                 
-                                                                                                                                    "git.enableSmartCommit": true,                                         
-                                                                                                                                        "files.trimTrailingWhitespace": true,                                  
-                                                                                                                                            "php.validate.executablePath": "/usr/local/bin/php",                   
-                                                                                                                                                "php.validate.run": "onType",                                          
-                                                                                                                                                    "workbench.editor.enablePreview": false                                
-}                                                                          
+{
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "search.exclude": {
+        "**/node_modules": true
+    },
+    "workbench.colorTheme": "Visual Studio Dark",
+    "php.executablePath": "/usr/local/bin/php",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.fontFamily": "Ricty, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "files.autoSave": "onFocusChange",
+    "editor.wordWrap": "on",
+    "prettier.singleQuote": true,
+    "prettier.eslintIntegration": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "files.trimTrailingWhitespace": true,
+    "php.validate.executablePath": "/usr/local/bin/php",
+    "php.validate.run": "onType",
+    "workbench.editor.enablePreview": false,
+    "workbench.statusBar.feedback.visible": false,
+    "prettier.trailingComma": "all",
+    "gitlens.blame.highlight.locations": [
+        "gutter",
+        "line",
+        "overview"
+    ],
+    "diffEditor.ignoreTrimWhitespace": true,
+    "gitlens.keymap": "alternate",
+    "jest.enableSnapshotUpdateMessages": false,
+    "editor.detectIndentation": false,
+    "vim.useSystemClipboard": true,
+    "vim.easymotion": true,
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。「」【】『』（）！？　てにをはがのともへでや",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    }
+}
