@@ -7,6 +7,6 @@
     name = Hibikine Kage
 [core]
     autoCRLF = input
-	editor = vim
+    editor = vim
 [push]
-	default = simple
+    default = simple

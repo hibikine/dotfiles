@@ -1,7 +1,15 @@
 " Vundle setting
 set nocompatible
 filetype off
-set rtp+=$HOME/.vim/bundle/Vundle.vim " vundleのインストール先
+let s:vundle_dir = $HOME/.vim/bundle/Vundle.vim " vundleのインストール先
+set rtp+=s:vundle_dir
+
+" Check installed vundle
+if !isdirectory(s:vundle_dir)
+    " Install Vundle
+    execute "git clone https://github.com/gmarik/vundle.git" s:vundle_dir
+endif
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'

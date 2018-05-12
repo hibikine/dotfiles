@@ -29,6 +29,8 @@ zplug "liangguohuan/zsh-dircolors-solarized"
 zplug load --verbose
 #zstyle ':prezto:module:prompt' theme 'pure'
 
+export PATH="$PATH:$HOME/.cargo/bin"
+
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
     source $HOME/src/google-cloud-sdk/path.zsh.inc
