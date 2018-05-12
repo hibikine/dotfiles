@@ -37,6 +37,9 @@ fi
 # pure config
 PURE_PROMPT_SYMBOL=">"
 
+# enhancd config
+export ENHANCD_DISABLE_DOT=1
+
 # Home
 WHOAMI=$(whoami)
 
