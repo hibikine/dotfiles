@@ -90,7 +90,7 @@ if [[ $1 = 'full' ]]; then
             show_section "Update and install packages"
             sudo apt-get update && \
                 sudo apt-get install nodejs npm openssl \
-                pkg-config silversearcher-ag -y && \
+                pkg-config silversearcher-ag zsh -y && \
                 sudo apt-get upgrade -y && \
                 sudo apt-get autoremove -y
             # Upgrade node
@@ -139,7 +139,7 @@ if [ $1 = 'full' ]; then
 fi
 
 # install vundle
-vim +PluginInstall +qall
+vim "+silent PluginInstall" "+qall"
 
 # get php document
 wget -O - 'http://jp2.php.net/distributions/manual/php_manual_ja.tar.gz' |
