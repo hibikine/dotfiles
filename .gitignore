@@ -2,4 +2,5 @@
 .dotconfig
 /node_modules/
 .vim/bundle/
+.vim/.vim
 
