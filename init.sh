@@ -141,6 +141,3 @@ fi
 # install vundle
 vim "+silent PluginInstall" "+qall"
 
-# get php document
-wget -O - 'http://jp2.php.net/distributions/manual/php_manual_ja.tar.gz' |
-    tar zxvf - -C $HOME/.vim/vim-ref
