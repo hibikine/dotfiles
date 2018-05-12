@@ -7,7 +7,7 @@ let s:vundle_dir = expand("$HOME/.vim/bundle/Vundle.vim") " vundleのインス�
 if &runtimepath !~# '/Vundle.vim'
     if !isdirectory(s:vundle_dir)
         " Install Vundle
-        execute '!git clone https://github.com/VundleVim/Vundle.vim.git' s:vundle_dir
+        silent execute '!git clone https://github.com/VundleVim/Vundle.vim.git' s:vundle_dir
     endif
     execute 'set runtimepath^=' . fnamemodify(s:vundle_dir, ':p')
 endif
