@@ -1,14 +1,18 @@
 " Vundle setting
 set nocompatible
 filetype off
-let s:vundle_dir = $HOME/.vim/bundle/Vundle.vim " vundleのインストール先
-set rtp+=s:vundle_dir
+let s:vundle_dir = expand("$HOME/.vim/bundle/Vundle.vim") " vundleのインストール先
 
 " Check installed vundle
-if !isdirectory(s:vundle_dir)
-    " Install Vundle
-    execute "git clone https://github.com/gmarik/vundle.git" s:vundle_dir
+if &runtimepath !~# '/Vundle.vim'
+    if !isdirectory(s:vundle_dir)
+        " Install Vundle
+        execute '!git clone https://github.com/VundleVim/Vundle.vim.git' s:vundle_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:vundle_dir, ':p')
 endif
+
+set rtp+=s:vundle_file
 
 call vundle#begin()
 
@@ -22,6 +26,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ryanoasis/vim-devicons'
 
 filetype plugin indent on
 
@@ -143,4 +148,9 @@ autocmd colorscheme molokai highlight Visual ctermbg=8
 syntax on
 
 inoremap <silent> jj <ESC>
+
+" vim-devicons settings
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_unite = 1
 
