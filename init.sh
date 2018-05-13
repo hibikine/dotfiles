@@ -25,7 +25,9 @@ echo "Update packages and install"
 case ${info[0]} in
     ubuntu)
         # Set japan repository
-        sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
+        sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.riken.go.jp/Linux/ubuntu/%g" /etc/apt/sources.list
+        # sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
+
         # Add vim repository
         sudo apt-get update && \
             sudo apt-get install -y software-properties-common \
