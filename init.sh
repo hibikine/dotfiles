@@ -28,7 +28,8 @@ case ${info[0]} in
         sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
         # Add vim repository
         sudo apt-get update && \
-            sudo apt-get install -y software-properties-common
+            sudo apt-get install -y software-properties-common \
+            sudo add-apt-repository ppa:neovim-ppa/unstable
         sudo apt-get update
         ;;
     debian)
@@ -109,7 +110,7 @@ if [[ $1 = 'full' ]]; then
             fi
 
             # Install composer
-            
+
             show_section "Install Composer"
             curl -sS https://getcomposer.org/installer | php && \
                 sudo mv composer.phar /usr/local/bin/composer && \
@@ -125,9 +126,11 @@ if [[ $1 = 'full' ]]; then
 fi
 
 # install zplug
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+if type "zplug" > /dev/null 2>&1
+then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+fi
 zplug install
-ln -s $HOME/.zplug/repos/sorin-ionescu/prezto $HOME/.zprezto
 
 if [ $1 = 'full' ]; then
     case ${info[0]} in

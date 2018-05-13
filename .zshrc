@@ -70,6 +70,7 @@ alias la='ls -la --color=auto'
 alias sl='ls'
 
 # git aliases
+alias gaa='git add --all'
 alias gc='git checkout'
 alias gcb='git checkout -b'
 alias gs='git status'
