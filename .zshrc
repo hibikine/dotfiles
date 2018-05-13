@@ -80,5 +80,6 @@ alias gcm='git checkout master'
 alias gpom='git pull origin master'
 alias gmm='git merge master'
 
+[ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

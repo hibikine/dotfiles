@@ -146,3 +146,6 @@ fi
 # install vundle
 vim "+silent PluginInstall" "+qall"
 
+# create config file
+touch .dotzconfig
+
