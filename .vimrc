@@ -1,7 +1,19 @@
 " Vundle setting
 set nocompatible
 filetype off
-set rtp+=$HOME/.vim/bundle/Vundle.vim " vundleのインストール先
+let s:vundle_dir = expand("$HOME/.vim/bundle/Vundle.vim") " vundleのインストール先
+
+" Check installed vundle
+if &runtimepath !~# '/Vundle.vim'
+    if !isdirectory(s:vundle_dir)
+        " Install Vundle
+        silent execute '!git clone https://github.com/VundleVim/Vundle.vim.git' s:vundle_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:vundle_dir, ':p')
+endif
+
+set rtp+=s:vundle_file
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -14,6 +26,9 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ryanoasis/vim-devicons'
+
+call vundle#end()
 
 filetype plugin indent on
 
@@ -24,7 +39,8 @@ set number
 set fenc=utf-8
 set ff=unix
 set cursorline
-set cursorcolumn
+hi clear CursorLine
+" set cursorcolumn
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -39,6 +55,10 @@ set noincsearch
 set backspace=indent,eol,start
 set clipboard=unnamed,autoselect
 set list
+
+" Mouse settings
+set mouse=a
+set ttymouse=xterm2
 
 inoremap jj <ESC>
 
@@ -127,12 +147,19 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 
-" 起動時にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup = 1
+" Indent guides settings
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  guibg=red   ctermbg=3
+hi IndentGuidesEven guibg=green ctermbg=4
 
 noremap <silent><C-e> :NERDTreeToggle<CR>
 autocmd colorscheme molokai highlight Visual ctermbg=8
 syntax on
 
 inoremap <silent> jj <ESC>
+
+" vim-devicons settings
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_unite = 1
 
