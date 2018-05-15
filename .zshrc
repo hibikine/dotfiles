@@ -65,6 +65,7 @@ alias grep='grep --color'
 alias df='df -h'
 
 # ls aliases
+alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 alias la='ls -la --color=auto'
 alias sl='ls'
