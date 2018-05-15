@@ -6,7 +6,7 @@
         "editor.tabSize": 2
     },
     "files.autoSave": "onFocusChange",
-    "editor.fontFamily": "Ricty, Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
     "editor.wordWrap": "on",
     "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
     "prettier.eslintIntegration": true,
