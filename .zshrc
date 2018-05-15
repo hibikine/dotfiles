@@ -40,7 +40,7 @@ fi
 PURE_PROMPT_SYMBOL=">"
 
 # enhancd config
-export ENHANCD_DISABLE_DOT=1
+#export ENHANCD_DISABLE_DOT=1
 export ENHANCD_FILTER=fzy:fzf:peco
 
 # Home
