@@ -81,6 +81,10 @@ alias gcm='git checkout master'
 alias gpom='git pull origin master'
 alias gmm='git merge master'
 
+# proxy aliases
+alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
+alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
+
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
