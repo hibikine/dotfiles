@@ -92,7 +92,7 @@ if [[ $1 = 'full' ]]; then
             sudo add-apt-repository -y ppa:ondrej/php
             show_section "Update and install packages"
             sudo apt-get update && \
-                sudo apt-get install nodejs npm openssl \
+                sudo apt-get install ctags nodejs npm openssl \
                 pkg-config silversearcher-ag zsh -y && \
                 sudo apt-get upgrade -y && \
                 sudo apt-get autoremove -y
