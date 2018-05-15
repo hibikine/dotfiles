@@ -1,6 +1,5 @@
 " Vundle setting
 set nocompatible
-filetype off
 let s:vundle_dir = expand("$HOME/.vim/bundle/Vundle.vim") " vundleのインストール先
 
 " Check installed vundle
@@ -18,8 +17,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'KazukiM/neosnippet-snippets'
-Plugin 'KazukiM/vim-qfstatsline'
+Plugin 'KazuakiM/neosnippet-snippets'
+Plugin 'KazuakiM/vim-qfstatusline'
 Plugin 'mojako/ref-sources.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kana/vim-submode'
@@ -27,14 +26,19 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'thinca/vim-quickrun'
 Plugin 'thinca/vim-ref'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'osyo-manga/shabadou.vim'
+Plugin 'osyo-manga/vim-watchdogs'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'othree/yajs.vim'
+Plugin 'tokuhirom/jsref'
 
 call vundle#end()
 
@@ -61,12 +65,10 @@ set smartcase
 set nowrapscan
 set noincsearch
 set backspace=indent,eol,start
-set clipboard=unnamed,autoselect
 set list
 
 " Mouse settings
 set mouse=a
-set ttymouse=xterm2
 
 " Key Remap
 inoremap <silent> jj <ESC>
@@ -171,3 +173,20 @@ let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_unite = 1
 
+" vim-ref
+inoremap <silent><C-k> <C-o>:call<Space>ref#K('normal')<CR><ESC>
+nmap <silent>K <Plug>(ref-keyword)
+let g:ref_no_default_key_mappings = 1
+let g:ref_cache_dir               = $HOME . '/.vim/vim-ref/cache'
+let g:ref_detect_filetype         = {
+\   'css':        'phpmanual',
+\   'html':       ['phpmanual', 'javascript'],
+\   'javascript': ['javascript'],
+\   'php':        ['phpmanual', 'javascript'],
+\}
+let g:ref_javascript_doc_path = $HOME . '/.vim/bundle/jsref/htdocs'
+let g:ref_phpmanual_path      = $HOME . '/.vim/vim-ref/php-chunked-xhtml'
+let g:ref_use_cache           = 1
+
+" neosnippet-snippets
+" neosnippet.vim

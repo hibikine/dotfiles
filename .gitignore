@@ -1,5 +1,6 @@
 .vim/vim-ref/php-chunked-xhtml/
 .dotconfig
+.dotzconfig
 /node_modules/
 .vim/bundle/
 .vim/.vim
