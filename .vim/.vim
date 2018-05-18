@@ -1,1 +1,1 @@
-/Users/kansei/dotfiles/.vim/
+/home/goods/dotfiles/.vim/

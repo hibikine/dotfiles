@@ -1,6 +1,12 @@
 {
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
     "files.autoSave": "onFocusChange",
-    "editor.fontFamily": "Ricty, Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
     "editor.wordWrap": "on",
     "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
     "prettier.eslintIntegration": true,
@@ -45,5 +51,7 @@
         "suppressShowKeyBindingsNotice": true
     },
     "workbench.editor.enablePreview": false,
-    "git.enableSmartCommit": true
+    "git.enableSmartCommit": true,
+    "csharp.format.enable": false,
+    "circleci.apiKey": "099d7f5848373c792a0f25bc0f53b71520a0ad2c"
 }
