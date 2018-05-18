@@ -39,6 +39,10 @@ fi
 # pure config
 PURE_PROMPT_SYMBOL=">"
 
+# enhancd config
+#export ENHANCD_DISABLE_DOT=1
+export ENHANCD_FILTER=fzy:fzf:peco
+
 # Home
 WHOAMI=$(whoami)
 
@@ -63,11 +67,13 @@ alias grep='grep --color'
 alias df='df -h'
 
 # ls aliases
+alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 alias la='ls -la --color=auto'
 alias sl='ls'
 
 # git aliases
+alias gaa='git add --all'
 alias gc='git checkout'
 alias gcb='git checkout -b'
 alias gs='git status'
@@ -77,5 +83,10 @@ alias gcm='git checkout master'
 alias gpom='git pull origin master'
 alias gmm='git merge master'
 
+# proxy aliases
+alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
+alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
+
+[ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
