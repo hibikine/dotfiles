@@ -10,3 +10,7 @@
     editor = vim
 [push]
     default = simple
+[http]
+[https]
+[http]
+[https]
