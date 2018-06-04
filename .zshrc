@@ -29,7 +29,7 @@ zplug "liangguohuan/zsh-dircolors-solarized"
 zplug load --verbose
 #zstyle ':prezto:module:prompt' theme 'pure'
 
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
@@ -84,3 +84,9 @@ alias gmm='git merge master'
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pet regist alias
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}
