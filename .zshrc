@@ -62,12 +62,18 @@ alias getmyip="curl inet-ip.info"
 alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
 export PATH=$PATH:$HOME/.cargo/bin
 alias startdevserver="gcloud compute instances start dev-2"
-alias stopdevserver="gcloud compute instaces stop dev-2"
+alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
 alias df='df -h'
 
 # ls aliases
-alias ls='ls --color=auto'
+if [ "$(uname)" = 'Darwin' ]; then
+    # export LSCOLORS=xbfxcxdxbxegedabagacad
+    alias ls='ls -G'
+else
+    # eval `dircolors ~/.colorrc`
+    alias ls='ls --color=auto'
+fi
 alias ll='ls -la --color=auto'
 alias la='ls -la --color=auto'
 alias sl='ls'
