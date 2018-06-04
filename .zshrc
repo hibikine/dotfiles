@@ -56,8 +56,8 @@ alias webcr="cd /mnt/c/Users/${WHOAMI}/src/webcraft/"
 alias winHome="cd /mnt/c/Users/$USER/"
 alias owcl="cd /mnt/e/ownCloud/"
 alias ch="cd ~/src/cheetah_app/"
-alias chdocker="cd ~/src/cheetah_app/cheetah_docker/ && docker-compose up -d"
-alias chwatch="cd ~/src/cheetah_app/ && yarn watch"
+alias chdocker="cd ~/src/cheetah_app/web/cheetah_docker/ && docker-compose up -d"
+alias chwatch="cd ~/src/cheetah_app/web/ && yarn watch"
 alias getmyip="curl inet-ip.info"
 alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
 export PATH=$PATH:$HOME/.cargo/bin
@@ -90,8 +90,8 @@ alias gpom='git pull origin master'
 alias gmm='git merge master'
 
 # proxy aliases
-alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
-alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
+alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
+alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
 
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 

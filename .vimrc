@@ -35,6 +35,7 @@ Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 
