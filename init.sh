@@ -151,6 +151,9 @@ if [ $1 = 'full' ]; then
             git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
             echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.dotzconfig
             echo 'eval "$(rbenv init -)"' >> ~/.dotzconfig
+            ;;
+    esac
+fi
 
 # install vundle
 vim "+silent PluginInstall" "+qall"
