@@ -1,45 +1,30 @@
-" Vundle setting
-set nocompatible
-filetype off
-let s:vundle_dir = expand("$HOME/.vim/bundle/Vundle.vim") " vundleのインストール先
-
-" Check installed vundle
-if &runtimepath !~# '/Vundle.vim'
-    if !isdirectory(s:vundle_dir)
-        " Install Vundle
-        silent execute '!git clone https://github.com/VundleVim/Vundle.vim.git' s:vundle_dir
-    endif
-    execute 'set runtimepath^=' . fnamemodify(s:vundle_dir, ':p')
+if &compatible
+    set nocompatible
 endif
 
-set rtp+=s:vundle_file
-
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'KazukiM/neosnippet-snippets'
-Plugin 'KazukiM/vim-qfstatsline'
-Plugin 'mojako/ref-sources.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kana/vim-submode'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/neocomplete'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'thinca/vim-quickrun'
-Plugin 'thinca/vim-ref'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-scripts/AnsiEsc.vim'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'leafgarland/typescript-vim'
-
-call vundle#end()
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
+    let s:toml_dir = expand('~')
+    call dein#load_toml(s:toml_dir . '/.dein.toml', {'lazy': 0})
+    call dein#load_toml(s:toml_dir . '/.dein_lazy.toml', {'lazy': 1})
+    call dein#end()
+    call dein#save_state()
+endif
 
 filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+    call dein#install()
+endif
 
 set encoding=utf-8
 scriptencoding: Vim

@@ -1,0 +1,54 @@
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'KazukiM/neosnippet-snippets'
+
+[[plugins]]
+repo = 'mojako/ref-sources.vim'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'kana/vim-submode'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'vim-scripts/AnsiEsc.vim'
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
