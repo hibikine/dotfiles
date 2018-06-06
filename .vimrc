@@ -62,12 +62,15 @@ set smartcase
 set nowrapscan
 set noincsearch
 set backspace=indent,eol,start
-set clipboard=unnamed,autoselect
 set list
 
-" Mouse settings
-set mouse=a
-set ttymouse=xterm2
+if has('nvim')
+else
+    set clipboard=unnamed,autoselect
+    " Mouse settings
+    set mouse=a
+    set ttymouse=xterm2
+endif
 
 " Key Remap
 inoremap <silent> jj <ESC>
