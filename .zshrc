@@ -29,7 +29,7 @@ zplug "liangguohuan/zsh-dircolors-solarized"
 zplug load --verbose
 #zstyle ':prezto:module:prompt' theme 'pure'
 
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
@@ -48,24 +48,32 @@ WHOAMI=$(whoami)
 
 # Aliases
 alias hyperlog="git log --oneline --graph --decorate=full"
+alias chstartserver="gcloud compute instances start dev-2"
+alias chstopserver="gcloud compute instances stop dev-2"
 alias cd..="cd .."
 alias lasimg="cd /mnt/c/Users/Kage/src/lastyearimages/"
 alias webcr="cd /mnt/c/Users/${WHOAMI}/src/webcraft/"
 alias winHome="cd /mnt/c/Users/$USER/"
 alias owcl="cd /mnt/e/ownCloud/"
 alias ch="cd ~/src/cheetah_app/"
-alias chdocker="cd ~/src/cheetah_app/cheetah_docker/ && docker-compose up -d"
-alias chwatch="cd ~/src/cheetah_app/ && yarn watch"
+alias chdocker="cd ~/src/cheetah_app/web/cheetah_docker/ && docker-compose up -d"
+alias chwatch="cd ~/src/cheetah_app/web/ && yarn watch"
 alias getmyip="curl inet-ip.info"
 alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
 export PATH=$PATH:$HOME/.cargo/bin
 alias startdevserver="gcloud compute instances start dev-2"
-alias stopdevserver="gcloud compute instaces stop dev-2"
+alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
 alias df='df -h'
 
 # ls aliases
-alias ls='ls --color=auto'
+if [ "$(uname)" = 'Darwin' ]; then
+    # export LSCOLORS=xbfxcxdxbxegedabagacad
+    alias ls='ls -G'
+else
+    # eval `dircolors ~/.colorrc`
+    alias ls='ls --color=auto'
+fi
 alias ll='ls -la --color=auto'
 alias la='ls -la --color=auto'
 alias sl='ls'
@@ -82,9 +90,15 @@ alias gpom='git pull origin master'
 alias gmm='git merge master'
 
 # proxy aliases
-alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
-alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
+alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
+alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
 
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pet regist alias
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}
