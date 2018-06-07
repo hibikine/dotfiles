@@ -8,7 +8,7 @@ if &runtimepath !~# '/dein.vim'
     if !isdirectory(s:dein_repo_dir)
         execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
     endif
-    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+    execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
@@ -67,6 +67,7 @@ endfunction
 
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -160,3 +161,5 @@ let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_unite = 1
 
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_typescript_enabled_makers = ['eslint']
