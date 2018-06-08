@@ -143,6 +143,18 @@ if [ $1 = 'full' ]; then
     esac
 fi
 
+if [ $1 = 'full' ]; then
+    case ${info[0]} in
+        ubuntu | debian)
+            # install rbenv
+            git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+            git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+            echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.dotzconfig
+            echo 'eval "$(rbenv init -)"' >> ~/.dotzconfig
+            ;;
+    esac
+fi
+
 # install vundle
 vim "+silent PluginInstall" "+qall"
 

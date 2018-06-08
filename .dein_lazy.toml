@@ -10,10 +10,10 @@ on_i = 1
 repo = 'pangloss/vim-javascript'
 
 [[plugins]]
-repo = 'mojako/ref-sources.vim'
+repo = 'scrooloose/nerdtree'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo = 'mojako/ref-sources.vim'
 
 [[plugins]]
 repo = 'kana/vim-submode'
@@ -79,6 +79,50 @@ source ~/.config/nvim/plugins/vimshell.rc.vim
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 if = "has('nvim')"
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript'],
+        \ })
+endif
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+hook_add = '''
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+let g:asyncomplete_auto_popup = 1
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+merged = 0
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = 'has("nvim")'
 on_i = 1
 
 [[plugins]]
@@ -91,4 +135,9 @@ depends = ['neomake']
 [[plugins]]
 repo = 'benjie/local-npm-bin.vim'
 depends = ['neomake']
+on_source = ['neomake']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript', 'typescriptreact']
 
