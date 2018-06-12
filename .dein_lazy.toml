@@ -141,3 +141,6 @@ on_source = ['neomake']
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript', 'typescriptreact']
 
+[[plugins]]
+repo = 'deton/jasegment.vim'
+
