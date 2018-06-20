@@ -1,3 +1,4 @@
+unsetopt BG_NICE
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
@@ -19,6 +20,8 @@ zplug "mrowa44/emojify", as:command
 zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
 zplug "walesmd/caniuse.plugin.zsh"
 zplug "liangguohuan/zsh-dircolors-solarized"
+zplug "felixr/docker-zsh-completion"
+zplug "github/hub", use:etc/hub.zsh_completion
 #zstyle prompt theme 'pure'
 #zplug "modules/history",    from:prezto 
 #zplug "modules/utility",    from:prezto 
@@ -42,6 +45,7 @@ PURE_PROMPT_SYMBOL=">"
 # enhancd config
 #export ENHANCD_DISABLE_DOT=1
 export ENHANCD_FILTER=fzy:fzf:peco
+export GOPATH="$HOME/go"
 
 # Home
 WHOAMI=$(whoami)
@@ -79,6 +83,7 @@ alias la='ls -la --color=auto'
 alias sl='ls'
 
 # git aliases
+alias git="hub"
 alias gaa='git add --all'
 alias gc='git checkout'
 alias gcb='git checkout -b'
