@@ -5,7 +5,7 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 #zplug "sorin-ionescu/prezto"
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
-zplug "rupa/z"
+zplug "rupa/z", use:z.sh
 zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/zsh-gomi", if:"which fzf"
@@ -21,7 +21,8 @@ zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
 zplug "walesmd/caniuse.plugin.zsh"
 zplug "liangguohuan/zsh-dircolors-solarized"
 zplug "felixr/docker-zsh-completion"
-zplug "github/hub", use:etc/hub.zsh_completion
+zplug "git/git", use:contrib/completion/git-completion.zsh
+#zplug "github/hub", use:etc/hub.zsh_completion
 #zstyle prompt theme 'pure'
 #zplug "modules/history",    from:prezto 
 #zplug "modules/utility",    from:prezto 
@@ -32,7 +33,7 @@ zplug "github/hub", use:etc/hub.zsh_completion
 zplug load --verbose
 #zstyle ':prezto:module:prompt' theme 'pure'
 
-export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:/home/goods/.local/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
@@ -64,7 +65,7 @@ alias chdocker="cd ~/src/cheetah_app/web/cheetah_docker/ && docker-compose up -d
 alias chwatch="cd ~/src/cheetah_app/web/ && yarn watch"
 alias getmyip="curl inet-ip.info"
 alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin:/home/linuxbrew/.linuxbrew/bin
 alias startdevserver="gcloud compute instances start dev-2"
 alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
@@ -83,7 +84,7 @@ alias la='ls -la --color=auto'
 alias sl='ls'
 
 # git aliases
-alias git="hub"
+#alias git="hub"
 alias gaa='git add --all'
 alias gc='git checkout'
 alias gcb='git checkout -b'
