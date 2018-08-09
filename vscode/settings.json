@@ -1,4 +1,16 @@
 {
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[javascriptreact]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[typescriptreact]": {
+        "editor.tabSize": 2
+    },
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -21,7 +33,6 @@
         "**/node_modules": true
     },
     "workbench.colorTheme": "Visual Studio Dark",
-    "php.executablePath": "/usr/local/bin/php",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
@@ -62,5 +73,6 @@
         "suppressShowKeyBindingsNotice": true
     },
     "workbench.startupEditor": "newUntitledFile",
-    "gitlens.historyExplorer.enabled": true
+    "gitlens.historyExplorer.enabled": true,
+    "explorer.confirmDelete": false
 }
