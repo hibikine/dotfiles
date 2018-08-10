@@ -1,4 +1,5 @@
 DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+PET := $(shell command -v pet 2> /dev/null)
 GIBO := $(shell command -v gibo 2> /dev/null)
 ZPLUG := $(shell command -v zplug 2> /dev/null)
 YARN := $(shell command -v yarn 2> /dev/null)
@@ -20,6 +21,12 @@ init-sh-full: install
 gibo:
 ifndef GIBO
 	./src/install_gibo.sh
+endif
+
+.PHONY: pet
+pet:
+ifndef PET
+	./src/install_pet.sh
 endif
 
 .PHONY: zplug
