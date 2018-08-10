@@ -3,6 +3,12 @@ PET := $(shell command -v pet 2> /dev/null)
 GIBO := $(shell command -v gibo 2> /dev/null)
 ZPLUG := $(shell command -v zplug 2> /dev/null)
 YARN := $(shell command -v yarn 2> /dev/null)
+HUB := $(shell command -v hub 2> /dev/null)
+RUBY := $(shell command -v ruby 2> /dev/null)
+BUNDLER := $(shell command -v bundler 2> /dev/null)
+GO := $(shell command -v go 2> /dev/null)
+BREW := $(shell command -v brew 2> /dev/null)
+
 
 all: init
 
@@ -11,7 +17,7 @@ install:
 	./install.sh
 
 .PHONY: init-full
-init-full: init-sh-full gibo zplug yarn
+init-full: init-sh-full gibo zplug yarn pet hub
 
 .PHONY: init-sh-full
 init-sh-full: install
@@ -33,6 +39,36 @@ endif
 zplug:
 ifndef ZPLUG
 	./src/install_zplug.sh
+endif
+
+.PHONY: brew
+brew:
+ifnder BREW
+	./src/install_brew.sh
+endif
+
+.PHONY: go
+go:
+ifndef GO
+	./src/install_go.sh
+endif
+
+.PHONY: ruby
+ruby:
+ifndef RUBY
+	./src/install_ruby.sh
+endif
+
+.PHONY: bundler
+bundler:
+ifndef BUNDLER
+	./src/install_bundler.sh
+endif
+
+.PHONY: hub
+hub: go brew ruby bundler
+ifndef HUB
+	./src/install_hub.sh
 endif
 
 .PHONY: yarn
