@@ -74,5 +74,12 @@
     },
     "workbench.startupEditor": "newUntitledFile",
     "gitlens.historyExplorer.enabled": true,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "php-cs-fixer.lastDownload": 1533894701070,
+    "vim.surround": true,
+    "vim.enableNeovim": true,
+    "vim.hlsearch": true,
+    "vim.sneak": true,
+    "vim.leader": "<space>"
 }
