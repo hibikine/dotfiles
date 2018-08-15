@@ -81,5 +81,7 @@
     "vim.enableNeovim": true,
     "vim.hlsearch": true,
     "vim.sneak": true,
-    "vim.leader": "<space>"
+    "vim.leader": "<space>",
+    "eslint.alwaysShowStatus": true,
+    "eslint.packageManager": "yarn",
 }
