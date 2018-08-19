@@ -32,6 +32,7 @@ fi
 case $OS in
     "Mac")
         ln -sf $SCRIPT_DIR/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+        ln -sf $SCRIPT_DIR/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
         echo "VSCode setting file was installed."
         ;;
     *)

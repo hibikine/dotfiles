@@ -6,4 +6,5 @@
 .vim/.vim
 .config/*
 !.config/.gitkeep
+.DS_Store
 
