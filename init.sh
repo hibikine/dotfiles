@@ -134,7 +134,7 @@ then
 fi
 zplug install
 
-if [ $1 = 'full' ]; then
+if [[ $1 = 'full' ]]; then
     case ${info[0]} in
         ubuntu | debian)
             # install cz-cli
@@ -143,7 +143,7 @@ if [ $1 = 'full' ]; then
     esac
 fi
 
-if [ $1 = 'full' ]; then
+if [[ $1 = 'full' ]]; then
     case ${info[0]} in
         ubuntu | debian)
             # install rbenv
@@ -156,7 +156,9 @@ if [ $1 = 'full' ]; then
 fi
 
 # install vundle
-vim "+silent PluginInstall" "+qall"
+if [[ $IS_CI != 'true' ]]; then
+    vim "+silent PluginInstall" "+qall"
+fi
 
 # create config file
 touch .dotzconfig

@@ -1,4 +1,7 @@
 sudo: required
+env:
+    global:
+        - IS_CI=true
 install:
     - ./install.sh
 script:
