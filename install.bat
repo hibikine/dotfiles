@@ -8,6 +8,9 @@ del /Q "%userprofile%\.gitconfig" "%userprofile%\dotfiles\.gitconfig"
 mklink "%userprofile%\.gitconfig" "%userprofile%\dotfiles\.gitconfig"
 del /Q "%appdata%\Code\User\settings.json" 
 mklink "%appdata%\Code\User\settings.json" "%userprofile%\dotfiles\vscode\ms-settings.json"
+del /Q "%appdata%\Code\User\keybindings.json" 
+mklink "%appdata%\Code\User\keybindings.json" "%userprofile%\dotfiles\vscode\ms-keybindings.json"
 del /Q "%appdata%\Notepad++\config.xml"
 mklink "%appdata%\Notepad++\config.xml" "%userprofile%\dotfiles\Notepad++\config.xml"
+
 
