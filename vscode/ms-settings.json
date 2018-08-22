@@ -1,8 +1,12 @@
 {
+    "editor.tabSize": 2,
     "[javascript]": {
         "editor.tabSize": 2
     },
     "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[typescriptreact]": {
         "editor.tabSize": 2
     },
     "files.autoSave": "onFocusChange",
@@ -53,5 +57,22 @@
     "workbench.editor.enablePreview": false,
     "git.enableSmartCommit": true,
     "csharp.format.enable": false,
-    "circleci.apiKey": "099d7f5848373c792a0f25bc0f53b71520a0ad2c"
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+    "gitlens.historyExplorer.enabled": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+            "language": "typescript",
+            "autoFix": true
+        },
+        {
+            "language": "typescriptreact",
+            "autoFix": true
+        }
+    ],
+    "files.eol": "\n",
+    "python.jediEnabled": false,
+    "git.autofetch": true
 }

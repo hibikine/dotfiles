@@ -1,4 +1,16 @@
 {
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[javascriptreact]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[typescriptreact]": {
+        "editor.tabSize": 2
+    },
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -21,7 +33,6 @@
         "**/node_modules": true
     },
     "workbench.colorTheme": "Visual Studio Dark",
-    "php.executablePath": "/usr/local/bin/php",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
@@ -30,7 +41,7 @@
     "files.autoSave": "onFocusChange",
     "editor.wordWrap": "on",
     "prettier.singleQuote": true,
-    "prettier.eslintIntegration": false,
+    "prettier.eslintIntegration": true,
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "files.trimTrailingWhitespace": true,
@@ -61,5 +72,7 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "gitlens.historyExplorer.enabled": true,
+    "explorer.confirmDelete": false
 }

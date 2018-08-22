@@ -17,7 +17,7 @@ done
 
 ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
 mkdir -p ~/.config/nvim
-ln -sf $SCRIPT_DIR/init.vim ~/.config/nvim/init.vim
+ln -sf $SCRIPT_DIR/.vimrc ~/.config/nvim/init.vim
 
 # declare OS
 if [ "$(uname)" == 'Darwin' ]; then
@@ -32,6 +32,7 @@ fi
 case $OS in
     "Mac")
         ln -sf $SCRIPT_DIR/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+        ln -sf $SCRIPT_DIR/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
         echo "VSCode setting file was installed."
         ;;
     "Linux")

@@ -1,10 +1,11 @@
+unsetopt BG_NICE
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 #zplug "sorin-ionescu/prezto"
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
-zplug "rupa/z"
+zplug "rupa/z", use:z.sh
 zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/zsh-gomi", if:"which fzf"
@@ -19,6 +20,9 @@ zplug "mrowa44/emojify", as:command
 zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
 zplug "walesmd/caniuse.plugin.zsh"
 zplug "liangguohuan/zsh-dircolors-solarized"
+zplug "felixr/docker-zsh-completion"
+zplug "git/git", use:contrib/completion/git-completion.zsh
+#zplug "github/hub", use:etc/hub.zsh_completion
 #zstyle prompt theme 'pure'
 #zplug "modules/history",    from:prezto 
 #zplug "modules/utility",    from:prezto 
@@ -29,7 +33,7 @@ zplug "liangguohuan/zsh-dircolors-solarized"
 zplug load --verbose
 #zstyle ':prezto:module:prompt' theme 'pure'
 
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:/home/goods/.local/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
@@ -42,6 +46,7 @@ PURE_PROMPT_SYMBOL=">"
 # enhancd config
 #export ENHANCD_DISABLE_DOT=1
 export ENHANCD_FILTER=fzy:fzf:peco
+export GOPATH="$HOME/go"
 
 # Home
 WHOAMI=$(whoami)
@@ -51,6 +56,7 @@ alias hyperlog="git log --oneline --graph --decorate=full"
 alias chstartserver="gcloud compute instances start dev-2"
 alias chstopserver="gcloud compute instances stop dev-2"
 alias cd..="cd .."
+alias winsrc="cd /mnt/c/Users/Kage/src/"
 alias lasimg="cd /mnt/c/Users/Kage/src/lastyearimages/"
 alias webcr="cd /mnt/c/Users/${WHOAMI}/src/webcraft/"
 alias winHome="cd /mnt/c/Users/$USER/"
@@ -60,19 +66,26 @@ alias chdocker="cd ~/src/cheetah_app/web/cheetah_docker/ && docker-compose up -d
 alias chwatch="cd ~/src/cheetah_app/web/ && yarn watch"
 alias getmyip="curl inet-ip.info"
 alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin:/home/linuxbrew/.linuxbrew/bin
 alias startdevserver="gcloud compute instances start dev-2"
-alias stopdevserver="gcloud compute instaces stop dev-2"
+alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
 alias df='df -h'
 
 # ls aliases
-alias ls='ls --color=auto'
+if [ "$(uname)" = 'Darwin' ]; then
+    # export LSCOLORS=xbfxcxdxbxegedabagacad
+    alias ls='ls -G'
+else
+    # eval `dircolors ~/.colorrc`
+    alias ls='ls --color=auto'
+fi
 alias ll='ls -la --color=auto'
 alias la='ls -la --color=auto'
 alias sl='ls'
 
 # git aliases
+#alias git="hub"
 alias gaa='git add --all'
 alias gc='git checkout'
 alias gcb='git checkout -b'
@@ -82,11 +95,18 @@ alias gb='git branch'
 alias gcm='git checkout master'
 alias gpom='git pull origin master'
 alias gmm='git merge master'
+alias gp='git push'
 
 # proxy aliases
-alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
-alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config'
+alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
+alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
 
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pet regist alias
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}

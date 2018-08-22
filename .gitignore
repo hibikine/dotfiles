@@ -4,4 +4,7 @@
 /node_modules/
 .vim/bundle/
 .vim/.vim
+.config/*
+!.config/.gitkeep
+.DS_Store
 
