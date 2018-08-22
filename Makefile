@@ -2,6 +2,7 @@ DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 PET := $(shell command -v pet 2> /dev/null)
 GIBO := $(shell command -v gibo 2> /dev/null)
 ZPLUG := $(shell command -v zplug 2> /dev/null)
+NODE := $(shell command -v node 2> /dev/null)
 YARN := $(shell command -v yarn 2> /dev/null)
 HUB := $(shell command -v hub 2> /dev/null)
 RUBY := $(shell command -v ruby 2> /dev/null)
@@ -17,7 +18,7 @@ install:
 	./install.sh
 
 .PHONY: init-full
-init-full: init-sh-full gibo zplug yarn pet hub
+init-full: init-sh-full gibo zplug node yarn pet hub
 
 .PHONY: init-sh-full
 init-sh-full: install
@@ -71,8 +72,14 @@ ifndef HUB
 	./src/install_hub.sh
 endif
 
+.PHONY: node
+node:
+ifndef NODE
+	./src/install_node.sh
+endif
+
 .PHONY: yarn
-yarn:
+yarn: node
 ifndef YARN
 	./src/install_yarn.sh
 endif
