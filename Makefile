@@ -31,7 +31,7 @@ install:
 	./install.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet hub pip
+init-full: init-sh-full zplug node yarn pet hub pip nvim
 
 .PHONY: init-sh
 init-sh: install
