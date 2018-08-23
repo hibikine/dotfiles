@@ -1,0 +1,71 @@
+{
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": { "editor.tabSize": 2 },
+  "[scss]": {
+    "editor.tabSize": 2
+  },
+  "editor.wordWrap": "on",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "php-cs-fixer.autoFixBySemicolon": true,
+  "php-cs-fixer.allowRisky": true,
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.requireConfig": false,
+  "prettier.stylelintIntegration": true,
+  "files.autoSave": "onFocusChange",
+  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "workbench.editor.enablePreview": false,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "git.enableSmartCommit": true,
+  "csharp.format.enable": false,
+  "circleci.apiKey": "099d7f5848373c792a0f25bc0f53b71520a0ad2c",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.historyExplorer.enabled": true,
+  "msbuildProjectTools": {
+    "logging": {
+      "level": "Information",
+      "seq": {},
+      "file": "",
+      "trace": false
+    },
+    "language": {
+      "disableFeature": {},
+      "useClassicProvider": false,
+      "disable": {
+        "hover": false
+      }
+    },
+    "nuget": {
+      "newestVersionsFirst": true,
+      "includePreRelease": true,
+      "disablePrefetch": false
+    },
+    "schemaVersion": 1
+  },
+  "git.autofetch": true,
+  "typescript.npm": "/usr/bin/npm",
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}

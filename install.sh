@@ -35,6 +35,11 @@ case $OS in
         ln -sf $SCRIPT_DIR/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
         echo "VSCode setting file was installed."
         ;;
+    "Linux")
+        ln -sf $SCRIPT_DIR/vscode/linux-settings.json $HOME/.config/Code/User/settings.json
+        ln -sf $SCRIPT_DIR/vscode/linux-keybindings.json $HOME/.config/Code/User/keybindings.json
+        echo "VSCode setting file was installed."
+        ;;
     *)
         echo "this os does not supported to install vscode setting file by this script."
         ;;
