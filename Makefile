@@ -108,7 +108,7 @@ ifndef HUB
 endif
 
 .PHONY: node
-node:
+node: curl
 ifndef NODE
 	cd src; ./install_node.sh
 endif
