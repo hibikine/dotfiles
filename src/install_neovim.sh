@@ -10,7 +10,7 @@ else
             # Add vim repository
             sudo -E apt-get update && \
                 sudo -E apt-get install -y software-properties-common && \
-                sudo -E add-apt-repository ppa:neovim-ppa/unstable && \
+                sudo -E add-apt-repository -y ppa:neovim-ppa/unstable && \
                 sudo -E apt-get update && \
                 sudo -E apt-get install -y neovim python-neovim python3-neovim && \
                 sudo -E update-alternatives --install /usr/bin/vi vi /use/bin/nvim 60 && \
