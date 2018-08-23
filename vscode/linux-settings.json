@@ -17,7 +17,7 @@
   "eslint.packageManager": "yarn",
   "php-cs-fixer.autoFixBySemicolon": true,
   "php-cs-fixer.allowRisky": true,
-  "prettier.eslintIntegration": false,
+  "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "prettier.requireConfig": false,
@@ -60,5 +60,12 @@
     "schemaVersion": 1
   },
   "git.autofetch": true,
-  "typescript.npm": "/usr/bin/npm"
+  "typescript.npm": "/usr/bin/npm",
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
 }
