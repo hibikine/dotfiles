@@ -110,3 +110,4 @@ function prev() {
   PREV=$(fc -lrn | head -n 1)
   sh -c "pet new `printf %q "$PREV"`"
 }
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
