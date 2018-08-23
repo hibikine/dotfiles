@@ -19,9 +19,18 @@ cd ~/
 git clone https://github.com/HibikineKage/dotfiles.git
 cd dotfiles
 make
+
+# Install what I need
+make composer
+make node
+
+# Install all
+make full
 ```
 
 ### Windows
+
+Open administrator powershell.
 
 ```ps1
 cd ~/
