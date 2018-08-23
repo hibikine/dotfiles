@@ -9,6 +9,7 @@ RUBY := $(shell command -v ruby 2> /dev/null)
 BUNDLER := $(shell command -v bundler 2> /dev/null)
 GO := $(shell command -v go 2> /dev/null)
 BREW := $(shell command -v brew 2> /dev/null)
+PIP := $(shell command -v pip 2> /dev/null)
 
 
 all: init
@@ -18,7 +19,7 @@ install:
 	./install.sh
 
 .PHONY: init-full
-init-full: init-sh-full gibo zplug node yarn pet hub
+init-full: init-sh-full gibo zplug node yarn pet hub pip
 
 .PHONY: init-sh-full
 init-sh-full: install
@@ -82,4 +83,10 @@ endif
 yarn: node
 ifndef YARN
 	./src/install_yarn.sh
+endif
+
+.PHONY: pip
+pip:
+ifndef PIP
+	./src/install_pip.sh
 endif
