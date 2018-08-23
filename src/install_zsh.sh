@@ -7,10 +7,10 @@ then
 else
     case ${info[0]} in
         ubuntu | debian)
-            sudo -E apt install -y template
+            sudo -E apt install -y zsh
             ;;
         osx)
-            brew install template
+            brew install zsh
             ;;
     esac
 fi
