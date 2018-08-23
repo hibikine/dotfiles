@@ -1,9 +1,9 @@
 sudo: required
 env:
-    global:
-        - IS_CI=true
+  global:
+    - IS_CI=true
 install:
-    - ./install.sh
+  - ./install.sh
 script:
-    - ./init.sh full
-
+  - make full
+  - make test
