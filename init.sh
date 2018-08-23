@@ -35,11 +35,10 @@ if [[ $1 = 'full' ]]; then
             ;;
         ubuntu | debian)
             # Install packages
-            show_section "Add Repos"
             show_section "Update and install packages"
             sudo -E apt-get update && \
-                sudo -E apt-get install ctags openssl \
-                pkg-config silversearcher-ag zsh -y && \
+                sudo -E apt-get install -y ctags openssl \
+                pkg-config silversearcher-ag zsh && \
                 sudo apt-get upgrade -y && \
                 sudo apt-get autoremove -y
             ;;
