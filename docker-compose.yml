@@ -1,8 +1,6 @@
 version: '3'
 services:
   testenv:
-    image: ubuntu:latest
-    command: cd dotfiles; make full; make test
+    build: .
     volumes:
-      - .:/home/testuser/dotfiles
-    user: 'testuser'
+      - .:/home/hibikine/dotfiles

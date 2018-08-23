@@ -1,1 +1,1 @@
-docker-compose up --build
+docker build -t dotfiles-image . && docker run --rm -i -v `pwd`:/home/hibikine/dotfiles dotfiles-image make full \&\& make test
