@@ -51,7 +51,7 @@ clean:
 
 .PHONY: test
 test: tests/assert.sh
-	cd tests; tests.sh
+	cd tests; ./tests.sh
 
 .PHONY: pet
 pet: zplug
