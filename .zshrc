@@ -21,7 +21,7 @@ zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
 zplug "walesmd/caniuse.plugin.zsh"
 zplug "liangguohuan/zsh-dircolors-solarized"
 zplug "felixr/docker-zsh-completion"
-zplug "git/git", use:contrib/completion/git-completion.zsh
+#zplug "git/git", use:contrib/completion/git-completion.zsh
 #zplug "github/hub", use:etc/hub.zsh_completion
 #zstyle prompt theme 'pure'
 #zplug "modules/history",    from:prezto 
@@ -33,7 +33,8 @@ zplug "git/git", use:contrib/completion/git-completion.zsh
 zplug load --verbose
 #zstyle ':prezto:module:prompt' theme 'pure'
 
-export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:/home/goods/.local/bin"
+# PATH settings
+export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
@@ -95,6 +96,7 @@ alias gb='git branch'
 alias gcm='git checkout master'
 alias gpom='git pull origin master'
 alias gmm='git merge master'
+alias gcdf='git clean -df'
 alias gp='git push'
 
 # proxy aliases
@@ -110,3 +112,4 @@ function prev() {
   PREV=$(fc -lrn | head -n 1)
   sh -c "pet new `printf %q "$PREV"`"
 }
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
