@@ -26,4 +26,5 @@ assert_raises "node --version" 0 ""
 assert_raises "rbenv --version" 0 ""
 assert_raises "composer --version" 0 ""
 assert_raises "php --version" 0 ""
+assert_raises "travis --version" 0 ""
 assert_end tests
