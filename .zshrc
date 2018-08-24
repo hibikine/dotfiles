@@ -113,3 +113,6 @@ function prev() {
   sh -c "pet new `printf %q "$PREV"`"
 }
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+# added by travis gem
+[ -f /home/hibikine/.travis/travis.sh ] && source /home/hibikine/.travis/travis.sh
