@@ -4,7 +4,11 @@
 
 declare -a info=($(../src/get_os_info.sh))
 
-assert_raises "brew --version" 0 ""
+if [[ $IS_CI = 'true' ]]; then
+    assert_raises "/home/linuxbrew/.linuxbrew/bin/brew --version" 0 ""
+else
+    assert_raises "brew --version" 0 ""
+fi
 assert_raises "pet version" 0 ""
 assert_raises "git --version" 0 ""
 assert_raises "yarn --version" 0 ""
