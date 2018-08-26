@@ -5,7 +5,7 @@
 declare -a info=($(../src/get_os_info.sh))
 
 assert_raises "brew --version" 0 ""
-assert_raises "pet --version" 255 ""
+assert_raises "pet version" 0 ""
 assert_raises "git --version" 0 ""
 assert_raises "yarn --version" 0 ""
 assert_raises "go --version" 2 ""
