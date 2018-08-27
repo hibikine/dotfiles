@@ -5,5 +5,9 @@ env:
 install:
   - export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 script:
+  - git clone https://github.com/udhos/update-golang
+  - cd update-golang
+  - sudo ./update-golang.sh
+  - cd ..
   - make full
   - make test
