@@ -6,6 +6,4 @@ install:
   - export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 script:
   - make full
-  - chmod +x /home/linuxbrew/.linuxbrew/bin/pet
-  - pet version
   - make test
