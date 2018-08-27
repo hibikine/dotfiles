@@ -8,6 +8,7 @@ HUB := $(shell command -v hub 2> /dev/null)
 RUBY := $(shell command -v ruby 2> /dev/null)
 RBENV := $(shell command -v rbenv 2> /dev/null)
 BUNDLER := $(shell command -v bundler 2> /dev/null)
+TRAVIS := $(shell command -v travis 2> /dev/null)
 GO := $(shell command -v go 2> /dev/null)
 BREW := $(shell command -v brew 2> /dev/null)
 PYTHON := $(shell command -v python 2> /dev/null)
@@ -31,7 +32,7 @@ install:
 	./install.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet hub pip nvim
+init-full: init-sh-full zplug node yarn pet hub pip nvim travis
 
 .PHONY: init-sh
 init-sh: install
@@ -99,6 +100,12 @@ endif
 bundler: ruby
 ifndef BUNDLER
 	cd src; ./install_bundler.sh
+endif
+
+.PHONY: travis
+travis: ruby
+ifndef TRAVIS
+	cd src; ./install_travis.sh
 endif
 
 .PHONY: hub

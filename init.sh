@@ -17,13 +17,17 @@ echo "Update packages and install"
 case ${info[0]} in
     ubuntu)
         # Set japan repository
-        sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.riken.go.jp/Linux/ubuntu/%g" /etc/apt/sources.list
-        sudo -E apt-get update
+        if [[ $IS_CI != 'true' ]]; then
+            sudo sed -i.bak -e "s%http://[^ ]\+%http://ftp.riken.go.jp/Linux/ubuntu/%g" /etc/apt/sources.list
+            sudo -E apt-get update
+        fi
         ;;
     debian)
         # Set japan repository
-        sudo -E deb http://ftp.jp.debian.org/debian/ squeeze main contrib non-free
-        sudo -E apt-get update
+        if [[ $IS_CI != 'true' ]]; then
+            sudo -E deb http://ftp.jp.debian.org/debian/ squeeze main contrib non-free
+            sudo -E apt-get update
+        fi
         ;;
 esac
 
