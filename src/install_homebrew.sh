@@ -6,6 +6,9 @@ then
     :
 else
     case ${info[0]} in
+        debian|ubuntu)
+            sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+            ;;
         osx)
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
             ;;
