@@ -55,7 +55,7 @@ test: tests/assert.sh
 	cd tests; ./tests.sh
 
 .PHONY: pet
-pet: zplug
+pet: zplug brew
 ifndef PET
 	cd src; ./install_pet.sh
 endif
