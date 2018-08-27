@@ -14,3 +14,6 @@
 [https]
 [http]
 [https]
+[filter "ignorelastupdate"]
+    smudge = cat
+    clean = sed -r 's/^lastUpdateCheck [0-9]+$//g'
