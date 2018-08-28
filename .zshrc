@@ -2,7 +2,6 @@ unsetopt BG_NICE
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
-#zplug "sorin-ionescu/prezto"
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
 zplug "rupa/z", use:z.sh
@@ -21,17 +20,7 @@ zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
 zplug "walesmd/caniuse.plugin.zsh"
 zplug "liangguohuan/zsh-dircolors-solarized"
 zplug "felixr/docker-zsh-completion"
-#zplug "git/git", use:contrib/completion/git-completion.zsh
-#zplug "github/hub", use:etc/hub.zsh_completion
-#zstyle prompt theme 'pure'
-#zplug "modules/history",    from:prezto 
-#zplug "modules/utility",    from:prezto 
-#zplug "modules/ruby",       from:prezto 
-#zplug "modules/ssh",        from:prezto 
-#zplug "modules/terminal",   from:prezto 
-#zplug "modules/directory",  from:prezto
 zplug load --verbose
-#zstyle ':prezto:module:prompt' theme 'pure'
 
 # PATH settings
 export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin"
@@ -98,6 +87,8 @@ alias gpom='git pull origin master'
 alias gmm='git merge master'
 alias gcdf='git clean -df'
 alias gp='git push'
+alias gco='git commit'
+alias gcom='git commit -m'
 
 # proxy aliases
 alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
