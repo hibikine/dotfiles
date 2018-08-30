@@ -7,17 +7,10 @@ then
 else
     case ${info[0]} in
         ubuntu | debian)
-            # install rbenv
-            git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-            git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-            echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.dotzconfig
-            echo 'eval "$(rbenv init -)"' >> ~/.dotzconfig
+            curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
             ;;
         osx)
             brew install rbenv
             ;;
     esac
 fi
-
-
-
