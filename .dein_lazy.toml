@@ -139,3 +139,11 @@ repo = 'deton/jasegment.vim'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
