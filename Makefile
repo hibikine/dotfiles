@@ -17,6 +17,7 @@ CURL := $(shell command -v curl 2> /dev/null)
 NVIM := $(shell command -v nvim 2> /dev/null)
 PHP := $(shell command -v php 2> /dev/null)
 COMPOSER := $(shell command -v composer 2> /dev/null)
+PEEK := $(shell command -v peek 2> /dev/null)
 
 
 all: init
@@ -32,7 +33,7 @@ install:
 	./install.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet hub pip nvim travis
+init-full: init-sh-full zplug node yarn pet hub pip nvim travis peek
 
 .PHONY: init-sh
 init-sh: install
@@ -161,3 +162,10 @@ composer:
 ifndef COMOPSER
 	cd src; ./install_composer.sh
 endif
+
+.PHONY: peek
+peek:
+ifndef PEEK
+	cd src; ./install_peek.sh
+endif
+
