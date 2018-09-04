@@ -39,6 +39,8 @@ case $OS in
     "Linux")
         ln -sf $SCRIPT_DIR/vscode/linux-settings.json $HOME/.config/Code/User/settings.json
         ln -sf $SCRIPT_DIR/vscode/linux-keybindings.json $HOME/.config/Code/User/keybindings.json
+        rm -rf $HOME/.config/Code/User/snippets
+        ln -sf $SCRIPT_DIR/vscode/snippets $HOME/.config/Code/User/
         echo "VSCode setting file was installed."
         ;;
     *)
