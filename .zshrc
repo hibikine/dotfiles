@@ -38,6 +38,11 @@ PURE_PROMPT_SYMBOL=">"
 export ENHANCD_FILTER=fzy:fzf:peco
 export GOPATH="$HOME/go"
 
+# history
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=10000
+export HISTFILESIZE=1000000
+
 # Home
 WHOAMI=$(whoami)
 
