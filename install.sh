@@ -6,6 +6,7 @@ for f in .??*
 do
     [[ "$f" == ".git" ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
+    [[ "$f" == ".travis.yml" ]] && continue
 
     echo $f
     if [ -d "${f}" ]; then
@@ -33,6 +34,13 @@ case $OS in
     "Mac")
         ln -sf $SCRIPT_DIR/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
         ln -sf $SCRIPT_DIR/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+        echo "VSCode setting file was installed."
+        ;;
+    "Linux")
+        ln -sf $SCRIPT_DIR/vscode/linux-settings.json $HOME/.config/Code/User/settings.json
+        ln -sf $SCRIPT_DIR/vscode/linux-keybindings.json $HOME/.config/Code/User/keybindings.json
+        rm -rf $HOME/.config/Code/User/snippets
+        ln -sf $SCRIPT_DIR/vscode/snippets $HOME/.config/Code/User/
         echo "VSCode setting file was installed."
         ;;
     *)

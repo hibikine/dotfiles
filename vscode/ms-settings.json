@@ -1,76 +1,74 @@
 {
-    "editor.tabSize": 2,
-    "[javascript]": {
-        "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2
+  },
+  "[python]": { "editor.tabSize": 4 },
+  "[jsonc]": { "editor.tabSize": 4 },
+  "[json]": { "editor.tabSize": 4 },
+  "files.autoSave": "onFocusChange",
+  "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
+  "editor.wordWrap": "on",
+  "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
+  "prettier.eslintIntegration": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "tslint.packageManager": "yarn",
+  "php.validate.executablePath": "C:\\tools\\php72\\php.exe",
+  "phpfmt.php_bin": "C:\\tools\\php72\\php.exe",
+  "php-cs-fixer.autoFixBySemicolon": true,
+  "php-cs-fixer.allowRisky": true,
+  "php-cs-fixer.executablePath": "C:\\Users\\Kage\\AppData\\Roaming\\Composer\\vendor\\bin\\php-cs-fixer.bat",
+  "window.zoomLevel": 0,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.requireConfig": false,
+  "prettier.stylelintIntegration": true,
+  "gitProjectManager.baseProjectsFolders": ["C:\\Users\\Kage\\src"],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "workbench.editor.enablePreview": false,
+  "git.enableSmartCommit": true,
+  "csharp.format.enable": false,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+  "gitlens.historyExplorer.enabled": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
     },
-    "[typescript]": {
-        "editor.tabSize": 2
-    },
-    "[typescriptreact]": {
-        "editor.tabSize": 2
-    },
-    "files.autoSave": "onFocusChange",
-    "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
-    "editor.wordWrap": "on",
-    "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
-    "prettier.eslintIntegration": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "eslint.autoFixOnSave": true,
-    "eslint.packageManager": "yarn",
-    "tslint.packageManager": "yarn",
-    "php.validate.executablePath": "C:\\tools\\php72\\php.exe",
-    "phpfmt.php_bin": "C:\\tools\\php72\\php.exe",
-    "php-cs-fixer.autoFixBySemicolon": true,
-    "php-cs-fixer.allowRisky": true,
-    "php-cs-fixer.executablePath": "C:\\Users\\Kage\\AppData\\Roaming\\Composer\\vendor\\bin\\php-cs-fixer.bat",
-    "window.zoomLevel": 0,
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "es5",
-    "prettier.requireConfig": false,
-    "prettier.stylelintIntegration": true,
-    "gitProjectManager.baseProjectsFolders": [
-        "C:\\Users\\Kage\\src"
-    ],
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "workbench.editor.enablePreview": false,
-    "git.enableSmartCommit": true,
-    "csharp.format.enable": false,
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
-    "gitlens.historyExplorer.enabled": true,
-    "eslint.alwaysShowStatus": true,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        {
-            "language": "typescript",
-            "autoFix": true
-        },
-        {
-            "language": "typescriptreact",
-            "autoFix": true
-        }
-    ],
-    "files.eol": "\n"
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  "files.eol": "\n",
+  "python.jediEnabled": false,
+  "git.autofetch": true
 }

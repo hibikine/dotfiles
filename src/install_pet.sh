@@ -3,8 +3,10 @@ declare -a info=($(./get_os_info.sh))
 
 case ${info[0]} in
     ubuntu | debian)
-        wget https://github.com/knqyf263/pet/releases/download/v0.3.0/pet_0.3.0_linux_amd64.deb
-        dpkg -i pet_0.3.0_linux_amd64.deb
+        mkdir -p $GOPATH/src/knqyf263
+        git clone https://github.com/knqyf263/pet $GOPATH/src/knqyf263/pet
+        cd $GOPATH/src/knqyf263/pet
+        make install
         ;;
     osx)
         brew install knqyf263/pet/pet
