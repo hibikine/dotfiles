@@ -23,7 +23,7 @@ zplug "felixr/docker-zsh-completion"
 zplug load --verbose
 
 # PATH settings
-export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
@@ -47,7 +47,6 @@ export HISTFILESIZE=1000000
 WHOAMI=$(whoami)
 
 # Aliases
-alias hyperlog="git log --oneline --graph --decorate=full"
 alias chstartserver="gcloud compute instances start dev-2"
 alias chstopserver="gcloud compute instances stop dev-2"
 alias cd..="cd .."
@@ -80,7 +79,7 @@ alias la='ls -la --color=auto'
 alias sl='ls'
 
 # git aliases
-#alias git="hub"
+alias hyperlog="git log --oneline --graph --decorate=full"
 alias gaa='git add --all'
 alias gc='git checkout'
 alias gcb='git checkout -b'
@@ -95,6 +94,7 @@ alias gcdf='git clean -df'
 alias gp='git push'
 alias gco='git commit'
 alias gcom='git commit -m'
+alias ga='git add'
 
 # proxy aliases
 alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'

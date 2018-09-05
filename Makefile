@@ -91,7 +91,7 @@ ifndef RBENV
 endif
 
 .PHONY: ruby
-ruby:
+ruby:rbenv
 ifndef RUBY
 	cd src; ./install_ruby.sh
 endif

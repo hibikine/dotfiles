@@ -48,6 +48,7 @@ set nowrapscan
 set noincsearch
 set backspace=indent,eol,start
 set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 
 if has('nvim')
 else
@@ -81,6 +82,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 noautoindent
 augroup END
 if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
