@@ -41,7 +41,7 @@
     "files.autoSave": "onFocusChange",
     "editor.wordWrap": "on",
     "prettier.singleQuote": true,
-    "prettier.eslintIntegration": false,
+    "prettier.eslintIntegration": true,
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "files.trimTrailingWhitespace": true,
