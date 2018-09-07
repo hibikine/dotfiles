@@ -8,4 +8,6 @@ del /! %userprofile%\.gitconfig %userprofile%\dotfiles\.gitconfig
 mklink %userprofile%\.gitconfig %userprofile%\dotfiles\.gitconfig
 del /Q %appdata%\Code\User\settings.json 
 mklink %appdata%\Code\User\settings.json %userprofile%\dotfiles\vscode\ms-settings.json
+del /Q %appdata%\Code\User\snippets 
+mklink /d %appdata%\Code\User\snippets %userprofile%\dotfiles\vscode\snippets
 
