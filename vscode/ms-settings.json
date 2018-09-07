@@ -46,9 +46,6 @@
     }],
     "editor.renderControlCharacters": true,
     "editor.tabSize": 2,
-    "[csharp]": {
-        "editor.tabSize": 4
-    },
     "[javascript]": {
         "editor.tabSize": 2
     },
@@ -58,10 +55,19 @@
     "[typescriptreact]": {
         "editor.tabSize": 2
     },
+    "[csharp]": {
+        "editor.tabSize": 4
+    },
     "[rust]": {
         "editor.tabSize": 4
     },
     "[python]": {
+        "editor.tabSize": 4
+    },
+    "[jsonc]": {
+        "editor.tabSize": 4
+    },
+    "[json]": {
         "editor.tabSize": 4
     },
     "files.autoSave": "onFocusChange",
@@ -133,16 +139,16 @@
     "files.associations": {
         "*.js": "javascriptreact"
     },
-    "sshfs.configs": [
-        {
-            "label": "An optional label for a good name",
-            "root": "/home/goods",
-            "host": "localhost",
-            "port": 3843,
-            "username": "goods",
-            "password": true,
-            "name": "hibikine-me"
-        }
-    ],
-    "vim.useSystemClipboard": true
+    "sshfs.configs": [{
+        "label": "An optional label for a good name",
+        "root": "/home/goods",
+        "host": "localhost",
+        "port": 3843,
+        "username": "goods",
+        "password": true,
+        "name": "hibikine-me"
+    }],
+    "vim.useSystemClipboard": true,
+    "python.jediEnabled": false,
+    "git.autofetch": true
 }
