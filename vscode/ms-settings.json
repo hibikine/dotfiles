@@ -1,5 +1,54 @@
 {
+    "latex-workshop.latex.tools": [{
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ],
+            "name": "Step 1: ptex2pdf"
+        },
+        {
+            "command": "pbibtex",
+            "args": [
+                "%DOCFILE%",
+                "-kanji=utf8"
+            ],
+            "name": "Step 2: pbibtex"
+        },
+        {
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ],
+            "name": "Step 3: ptex2pdf"
+        },
+        {
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ],
+            "name": "Step 4: ptex2pdf"
+        }
+    ],
+    "latex-workshop.latex.recipes": [{
+        "name": "toolchain",
+        "tools": [
+            "Step 1: ptex2pdf"
+        ]
+    }],
+    "editor.renderControlCharacters": true,
     "editor.tabSize": 2,
+    "[csharp]": {
+        "editor.tabSize": 4
+    },
     "[javascript]": {
         "editor.tabSize": 2
     },
@@ -8,6 +57,12 @@
     },
     "[typescriptreact]": {
         "editor.tabSize": 2
+    },
+    "[rust]": {
+        "editor.tabSize": 4
+    },
+    "[python]": {
+        "editor.tabSize": 4
     },
     "files.autoSave": "onFocusChange",
     "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
@@ -21,7 +76,7 @@
     "eslint.packageManager": "yarn",
     "tslint.packageManager": "yarn",
     "php.validate.executablePath": "C:\\tools\\php72\\php.exe",
-    "phpfmt.php_bin": "C:\\tools\\php72\\php.exe",
+    "phpfmt.php_bin": "E:\\Programs\\php-7.2.7-nts-Win32-VC15-x64\\php.exe",
     "php-cs-fixer.autoFixBySemicolon": true,
     "php-cs-fixer.allowRisky": true,
     "php-cs-fixer.executablePath": "C:\\Users\\Kage\\AppData\\Roaming\\Composer\\vendor\\bin\\php-cs-fixer.bat",
@@ -33,17 +88,15 @@
     "gitProjectManager.baseProjectsFolders": [
         "C:\\Users\\Kage\\src"
     ],
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
+    "vim.insertModeKeyBindings": [{
+        "before": [
+            "j",
+            "j"
+        ],
+        "after": [
+            "<Esc>"
+        ]
+    }],
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -72,5 +125,24 @@
             "autoFix": true
         }
     ],
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.latex.clean.enabled": true,
+    "latex-workshop.chktex.enabled": true,
+    "workbench.statusBar.feedback.visible": false,
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
+    "sshfs.configs": [
+        {
+            "label": "An optional label for a good name",
+            "root": "/home/goods",
+            "host": "localhost",
+            "port": 3843,
+            "username": "goods",
+            "password": true,
+            "name": "hibikine-me"
+        }
+    ],
+    "vim.useSystemClipboard": true
 }
