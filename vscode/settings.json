@@ -49,7 +49,7 @@
     "php.validate.run": "onType",
     "workbench.editor.enablePreview": false,
     "workbench.statusBar.feedback.visible": false,
-    "prettier.trailingComma": "all",
+    "prettier.trailingComma": "es5",
     "gitlens.blame.highlight.locations": [
         "gutter",
         "line",
@@ -84,4 +84,5 @@
     "vim.leader": "<space>",
     "eslint.alwaysShowStatus": true,
     "eslint.packageManager": "yarn",
+    "html.format.endWithNewline": true,
 }
