@@ -16,4 +16,17 @@
 [https]
 [filter "ignorelastupdate"]
     smudge = cat
-    clean = sed -r 's/^lastUpdateCheck [0-9]+$//g'
+    clean = perl -pe 's/^lastUpdateCheck [0-9]+$//g'
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+[color "status"]
+    added = green
+    changed = red bold
+    untracked = magenta bold
+[color "branch"]
+    remote = yellow
