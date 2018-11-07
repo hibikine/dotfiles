@@ -19,6 +19,7 @@ PHP := $(shell command -v php 2> /dev/null)
 COMPOSER := $(shell command -v composer 2> /dev/null)
 VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
+GVM := $(shell command -v gvm 2> /dev/null)
 
 
 all: init
@@ -34,7 +35,7 @@ install:
 	./install.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet hub pip nvim travis yvm
+init-full: init-sh-full zplug node yarn pet hub pip nvim travis yvm gvm
 
 .PHONY: init-sh
 init-sh: install
@@ -168,4 +169,10 @@ endif
 composer:
 ifndef COMOPSER
 	cd src; ./install_composer.sh
+endif
+
+.PHONY: gvm
+gvm:
+ifndef GVM
+	cd src; ./install_gvm.sh
 endif
