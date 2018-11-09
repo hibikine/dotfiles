@@ -60,6 +60,7 @@ alias startdevserver="gcloud compute instances start dev-2"
 alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
 alias df='df -h'
+alias dusc='du -s -c *'
 
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
