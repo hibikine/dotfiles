@@ -17,6 +17,8 @@ CURL := $(shell command -v curl 2> /dev/null)
 NVIM := $(shell command -v nvim 2> /dev/null)
 PHP := $(shell command -v php 2> /dev/null)
 COMPOSER := $(shell command -v composer 2> /dev/null)
+VIM := $(shell command -v vim 2> /dev/null)
+YVM := $(shell command -v yvm 2> /dev/null)
 
 
 all: init
@@ -32,7 +34,7 @@ install:
 	./install.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet hub pip nvim travis
+init-full: init-sh-full zplug node yarn pet hub pip nvim travis yvm
 
 .PHONY: init-sh
 init-sh: install
@@ -124,6 +126,12 @@ endif
 yarn: node
 ifndef YARN
 	cd src; ./install_yarn.sh
+endif
+
+.PHONY: yvm
+yvm: node
+ifndef YVM
+	cd src; ./install_yvm.sh
 endif
 
 .PHONY: python

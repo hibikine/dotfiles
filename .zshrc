@@ -70,6 +70,9 @@ alias grep='grep --color'
 alias df='df -h'
 alias dusc='du -s -c *'
 
+alias untgz='tar -xzvf'
+alias untbz='tar -xjvf'
+
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
     # export LSCOLORS=xbfxcxdxbxegedabagacad
@@ -121,3 +124,17 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 # added by travis gem
 [ -f /home/hibikine/.travis/travis.sh ] && source /home/hibikine/.travis/travis.sh
 
+[[ -z "$TMUX" && -n "$USE_TMUX" ]] && {
+    [[ -n "$ATTACH_ONLY" ]] && {
+        tmux a 2>/dev/null || {
+            cd && exec tmux
+        }
+        exit
+    }
+
+    tmux new-window -c "$PWD" 2>/dev/null && exec tmux a
+    exec tmux
+}
+
+export YVM_DIR=/home/hibikine/.yvm
+source /usr/local/bin/yvm
