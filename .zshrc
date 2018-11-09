@@ -138,3 +138,5 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 export YVM_DIR=/home/hibikine/.yvm
 source /usr/local/bin/yvm
+
+export YVM_DIR=/Users/kansei/.yvm

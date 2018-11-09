@@ -5,3 +5,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export YVM_DIR=/home/hibikine/.yvm
 source /usr/local/bin/yvm
+
+export YVM_DIR=/Users/kansei/.yvm
