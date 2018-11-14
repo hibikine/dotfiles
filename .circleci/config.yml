@@ -1,0 +1,14 @@
+version: 2.1
+
+jobs:
+  main:
+    docker:
+      - image: 'circleci/buildpack-deps@bionic'
+    steps:
+      - checkout
+      - run:
+        name: make full
+        command: make full
+      - run:
+        name: Test
+        command: make test
