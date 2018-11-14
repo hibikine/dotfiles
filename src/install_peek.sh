@@ -7,8 +7,12 @@ then
 else
     case ${info[0]} in
         ubuntu)
-            sudo -E add-apt-repository -y ppa:peek-developers/stable && \
-                sudo -E apt update && sudo -E apt install -y peek
+            if [ $TRAVIS = 'true' ]; then
+                :
+            else
+                sudo -E add-apt-repository -y ppa:peek-developers/stable && \
+                    sudo -E apt update && sudo -E apt install -y peek
+            fi
             ;;
     esac
 fi
