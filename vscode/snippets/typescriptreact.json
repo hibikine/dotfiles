@@ -31,5 +31,10 @@
     "prefix": "rrr",
     "body": ["<Route path=\"/$1\" component={$2} />"],
     "description": "create react router route"
+  },
+  "SFC": {
+    "prefix": "sfc",
+    "body": ["const $1 = () => $2;", "", "export default $1;"],
+    "description": "create react stateless functional component."
   }
 }
