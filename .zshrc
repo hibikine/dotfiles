@@ -100,9 +100,9 @@ alias gcom='git commit -m'
 alias ga='git add'
 
 # proxy aliases
-alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
+alias setproxy='git config --file ~/.gitconfig.local http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --file ~/.gitconfig.local https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
 alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker'
-alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
+alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git config --file ~/.gitconfig.local --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
 alias unsetdockerproxy='sudo sed -i -e "s/export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/#export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/export https_proxy=https:\/\/ccproxyc.kanagawa-it.ac.jp:10080/#export https_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker'
 
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig

@@ -50,3 +50,5 @@ case $OS in
         ;;
 esac
 
+# create local gitconfig
+touch ~/.gitconfig.local

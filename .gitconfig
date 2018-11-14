@@ -30,3 +30,5 @@
     untracked = magenta bold
 [color "branch"]
     remote = yellow
+[include]
+	path = .gitconfig.local
