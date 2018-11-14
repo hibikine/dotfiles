@@ -1,88 +1,81 @@
 {
-    "[javascript]": {
-        "editor.tabSize": 2
-    },
-    "[javascriptreact]": {
-        "editor.tabSize": 2
-    },
-    "[typescript]": {
-        "editor.tabSize": 2
-    },
-    "[typescriptreact]": {
-        "editor.tabSize": 2
-    },
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true
-    },
-    "search.exclude": {
-        "**/node_modules": true
-    },
-    "workbench.colorTheme": "Visual Studio Dark",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": false,
-    "editor.formatOnPaste": false,
-    "editor.fontFamily": "Ricty, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 14,
-    "files.autoSave": "onFocusChange",
-    "editor.wordWrap": "on",
-    "prettier.singleQuote": true,
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    "files.trimTrailingWhitespace": true,
-    "php.validate.executablePath": "/usr/local/bin/php",
-    "php.validate.run": "onType",
-    "workbench.editor.enablePreview": false,
-    "workbench.statusBar.feedback.visible": false,
-    "prettier.trailingComma": "es5",
-    "gitlens.blame.highlight.locations": [
-        "gutter",
-        "line",
-        "overview"
-    ],
-    "diffEditor.ignoreTrimWhitespace": true,
-    "gitlens.keymap": "alternate",
-    "jest.enableSnapshotUpdateMessages": false,
-    "editor.detectIndentation": false,
-    "vim.useSystemClipboard": true,
-    "vim.easymotion": true,
-    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。「」【】『』（）！？　てにをはがのともへでや",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "workbench.startupEditor": "newUntitledFile",
-    "gitlens.historyExplorer.enabled": true,
-    "explorer.confirmDelete": false,
-    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-    "php-cs-fixer.lastDownload": 1536123733721,
-    "vim.surround": true,
-    "vim.enableNeovim": true,
-    "vim.hlsearch": true,
-    "vim.sneak": true,
-    "vim.leader": "<space>",
-    "eslint.alwaysShowStatus": true,
-    "eslint.packageManager": "yarn",
-    "editor.formatOnSaveTimeout": 3000,
-    "html.format.endWithNewline": true,
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/node_modules": true
+  },
+  "workbench.colorTheme": "Visual Studio Dark",
+  "editor.formatOnType": false,
+  "editor.formatOnPaste": false,
+  "editor.fontFamily": "Ricty, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "files.autoSave": "onFocusChange",
+  "editor.wordWrap": "on",
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.eslintIntegration": true,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "files.trimTrailingWhitespace": true,
+  "php.validate.executablePath": "/usr/local/bin/php",
+  "php.validate.run": "onType",
+  "workbench.editor.enablePreview": false,
+  "workbench.statusBar.feedback.visible": false,
+  "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
+  "diffEditor.ignoreTrimWhitespace": true,
+  "gitlens.keymap": "alternate",
+  "jest.enableSnapshotUpdateMessages": false,
+  "editor.detectIndentation": false,
+  "vim.useSystemClipboard": true,
+  "vim.easymotion": true,
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。「」【】『』（）！？　てにをはがのともへでや",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "gitlens.historyExplorer.enabled": true,
+  "explorer.confirmDelete": false,
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "php-cs-fixer.lastDownload": 1539914617070,
+  "vim.surround": true,
+  "vim.enableNeovim": true,
+  "vim.hlsearch": true,
+  "vim.sneak": true,
+  "vim.leader": "<space>",
+  "eslint.alwaysShowStatus": true,
+  "eslint.packageManager": "yarn",
+  "editor.formatOnSaveTimeout": 3000,
+  "html.format.endWithNewline": true,
+"php.executablePath": "/usr/local/opt/php@7.1/bin/php",
+"tslint.packageManager": "yarn",
 }
