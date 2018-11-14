@@ -24,7 +24,6 @@
   "prettier.requireConfig": false,
   "prettier.stylelintIntegration": true,
   "files.autoSave": "onFocusChange",
-  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "workbench.editor.enablePreview": false,
   "vim.insertModeKeyBindings": [
     {
@@ -68,5 +67,6 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
 }
