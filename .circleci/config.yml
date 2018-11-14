@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: make full
-        command: make full
+          name: make full
+          command: make full
       - run:
-        name: Test
-        command: make test
+          name: Test
+          command: make test
