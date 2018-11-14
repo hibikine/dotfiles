@@ -10,9 +10,9 @@
   "[scss]": {
     "editor.tabSize": 2
   },
+  "[ruby]": { "editor.tabSize": 2 },
   "editor.wordWrap": "on",
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
@@ -68,5 +68,12 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "ruby.format": "rubocop",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.codeCompletion": "rcodetools",
+  "breadcrumbs.enabled": true,
+  "html.format.endWithNewline": true,
+  "files.insertFinalNewline": true,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
