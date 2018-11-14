@@ -60,6 +60,8 @@ alias startdevserver="gcloud compute instances start dev-2"
 alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
 alias df='df -h'
+alias password='python3 -c "from secrets import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
+alias passwordalt='python -c "from random import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
 
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
@@ -108,3 +110,4 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # added by travis gem
 [ -f /home/hibikine/.travis/travis.sh ] && source /home/hibikine/.travis/travis.sh
+
