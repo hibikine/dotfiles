@@ -17,6 +17,9 @@
 [filter "ignorelastupdate"]
     smudge = cat
     clean = perl -pe 's/^lastUpdateCheck [0-9]+\n$//g'
+[filter "ignoreyvmdir"]
+    smudge = cat
+    clean = perl -pe 's/^export YVM_DIR=.+\n$//g'
 [color]
     diff = auto
     status = auto

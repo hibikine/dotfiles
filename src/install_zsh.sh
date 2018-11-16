@@ -7,7 +7,8 @@ then
 else
     case ${info[0]} in
         ubuntu | debian)
-            sudo -E apt install -y zsh
+            sudo -E apt update && \
+                sudo -E apt install -y zsh
             ;;
         osx)
             brew install zsh

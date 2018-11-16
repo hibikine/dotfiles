@@ -137,7 +137,6 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
     exec tmux
 }
 
-export YVM_DIR=/home/hibikine/.yvm
+export YVM_DIR=$HOME/.yvm
 source /usr/local/bin/yvm
-
-export YVM_DIR=/Users/kansei/.yvm
+[[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
