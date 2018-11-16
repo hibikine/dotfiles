@@ -66,7 +66,7 @@
   "gitlens.historyExplorer.enabled": true,
   "explorer.confirmDelete": false,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1539914617070,
+"php-cs-fixer.lastDownload": 1541741248456,
   "vim.surround": true,
   "vim.enableNeovim": true,
   "vim.hlsearch": true,
