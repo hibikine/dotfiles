@@ -1,0 +1,21 @@
+#!/bin/bash
+
+ssh-keygen -t rsa -b 4096 -C 'goodsmile314159@gmail.com' -f ./deploy_rsa && \
+        travis encrypt-file deploy_rsa --add --pro && \
+        ssh-copy-id -i deploy_rsa.pub dragonoid@dragonoid.sakura.ne.jp && \
+        rm -f deploy_rsa deploy_rsa.pub && \
+        git add deploy_rsa.enc .travis.yml && \
+        echo 'addons:' >> .travis.yml && \
+        echo '  ssh_known_hosts: dragonoid.sakura.ne.jp' >> .travis.yml && \
+        echo '' >> .travis.yml && \
+        echo 'before_deploy:' >> .travis.yml && \
+        echo '- openssl aes-256-cbc -K $encrypted_<...>_key -iv $encrypted_<...>_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d' >> .travis.yml && \
+        echo '- eval "$(ssh-agent -s)"' >> .travis.yml && \
+        echo '- chmod 600 /tmp/deploy_rsa' >> .travis.yml && \
+        echo '- ssh-add /tmp/deploy_rsa' >> .travis.yml && \
+        echo 'deploy:' >> .travis.yml && \
+        echo '  provider: script' >> .travis.yml && \
+        echo '  skip_cleanup: true' >> .travis.yml && \
+        echo '  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/<dir> $SSH_USER@$DEPLOY_HOST:path/to/files' >> .travis.yml && \
+        echo '  on:' >> .travis.yml && \
+        echo '    branch: master' >> .travis.yml
