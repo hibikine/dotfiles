@@ -21,7 +21,6 @@ VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
 GVM := $(shell command -v gvm 2> /dev/null)
 
-
 all: init
 
 .PHONY: init
@@ -32,7 +31,7 @@ full: init-full
 
 .PHONY: install
 install:
-	./install.sh
+	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-full
 init-full: init-sh-full zplug node yarn pet hub pip nvim travis yvm gvm
