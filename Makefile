@@ -32,7 +32,7 @@ full: init-full
 
 .PHONY: install
 install:
-	./install.sh
+	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-full
 init-full: init-sh-full zplug node yarn pet hub pip nvim travis yvm gvm

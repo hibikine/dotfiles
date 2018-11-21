@@ -30,6 +30,8 @@
     untracked = magenta bold
 [color "branch"]
     remote = yellow
+[include]
+	path = .gitconfig.local
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
