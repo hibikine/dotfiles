@@ -87,6 +87,7 @@ alias sl='ls'
 
 # git aliases
 alias hyperlog="git log --oneline --graph --decorate=full"
+alias lg=hyperlog
 alias gaa='git add --all'
 alias gc='git checkout'
 alias gcb='git checkout -b'
@@ -137,7 +138,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
     exec tmux
 }
 
-export YVM_DIR=/home/hibikine/.yvm
+export YVM_DIR=$HOME/.yvm
 source /usr/local/bin/yvm
 [[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
 

@@ -21,7 +21,6 @@ VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
 GVM := $(shell command -v gvm 2> /dev/null)
 
-
 all: init
 
 .PHONY: init
