@@ -5,9 +5,16 @@
   "[typescript]": {
     "editor.tabSize": 2
   },
-  "[typescriptreact]": { "editor.tabSize": 2 },
-  "[yaml]": { "editor.tabSize": 2 },
+  "[typescriptreact]": {
+    "editor.tabSize": 2
+  },
+  "[yaml]": {
+    "editor.tabSize": 2
+  },
   "[scss]": {
+    "editor.tabSize": 2
+  },
+  "[ruby]": {
     "editor.tabSize": 2
   },
   "editor.wordWrap": "on",
@@ -24,12 +31,10 @@
   "prettier.stylelintIntegration": true,
   "files.autoSave": "onFocusChange",
   "workbench.editor.enablePreview": false,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
-  ],
+  "vim.insertModeKeyBindings": [{
+    "before": ["j", "j"],
+    "after": ["<Esc>"]
+  }],
   "git.enableSmartCommit": true,
   "csharp.format.enable": false,
   "circleci.apiKey": "099d7f5848373c792a0f25bc0f53b71520a0ad2c",
@@ -67,5 +72,12 @@
     "typescript",
     "typescriptreact"
   ],
+  "ruby.format": "rubocop",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.codeCompletion": "rcodetools",
+  "breadcrumbs.enabled": true,
+  "html.format.endWithNewline": true,
+  "files.insertFinalNewline": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
 }

@@ -22,9 +22,19 @@
     "body": ["export default $1"],
     "description": "export default"
   },
+  "create react SFC component": {
+    "prefix": "sfc",
+    "body": ["import * as React from 'react';", "", "const $1 = () => <React.Fragment>$1</React.Fragment>;", "export default $1;"],
+    "description": "create new react SFC component"
+  },
+  "react router route": {
+    "prefix": "rrr",
+    "body": ["<Route path=\"/$1\" component={$2} />"],
+    "description": "create react router route"
+  },
   "SFC": {
-      "prefix": "sfc",
-      "body":["const $1 = () => $2;", "", "export default $1;"],
-      "description": "create react stateless functional component."
+    "prefix": "sfc",
+    "body": ["const $1 = () => $2;", "", "export default $1;"],
+    "description": "create react stateless functional component."
   }
 }
