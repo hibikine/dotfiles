@@ -6,4 +6,6 @@
 .vim/.vim
 .config/*
 !.config/.gitkeep
-
+.DS_Store
+tests/assert.sh
+__pycache__/

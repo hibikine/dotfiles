@@ -69,13 +69,6 @@ nnoremap <silent> vs :terminal<cr>
 '''
 
 [[plugins]]
-repo = 'Shougo/vimshell'
-if = "!has('nvim')"
-hook_add = '''
-source ~/.config/nvim/plugins/vimshell.rc.vim
-'''
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 if = "has('nvim')"
@@ -146,3 +139,11 @@ repo = 'deton/jasegment.vim'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']

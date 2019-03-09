@@ -1,0 +1,13 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: 'circleci/buildpack-deps:bionic-browsers'
+    steps:
+      - checkout
+      - run:
+          name: make full
+          command: make full
+      - run:
+          name: Test
+          command: make test
