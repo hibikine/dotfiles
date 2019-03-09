@@ -9,6 +9,9 @@
     "[typescriptreact]": {
         "editor.tabSize": 2
     },
+    "[python]": {
+        "editor.tabSize": 4
+    },
     "files.autoSave": "onFocusChange",
     "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
     "editor.wordWrap": "on",
@@ -16,7 +19,7 @@
     "prettier.eslintIntegration": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
+    "editor.formatOnType": false,
     "eslint.autoFixOnSave": true,
     "eslint.packageManager": "yarn",
     "tslint.packageManager": "yarn",
@@ -72,5 +75,7 @@
             "autoFix": true
         }
     ],
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.startupEditor": "welcomePage"
 }
