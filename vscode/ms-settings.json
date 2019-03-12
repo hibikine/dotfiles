@@ -46,7 +46,7 @@
   "workbench.editor.enablePreview": false,
   "git.enableSmartCommit": true,
   "csharp.format.enable": false,
-  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
   "gitlens.historyExplorer.enabled": true,
   "eslint.alwaysShowStatus": true,
   "eslint.validate": [
@@ -67,5 +67,7 @@
   "gitProjectManager.baseProjectsFolders": ["%userprofile%\\src"],
 
   "explorer.confirmDragAndDrop": false,
-  "workbench.startupEditor": "welcomePage"
+  "workbench.startupEditor": "welcomePage",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "relative"
 }
