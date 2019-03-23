@@ -21,13 +21,6 @@ zplug "walesmd/caniuse.plugin.zsh"
 zplug "liangguohuan/zsh-dircolors-solarized"
 zplug "felixr/docker-zsh-completion"
 #zplug "github/hub", use:etc/hub.zsh_completion
-#zstyle prompt theme 'pure'
-#zplug "modules/history",    from:prezto 
-#zplug "modules/utility",    from:prezto 
-#zplug "modules/ruby",       from:prezto 
-#zplug "modules/ssh",        from:prezto 
-#zplug "modules/terminal",   from:prezto 
-#zplug "modules/directory",  from:prezto
 zplug load --verbose
 
 # PATH settings
@@ -69,6 +62,8 @@ alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
 alias df='df -h'
 alias dusc='du -s -c *'
+alias password='python3 -c "from secrets import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
+alias passwordalt='python -c "from random import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
 
 alias untgz='tar -xzvf'
 alias untbz='tar -xjvf'
