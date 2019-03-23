@@ -20,6 +20,7 @@ zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
 zplug "walesmd/caniuse.plugin.zsh"
 zplug "liangguohuan/zsh-dircolors-solarized"
 zplug "felixr/docker-zsh-completion"
+#zplug "github/hub", use:etc/hub.zsh_completion
 zplug load --verbose
 
 # PATH settings
@@ -55,11 +56,17 @@ alias chdocker="cd ~/src/cheetah_app/web/cheetah_docker/ && docker-compose up -d
 alias chwatch="cd ~/src/cheetah_app/web/ && yarn watch"
 alias getmyip="curl inet-ip.info"
 alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
-export PATH="$PATH:$HOME/.cargo/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.config/yarn/global/node_modules/.bin"
+export PATH="$PATH:$HOME/.cargo/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin"
 alias startdevserver="gcloud compute instances start dev-2"
 alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
 alias df='df -h'
+alias dusc='du -s -c *'
+alias password='python3 -c "from secrets import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
+alias passwordalt='python -c "from random import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
+
+alias untgz='tar -xzvf'
+alias untbz='tar -xjvf'
 
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
@@ -75,6 +82,7 @@ alias sl='ls'
 
 # git aliases
 alias hyperlog="git log --oneline --graph --decorate=full"
+alias lg=hyperlog
 alias gaa='git add --all'
 alias gc='git checkout'
 alias gcb='git checkout -b'
@@ -92,8 +100,11 @@ alias gcom='git commit -m'
 alias ga='git add'
 
 # proxy aliases
-alias setproxy='git config --global http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --global https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
-alias unsetproxy='git config --global --unset http.proxy && git config --global --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
+alias setproxy='git config --file ~/.gitconfig.local http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --file ~/.gitconfig.local https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
+alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker'
+alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git config --file ~/.gitconfig.local --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
+alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker'
+alias unsetdockerproxy='sudo sed -i -e "s/export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/#export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/export https_proxy=https:\/\/ccproxyc.kanagawa-it.ac.jp:10080/#export https_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker'
 
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
@@ -104,7 +115,25 @@ function prev() {
   PREV=$(fc -lrn | head -n 1)
   sh -c "pet new `printf %q "$PREV"`"
 }
+
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # added by travis gem
 [ -f /home/hibikine/.travis/travis.sh ] && source /home/hibikine/.travis/travis.sh
+
+[[ -z "$TMUX" && -n "$USE_TMUX" ]] && {
+    [[ -n "$ATTACH_ONLY" ]] && {
+        tmux a 2>/dev/null || {
+            cd && exec tmux
+        }
+        exit
+    }
+
+    tmux new-window -c "$PWD" 2>/dev/null && exec tmux a
+    exec tmux
+}
+
+export YVM_DIR=$HOME/.yvm
+source /usr/local/bin/yvm
+[[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
+

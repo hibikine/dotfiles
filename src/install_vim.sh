@@ -7,11 +7,10 @@ then
 else
     case ${info[0]} in
         ubuntu | debian)
-            sudo -E apt update && \
-                sudo -E apt install -y zsh
+            sudo add-apt-repository ppa:jonathonf/vim -y
             ;;
         osx)
-            brew install zsh
+            brew install vim
             ;;
     esac
 fi

@@ -1,6 +1,13 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-  { "key": "alt+windows+l", "command": "editor.action.formatDocument" },
+  {
+    "key": "alt+win+l",
+    "command": "editor.action.formatDocument"
+  },
+  {
+    "key": "alt+windows+l",
+    "command": "editor.action.formatDocument"
+  },
   {
     "key": "ctrl+shift+n",
     "command": "workbench.action.quickOpen"
