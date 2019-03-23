@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="Windows-1252" ?>
 <NotepadPlus>
-    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no" />
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no">
+        <Filter name="" />
+        <Find name="diff" />
+        <Replace name="" />
+    </FindHistory>
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
         <File filename="C:\Users\Hibikine Kage\dotfiles\install.bat" />
         <File filename="C:\Users\Hibikine Kage\AppData\Roaming\Notepad++\config.xml" />
+        <File filename="C:\Users\goods\OneDrive\&#x30C7;&#x30B9;&#x30AF;&#x30C8;&#x30C3;&#x30D7;\tegalog-full\psif.cgi" />
+        <File filename="E:\Programs\wsl-terminal\etc\wsl-terminal.conf" />
+        <File filename="C:\Program Files\Notepad++\change.log" />
+        <File filename="C:\Users\goods\OneDrive\&#x30C7;&#x30B9;&#x30AF;&#x30C8;&#x30C3;&#x30D7;\new 13.txt" />
+        <File filename="C:\Windows\System32\drivers\etc\hosts" />
+        <File filename="C:\Users\goods\AppData\Roaming\.minecraft\config\NEI\client.cfg" />
+        <File filename="E:\Downloads\server\server.properties" />
+        <File filename="C:\Users\goods\src\a\a.html" />
     </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
@@ -12,8 +24,8 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" />
-        <GUIConfig name="AppPosition" x="693" y="222" width="1100" height="698" isMaximized="yes" />
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20180802">no</GUIConfig>
+        <GUIConfig name="AppPosition" x="567" y="252" width="1100" height="687" isMaximized="no" />
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20190131">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
         <GUIConfig name="TrayIcon">no</GUIConfig>
@@ -38,7 +50,7 @@
         <GUIConfig name="ScintillaGlobalSettings" enableMultiSelection="no" />
         <GUIConfig name="openSaveDir" value="0" defaultDirPath="" />
         <GUIConfig name="titleBar" short="no" />
-        <GUIConfig name="stylerTheme" path="C:\Users\Hibikine Kage\AppData\Roaming\Notepad++\stylers.xml" />
+        <GUIConfig name="stylerTheme" path="C:\Users\goods\AppData\Roaming\Notepad++\stylers.xml" />
         <GUIConfig name="wordCharList" useDefault="yes" charsAdded="" />
         <GUIConfig name="delimiterSelection" leftmostDelimiter="40" rightmostDelimiter="41" delimiterSelectionOnEntireDocument="no" />
         <GUIConfig name="multiInst" setting="0" />
