@@ -1,6 +1,6 @@
 del /Q "%userprofile%\.vimrc"
 mklink "%userprofile%\.vimrc" "%userprofile%\dotfiles\.vimrc"
-del /Q "%userprofile%\.vim" 
+rmdir /s /q "%userprofile%\.vim" 
 mklink /d "%userprofile%\.vim" "%userprofile%\dotfiles\.vim"
 del /Q "%userprofile%\.hyper.js" 
 mklink "%userprofile%\.hyper.js" "%userprofile%\dotfiles\.hyper.js"
@@ -10,7 +10,7 @@ del /Q "%appdata%\Code\User\settings.json"
 mklink "%appdata%\Code\User\settings.json" "%userprofile%\dotfiles\vscode\ms-settings.json"
 del /Q "%appdata%\Code\User\keybindings.json" 
 mklink "%appdata%\Code\User\keybindings.json" "%userprofile%\dotfiles\vscode\ms-keybindings.json"
-del /Q %appdata%\Code\User\snippets 
-mklink /d %appdata%\Code\User\snippets %userprofile%\dotfiles\vscode\snippets
+rmdir /Q "%appdata%\Code\User\snippets"
+mklink /d "%appdata%\Code\User\snippets" "%userprofile%\dotfiles\vscode\snippets"
 del /Q "%appdata%\Notepad++\config.xml"
 mklink "%appdata%\Notepad++\config.xml" "%userprofile%\dotfiles\Notepad++\config.xml"
