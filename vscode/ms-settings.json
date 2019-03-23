@@ -71,7 +71,6 @@
         "editor.tabSize": 4
     },
     "files.autoSave": "onFocusChange",
-    "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
     "editor.wordWrap": "on",
     "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
     "prettier.eslintIntegration": true,
@@ -81,11 +80,10 @@
     "eslint.autoFixOnSave": true,
     "eslint.packageManager": "yarn",
     "tslint.packageManager": "yarn",
-    "php.validate.executablePath": "C:\\tools\\php72\\php.exe",
     "phpfmt.php_bin": "E:\\Programs\\php-7.2.7-nts-Win32-VC15-x64\\php.exe",
     "php-cs-fixer.autoFixBySemicolon": true,
     "php-cs-fixer.allowRisky": true,
-    "php-cs-fixer.executablePath": "C:\\Users\\Kage\\AppData\\Roaming\\Composer\\vendor\\bin\\php-cs-fixer.bat",
+    "php-cs-fixer.executablePath": "${extensionPath}\\php-cs-fixer.phar",
     "window.zoomLevel": 0,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "es5",
@@ -150,5 +148,14 @@
     }],
     "vim.useSystemClipboard": true,
     "python.jediEnabled": false,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
+    "php-cs-fixer.lastDownload": 1542607163068,
+    "python.linting.pylintEnabled": true,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "circleci.apiKey": "a722920a28297b61dc95bf7dd8dd83473dc9fc30",
+    "workbench.colorTheme": "Noctis Sereno"
 }

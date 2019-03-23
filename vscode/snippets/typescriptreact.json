@@ -17,5 +17,26 @@
       "import ${${TM_FILENAME_BASE/[_-]./${0:/upcase}/g}/[_-]//g}"
     ],
     "description": "Jest template for a react module."
+  },
+  "create react sfc component": {
+    "prefix": "crsc",
+    "body": [
+      "import * as React from 'react;",
+      "",
+      "const $1 = () => ();",
+      "export default $1;"
+    ],
+    "description": "Create react SFC component."
+  },
+  "create react sfc component with props": {
+    "prefix": "crscp",
+    "body": [
+      "import * as React from 'react';",
+      "",
+      "export interface Props {}",
+      "const $1 = ({}: Props) => ();",
+      "export default $1;"
+    ],
+    "description": "Create react SFC component with props interface."
   }
 }
