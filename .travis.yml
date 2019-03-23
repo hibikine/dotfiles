@@ -1,6 +1,16 @@
 sudo: required
+language: go
+go:
+  - "1.10"
+env:
+  global:
+    - IS_CI=true
 install:
-    - ./install.sh
+  - export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 script:
-    - ./init.sh full
-
+  - git clone https://github.com/udhos/update-golang
+  - cd update-golang
+  - sudo ./update-golang.sh
+  - cd ..
+  - make full
+  - make test

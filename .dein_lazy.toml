@@ -1,11 +1,19 @@
 [[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+on_i = 1
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'mojako/ref-sources.vim'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
 
 [[plugins]]
 repo = 'kana/vim-submode'
@@ -45,6 +53,25 @@ repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'kassio/neoterm'
+if = "has('nvim')"
+hook_add = '''
+nnoremap <silent> ,rc :TREPLSendFile<cr>
+nnoremap <silent> ,rl :TREPLSendLine<cr>
+vnoremap <silent> ,rl :TREPLSendSelection<cr>
+nnoremap <silent> vt :Ttoggle<cr>
+nnoremap <silent> vs :terminal<cr>
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if = "has('nvim')"
 
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
@@ -96,9 +123,27 @@ repo = 'neomake/neomake'
 
 [[plugins]]
 repo = 'benjie/neomake-local-eslint.vim'
+depends = ['neomake']
+
+[[plugins]]
+repo = 'benjie/local-npm-bin.vim'
+depends = ['neomake']
 on_source = ['neomake']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript', 'typescriptreact']
 
+[[plugins]]
+repo = 'deton/jasegment.vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
