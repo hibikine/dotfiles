@@ -12,5 +12,5 @@ del /Q "%appdata%\Code\User\keybindings.json"
 mklink "%appdata%\Code\User\keybindings.json" "%userprofile%\dotfiles\vscode\ms-keybindings.json"
 del /Q "%appdata%\Notepad++\config.xml"
 mklink "%appdata%\Notepad++\config.xml" "%userprofile%\dotfiles\Notepad++\config.xml"
-
-
+del /Q "%userprofile%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+mklink /D "%userprofile%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" "%userprofile%\dotfiles\Microsoft.PowerShell_profile.ps1"

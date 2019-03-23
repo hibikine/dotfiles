@@ -1,14 +1,8 @@
 {
   "editor.tabSize": 2,
-  "[javascript]": {
-    "editor.tabSize": 2
-  },
-  "[typescript]": {
-    "editor.tabSize": 2
-  },
-  "[typescriptreact]": {
-    "editor.tabSize": 2
-  },
+  "[javascript]": { "editor.tabSize": 2 },
+  "[typescript]": { "editor.tabSize": 2 },
+  "[typescriptreact]": { "editor.tabSize": 2 },
   "[python]": { "editor.tabSize": 4 },
   "[jsonc]": { "editor.tabSize": 4 },
   "[json]": { "editor.tabSize": 4 },
@@ -19,7 +13,7 @@
   "prettier.eslintIntegration": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
   "tslint.packageManager": "yarn",
@@ -33,7 +27,6 @@
   "prettier.trailingComma": "es5",
   "prettier.requireConfig": false,
   "prettier.stylelintIntegration": true,
-  "gitProjectManager.baseProjectsFolders": ["C:\\Users\\Kage\\src"],
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
@@ -70,5 +63,9 @@
   ],
   "files.eol": "\n",
   "python.jediEnabled": false,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "gitProjectManager.baseProjectsFolders": ["%userprofile%\\src"],
+
+  "explorer.confirmDragAndDrop": false,
+  "workbench.startupEditor": "welcomePage"
 }
