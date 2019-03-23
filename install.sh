@@ -7,6 +7,7 @@ do
     [[ "$f" == ".git" ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
     [[ "$f" == ".travis.yml" ]] && continue
+    [[ "$f" == ".circleci" ]] && continue
 
     echo $f
     if [ -d "${f}" ]; then
@@ -34,6 +35,8 @@ case $OS in
     "Mac")
         ln -sf $SCRIPT_DIR/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
         ln -sf $SCRIPT_DIR/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+        rm -rf $HOME/Library/Application\ Support/Code/User/snippets
+        ln -sf $SCRIPT_DIR/vscode/snippets $HOME/Library/Application\ Support/Code/User/
         echo "VSCode setting file was installed."
         ;;
     "Linux")
@@ -48,3 +51,5 @@ case $OS in
         ;;
 esac
 
+# create local gitconfig
+touch ~/.gitconfig.local

@@ -1,51 +1,4 @@
 {
-    "latex-workshop.latex.tools": [{
-            "command": "ptex2pdf",
-            "args": [
-                "-l",
-                "-ot",
-                "-kanji=utf8 -synctex=1",
-                "%DOC%"
-            ],
-            "name": "Step 1: ptex2pdf"
-        },
-        {
-            "command": "pbibtex",
-            "args": [
-                "%DOCFILE%",
-                "-kanji=utf8"
-            ],
-            "name": "Step 2: pbibtex"
-        },
-        {
-            "command": "ptex2pdf",
-            "args": [
-                "-l",
-                "-ot",
-                "-kanji=utf8 -synctex=1",
-                "%DOC%"
-            ],
-            "name": "Step 3: ptex2pdf"
-        },
-        {
-            "command": "ptex2pdf",
-            "args": [
-                "-l",
-                "-ot",
-                "-kanji=utf8 -synctex=1",
-                "%DOC%"
-            ],
-            "name": "Step 4: ptex2pdf"
-        }
-    ],
-    "latex-workshop.latex.recipes": [{
-        "name": "toolchain",
-        "tools": [
-            "Step 1: ptex2pdf"
-        ]
-    }],
-    "editor.renderControlCharacters": true,
-    "editor.tabSize": 2,
     "[javascript]": {
         "editor.tabSize": 2
     },
@@ -71,51 +24,29 @@
         "editor.tabSize": 4
     },
     "files.autoSave": "onFocusChange",
+    "files.eol": "\n",
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
+    "editor.tabSize": 2,
+    "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
     "editor.wordWrap": "on",
-    "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
-    "prettier.eslintIntegration": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
+    "editor.renderControlCharacters": true,
+    "editor.suggestSelection": "first",
+    "workbench.editor.enablePreview": false,
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.colorTheme": "Noctis Sereno",
+    "workbench.startupEditor": "welcomePage",
+    "window.zoomLevel": 0,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+    "prettier.eslintIntegration": true,
     "eslint.autoFixOnSave": true,
     "eslint.packageManager": "yarn",
-    "tslint.packageManager": "yarn",
-    "phpfmt.php_bin": "E:\\Programs\\php-7.2.7-nts-Win32-VC15-x64\\php.exe",
-    "php-cs-fixer.autoFixBySemicolon": true,
-    "php-cs-fixer.allowRisky": true,
-    "php-cs-fixer.executablePath": "${extensionPath}\\php-cs-fixer.phar",
-    "window.zoomLevel": 0,
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "es5",
-    "prettier.requireConfig": false,
-    "prettier.stylelintIntegration": true,
-    "gitProjectManager.baseProjectsFolders": [
-        "C:\\Users\\Kage\\src"
-    ],
-    "vim.insertModeKeyBindings": [{
-        "before": [
-            "j",
-            "j"
-        ],
-        "after": [
-            "<Esc>"
-        ]
-    }],
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "workbench.editor.enablePreview": false,
-    "git.enableSmartCommit": true,
-    "csharp.format.enable": false,
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
-    "gitlens.historyExplorer.enabled": true,
     "eslint.alwaysShowStatus": true,
     "eslint.validate": [
         "javascript",
@@ -129,14 +60,27 @@
             "autoFix": true
         }
     ],
-    "files.eol": "\n",
-    "latex-workshop.view.pdf.viewer": "external",
-    "latex-workshop.latex.clean.enabled": true,
-    "latex-workshop.chktex.enabled": true,
-    "workbench.statusBar.feedback.visible": false,
-    "files.associations": {
-        "*.js": "javascriptreact"
-    },
+    "tslint.packageManager": "yarn",
+    "php.validate.executablePath": "C:\\tools\\php72\\php.exe",
+    "phpfmt.php_bin": "E:\\Programs\\php-7.2.7-nts-Win32-VC15-x64\\php.exe",
+    "php-cs-fixer.autoFixBySemicolon": true,
+    "php-cs-fixer.allowRisky": true,
+    "php-cs-fixer.executablePath": "${extensionPath}\\php-cs-fixer.phar",
+    "php-cs-fixer.lastDownload": 1542607163068,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.requireConfig": false,
+    "prettier.stylelintIntegration": true,
+    "csharp.format.enable": false,
+    "vim.insertModeKeyBindings": [{
+        "before": ["j", "j"],
+        "after": ["<Esc>"]
+    }],
+    "vim.useSystemClipboard": true,
+    "vim.easymotion": true,
+    "vim.leader": "<space>",
+    "vim.sneak": true,
+    "vim.hlsearch": true,
     "sshfs.configs": [{
         "label": "An optional label for a good name",
         "root": "/home/goods",
@@ -146,16 +90,54 @@
         "password": true,
         "name": "hibikine-me"
     }],
-    "vim.useSystemClipboard": true,
     "python.jediEnabled": false,
-    "git.autofetch": true,
-    "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
-    "php-cs-fixer.lastDownload": 1542607163068,
     "python.linting.pylintEnabled": true,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "gitProjectManager.baseProjectsFolders": ["%userprofile%\\src"],
+    "gitProjectManager.baseProjectsFolders": ["C:\\Users\\Kage\\src"],
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
-    "editor.suggestSelection": "first",
+    "gitlens.historyExplorer.enabled": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "circleci.apiKey": "a722920a28297b61dc95bf7dd8dd83473dc9fc30",
-    "workbench.colorTheme": "Noctis Sereno"
+    "latex-workshop.latex.tools": [{
+            "command": "ptex2pdf",
+            "args": ["-l", "-ot", "-kanji=utf8 -synctex=1", "%DOC%"],
+            "name": "Step 1: ptex2pdf"
+        },
+        {
+            "command": "pbibtex",
+            "args": ["%DOCFILE%", "-kanji=utf8"],
+            "name": "Step 2: pbibtex"
+        },
+        {
+            "command": "ptex2pdf",
+            "args": ["-l", "-ot", "-kanji=utf8 -synctex=1", "%DOC%"],
+            "name": "Step 3: ptex2pdf"
+        },
+        {
+            "command": "ptex2pdf",
+            "args": ["-l", "-ot", "-kanji=utf8 -synctex=1", "%DOC%"],
+            "name": "Step 4: ptex2pdf"
+        }
+    ],
+    "latex-workshop.latex.recipes": [{
+        "name": "toolchain",
+        "tools": ["Step 1: ptex2pdf"]
+    }],
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.latex.clean.enabled": true,
+    "latex-workshop.chktex.enabled": true
 }
