@@ -68,6 +68,8 @@ alias passwordalt='python -c "from random import choice;from string import ascii
 alias untgz='tar -xzvf'
 alias untbz='tar -xjvf'
 
+alias docker-all-stop='docker stop $(docker ps -a -q)'
+
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
     # export LSCOLORS=xbfxcxdxbxegedabagacad
