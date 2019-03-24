@@ -61,12 +61,12 @@
         }
     ],
     "tslint.packageManager": "yarn",
-    "php.validate.executablePath": "C:\\tools\\php72\\php.exe",
+    "php.validate.executablePath": "E:\\Programs\\php-7.2.7-nts-Win32-VC15-x64\\php.exe",
     "phpfmt.php_bin": "E:\\Programs\\php-7.2.7-nts-Win32-VC15-x64\\php.exe",
     "php-cs-fixer.autoFixBySemicolon": true,
     "php-cs-fixer.allowRisky": true,
     "php-cs-fixer.executablePath": "${extensionPath}\\php-cs-fixer.phar",
-    "php-cs-fixer.lastDownload": 1542607163068,
+    "php-cs-fixer.lastDownload": 1553329970407,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "es5",
     "prettier.requireConfig": false,
@@ -138,5 +138,8 @@
     }],
     "latex-workshop.view.pdf.viewer": "external",
     "latex-workshop.latex.clean.enabled": true,
-    "latex-workshop.chktex.enabled": true
+    "latex-workshop.chktex.enabled": true,
+    "php-cs-fixer.executablePathWindows": "%AppData%\\Composer\\vendor\\bin\\php-cs-fixer.bat",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "vscode-icons"
 }
