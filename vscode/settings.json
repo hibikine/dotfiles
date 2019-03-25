@@ -35,7 +35,7 @@
   "files.autoSave": "onFocusChange",
   "editor.wordWrap": "on",
   "prettier.singleQuote": true,
-"prettier.trailingComma": "es5",
+  "prettier.trailingComma": "es5",
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "files.trimTrailingWhitespace": true,
@@ -65,7 +65,7 @@
   "gitlens.historyExplorer.enabled": true,
   "explorer.confirmDelete": false,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1553226900835,
+  "php-cs-fixer.lastDownload": 1553483665049,
   "vim.surround": true,
   "vim.enableNeovim": true,
   "vim.hlsearch": true,
@@ -79,11 +79,18 @@
   "tslint.packageManager": "yarn",
   "gitlens.views.fileHistory.enabled": true,
   "gitlens.views.lineHistory.enabled": true,
-"eslint.autoFixOnSave": true,
-"javascript.implicitProjectConfig.checkJs": true,
-"typescript.locale": "en",
-"typescriptHero.imports.organizeOnSave": true,
-"editor.renderControlCharacters": true,
-"vim.neovimPath": "/usr/local/bin/nvim",
-"editor.formatOnSave": true
+  "eslint.autoFixOnSave": true,
+  "javascript.implicitProjectConfig.checkJs": true,
+  "typescript.locale": "en",
+  "typescriptHero.imports.organizeOnSave": true,
+  "editor.renderControlCharacters": true,
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "editor.formatOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+],
+"prettier.eslintIntegration": true
 }
