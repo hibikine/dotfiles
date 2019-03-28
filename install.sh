@@ -40,6 +40,7 @@ case $OS in
         echo "VSCode setting file was installed."
         ;;
     "Linux")
+        mkdir -p $HOME/.config/Code/User
         ln -sf $SCRIPT_DIR/vscode/linux-settings.json $HOME/.config/Code/User/settings.json
         ln -sf $SCRIPT_DIR/vscode/linux-keybindings.json $HOME/.config/Code/User/keybindings.json
         rm -rf $HOME/.config/Code/User/snippets
