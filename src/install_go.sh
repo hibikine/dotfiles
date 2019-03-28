@@ -9,7 +9,7 @@ else
         ubuntu | debian)
             declare -a url=($(wget -qO- https://golang.org/dl/ | grep -oP 'https:\/\/dl\.google\.com\/go\/go([0-9\.]+)\.linux-amd64\.tar\.gz' | head -n 1 ))
             declare -a latest=($(echo $url | grep -oP 'go[0-9\.]+' | grep -oP '[0-9\.]+' | head -c -2))
-            curl -sL $url | sudo -E tar -C /usr/local -xzf go${latest}.linux-amd64.tar.gz
+            curl -sL $url | sudo -E tar -C /usr/local -xzf -
             ;;
         osx)
             brew install go
