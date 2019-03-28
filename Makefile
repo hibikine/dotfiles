@@ -58,7 +58,7 @@ test: tests/assert.sh
 	cd tests; ./tests.sh
 
 .PHONY: pet
-pet: zplug brew
+pet: zplug brew curl
 ifndef PET
 	cd src; ./install_pet.sh
 endif
@@ -78,7 +78,9 @@ endif
 .PHONY: brew
 brew:
 ifndef BREW
-	cd src; ./install_homebrew.sh
+	if [ "$$(uname)" = 'Darwin' ]; then \
+		cd src; ./install_homebrew.sh; \
+	fi
 endif
 
 .PHONY: go
