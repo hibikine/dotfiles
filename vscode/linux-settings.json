@@ -79,5 +79,11 @@
   "html.format.endWithNewline": true,
   "files.insertFinalNewline": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'"
+  "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "phpcs.executablePath": "/home/hibikine/.config/composer/vendor/bin/phpcs",
+  "vim.leader": "<space>",
+  "vim.easymotion": true,
+  "window.zoomLevel": 0
 }

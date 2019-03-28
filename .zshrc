@@ -31,7 +31,7 @@ zplug "felixr/docker-zsh-completion"
 zplug load --verbose
 
 # PATH settings
-export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin"
+export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.config/composer/vendor/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
