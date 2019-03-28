@@ -7,6 +7,6 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/plat
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 
 if [ -e $HOME/.bash_profile.local ]; then
-    source $HOME/.bash_profile.local ]
+    source $HOME/.bash_profile.local
 fi
 

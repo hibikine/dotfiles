@@ -130,3 +130,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -f /home/hibikine/.travis/travis.sh ] && source /home/hibikine/.travis/travis.sh
 
 [[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
+
+# added by travis gem
+[ -f /Users/kansei/.travis/travis.sh ] && source /Users/kansei/.travis/travis.sh

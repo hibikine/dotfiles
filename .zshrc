@@ -21,13 +21,6 @@ zplug "walesmd/caniuse.plugin.zsh"
 zplug "liangguohuan/zsh-dircolors-solarized"
 zplug "felixr/docker-zsh-completion"
 #zplug "github/hub", use:etc/hub.zsh_completion
-#zstyle prompt theme 'pure'
-#zplug "modules/history",    from:prezto 
-#zplug "modules/utility",    from:prezto 
-#zplug "modules/ruby",       from:prezto 
-#zplug "modules/ssh",        from:prezto 
-#zplug "modules/terminal",   from:prezto 
-#zplug "modules/directory",  from:prezto
 zplug load --verbose
 
 # PATH settings
@@ -75,6 +68,8 @@ alias passwordalt='python -c "from random import choice;from string import ascii
 alias untgz='tar -xzvf'
 alias untbz='tar -xjvf'
 
+alias docker-all-stop='docker stop $(docker ps -a -q)'
+
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
     # export LSCOLORS=xbfxcxdxbxegedabagacad
@@ -92,12 +87,15 @@ alias hyperlog="git log --oneline --graph --decorate=full"
 alias lg=hyperlog
 alias gaa='git add --all'
 alias gc='git checkout'
+alias gk='git checkout'
 alias gcb='git checkout -b'
+alias gkb='git checkout -b'
 alias gs='git status'
-alias gst='git status'
 alias gb='git branch'
 alias gcm='git checkout master'
+alias gkm='git checkout master'
 alias gpu='git pull'
+alias gu='git pull'
 alias gpom='git pull origin master'
 alias gmm='git merge master'
 alias gcdf='git clean -df'
@@ -105,6 +103,8 @@ alias gp='git push'
 alias gco='git commit'
 alias gcom='git commit -m'
 alias ga='git add'
+alias git_current_branch='git symbolic-ref --short HEAD'
+alias gpuo='git push -u origin $(git_current_branch)'
 
 # proxy aliases
 alias setproxy='git config --file ~/.gitconfig.local http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --file ~/.gitconfig.local https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
@@ -143,4 +143,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 export YVM_DIR=$HOME/.yvm
 source /usr/local/bin/yvm
 [[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
+
+# added by travis gem
+[ -f /Users/kansei/.travis/travis.sh ] && source /Users/kansei/.travis/travis.sh
 
