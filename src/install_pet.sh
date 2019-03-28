@@ -7,10 +7,10 @@ case ${info[0]} in
     ubuntu | debian)
         case ${info[1]} in
             i686)
-                curl -O "https://github.com/knqyf263/pet/releases/download/${pet_version}/pet_${pet_version_without_v}_linux_386.deb" && sudo -E dpkg --install "pet_${pet_version_without_v}_linux_386.deb"
+                curl -OL "https://github.com/knqyf263/pet/releases/download/${pet_version}/pet_${pet_version_without_v}_linux_386.deb" && sudo -E dpkg --install "pet_${pet_version_without_v}_linux_386.deb"
                 ;;
             x86_64)
-                curl -O "https://github.com/knqyf263/pet/releases/download/${pet_version}/pet_${pet_version_without_v}_linux_amd64.deb" && sudo -E dpkg --install "pet_${pet_version_without_v}_linux_amd64.deb"
+                curl -OL "https://github.com/knqyf263/pet/releases/download/${pet_version}/pet_${pet_version_without_v}_linux_amd64.deb" # && sudo -E dpkg --install "pet_${pet_version_without_v}_linux_amd64.deb"
                 ;;
         esac
         ;;
