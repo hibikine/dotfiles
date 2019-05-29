@@ -141,7 +141,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 }
 
 export YVM_DIR=$HOME/.yvm
-source /usr/local/bin/yvm
+[[ -s $YVM_DIR ]] && source /usr/local/bin/yvm
 [[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
 
 # added by travis gem
