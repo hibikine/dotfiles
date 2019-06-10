@@ -93,6 +93,9 @@
     "javascriptreact",
     { "language": "typescript", "autoFix": true },
     { "language": "typescriptreact", "autoFix": true }
-],
-"prettier.eslintIntegration": true
+  ],
+  "prettier.eslintIntegration": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

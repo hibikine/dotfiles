@@ -1,0 +1,4 @@
+[[snippets]]
+  description = "format edited typescript files by prettier"
+  command = "git diff --name-only | cut -c 5- | grep ts | xargs yarn prettier --write"
+  output = ""
