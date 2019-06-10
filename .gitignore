@@ -5,6 +5,7 @@
 .vim/bundle/
 .vim/.vim
 .config/*
+!.config/pet
 !.config/.gitkeep
 .DS_Store
 tests/assert.sh
