@@ -114,7 +114,7 @@ ifndef TRAVIS
 endif
 
 .PHONY: hub
-hub: go brew ruby bundler
+hub: brew 
 ifndef HUB
 	cd src; ./install_hub.sh
 endif
