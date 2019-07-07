@@ -16,7 +16,7 @@ Hibikine Kage's dotfiles.
 
 ```bash
 cd ~/
-git clone https://github.com/HibikineKage/dotfiles.git
+git clone https://github.com/hibikine/dotfiles.git
 cd dotfiles
 make
 
@@ -34,7 +34,7 @@ Open administrator powershell.
 
 ```ps1
 cd ~/
-git clone https://github.com/HibikineKage/dotfiles.git
+git clone https://github.com/hibikine/dotfiles.git
 cd dotfiles
 ./install.bat
 ./init.bat
