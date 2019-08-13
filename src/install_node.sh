@@ -8,8 +8,8 @@ else
     case ${info[0]} in
         ubuntu | debian)
             sudo -E apt update && \
-                sudo -E apt install nodejs nodejs-dev node-gyp libssl1.0-dev && \
-                sudo -E apt install npm && \
+                sudo -E apt install -y nodejs nodejs-dev node-gyp libssl1.0-dev && \
+                sudo -E apt install -y npm && \
                 sudo -E npm cache clean && \
                 sudo -E npm i -g n && \
                 sudo -E n latest && \

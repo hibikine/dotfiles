@@ -128,7 +128,7 @@ endif
 .PHONY: yarn
 yarn: node
 ifndef YARN
-	cd src; ./install_yarn.sh
+	cd src; ./install_yarn.sh; ./set_yarn_config.sh
 endif
 
 .PHONY: yvm
