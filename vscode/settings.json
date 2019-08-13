@@ -3,13 +3,16 @@
     "editor.tabSize": 2
   },
   "[javascriptreact]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vim.insertModeKeyBindings": [
     {
@@ -65,7 +68,7 @@
   "gitlens.historyExplorer.enabled": true,
   "explorer.confirmDelete": false,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1553483665049,
+  "php-cs-fixer.lastDownload": 1564714509927,
   "vim.surround": true,
   "vim.enableNeovim": true,
   "vim.hlsearch": true,
@@ -91,6 +94,9 @@
     "javascriptreact",
     { "language": "typescript", "autoFix": true },
     { "language": "typescriptreact", "autoFix": true }
-],
-"prettier.eslintIntegration": true
+  ],
+  "prettier.eslintIntegration": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

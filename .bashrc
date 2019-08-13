@@ -133,3 +133,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # added by travis gem
 [ -f /Users/kansei/.travis/travis.sh ] && source /Users/kansei/.travis/travis.sh
+
+export YVM_DIR=/Users/kansei/.yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh

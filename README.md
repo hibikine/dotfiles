@@ -1,6 +1,6 @@
 # dotfiles
 
-[![Build Status](https://travis-ci.org/HibikineKage/dotfiles.svg?branch=master)](https://travis-ci.org/HibikineKage/dotfiles) [![CircleCI](https://circleci.com/gh/HibikineKage/dotfiles.svg?style=svg)](https://circleci.com/gh/HibikineKage/dotfiles)
+[![CircleCI](https://circleci.com/gh/HibikineKage/dotfiles.svg?style=svg)](https://circleci.com/gh/HibikineKage/dotfiles)
 
 Hibikine Kage's dotfiles.
 
