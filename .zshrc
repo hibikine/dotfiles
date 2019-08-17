@@ -134,8 +134,8 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
     exec tmux
 }
 
-export YVM_DIR=$HOME/.yvm
-[[ -s $YVM_DIR ]] && source /usr/local/bin/yvm
+export YVM_DIR="${HOME}/.yvm"
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 [[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
 
 # added by travis gem
@@ -143,7 +143,8 @@ export YVM_DIR=$HOME/.yvm
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/hibikine/google-cloud-sdk/path.zsh.inc' ]; then source '/home/hibikine/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/hibikine/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/hibikine/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
