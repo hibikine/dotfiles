@@ -1,12 +1,15 @@
 {
   "[javascript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[yaml]": {
     "editor.tabSize": 2
@@ -24,17 +27,18 @@
   "eslint.packageManager": "yarn",
   "php-cs-fixer.autoFixBySemicolon": true,
   "php-cs-fixer.allowRisky": true,
-  "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "prettier.requireConfig": false,
   "prettier.stylelintIntegration": true,
   "files.autoSave": "onFocusChange",
   "workbench.editor.enablePreview": false,
-  "vim.insertModeKeyBindings": [{
-    "before": ["j", "j"],
-    "after": ["<Esc>"]
-  }],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
   "git.enableSmartCommit": true,
   "csharp.format.enable": false,
   "circleci.apiKey": "099d7f5848373c792a0f25bc0f53b71520a0ad2c",
@@ -85,5 +89,38 @@
   "phpcs.executablePath": "/home/hibikine/.config/composer/vendor/bin/phpcs",
   "vim.leader": "<space>",
   "vim.easymotion": true,
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "FSharp.monoPath": "/usr/bin/mono",
+  "FSharp.fsacRuntime": "net",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.jediEnabled": false,
+  "editor.formatOnSave": true,
+  "auto-rename-tag.activationOnLanguage": [
+    "javascriptreact",
+    "html",
+    "vue",
+    "xml",
+    "typescriptreact"
+  ],
+  "prettier.disableLanguages": ["markdown"],
+  "[markdown]": {
+    "editor.defaultFormatter": "mrmlnc.vscode-remark"
+  },
+  "files.associations": {
+    ".remarkrc": "json"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
