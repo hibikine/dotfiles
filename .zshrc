@@ -4,10 +4,7 @@ source ~/.zplug/init.zsh
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
-zplug "rupa/z", use:z.sh
-zplug "mollifier/cd-gitroot"
 zplug "b4b4r07/enhancd", use:init.sh
-zplug "b4b4r07/zsh-gomi", if:"which fzf"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search", defer:2
@@ -15,12 +12,6 @@ zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
-zplug "mrowa44/emojify", as:command
-zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli, if:"which jq"
-zplug "walesmd/caniuse.plugin.zsh"
-zplug "liangguohuan/zsh-dircolors-solarized"
-zplug "felixr/docker-zsh-completion"
-#zplug "github/hub", use:etc/hub.zsh_completion
 zplug load --verbose
 
 # PATH settings
@@ -81,6 +72,9 @@ fi
 alias ll='ls -la --color=auto'
 alias la='ls -la --color=auto'
 alias sl='ls'
+export LSCOLORS=exfxcxdxbxegedabagacad
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 # git aliases
 alias hyperlog="git log --oneline --graph --decorate=full"
@@ -140,8 +134,8 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
     exec tmux
 }
 
-export YVM_DIR=$HOME/.yvm
-source /usr/local/bin/yvm
+export YVM_DIR="${HOME}/.yvm"
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 [[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
 
 # added by travis gem
@@ -151,3 +145,10 @@ source /usr/local/bin/yvm
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/hibikine/.sdkman"
 [[ -s "/home/hibikine/.sdkman/bin/sdkman-init.sh" ]] && source "/home/hibikine/.sdkman/bin/sdkman-init.sh"
+#
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+

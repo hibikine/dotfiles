@@ -35,7 +35,7 @@ install:
 	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet hub pip nvim travis yvm gvm peek
+init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek
 
 .PHONY: init-sh
 init-sh: install
@@ -128,7 +128,7 @@ endif
 .PHONY: yarn
 yarn: node
 ifndef YARN
-	cd src; ./install_yarn.sh
+	cd src; ./install_yarn.sh; ./set_yarn_config.sh
 endif
 
 .PHONY: yvm

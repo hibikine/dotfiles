@@ -137,3 +137,5 @@ export NVM_DIR="$HOME/.nvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/hibikine/.sdkman"
 [[ -s "/home/hibikine/.sdkman/bin/sdkman-init.sh" ]] && source "/home/hibikine/.sdkman/bin/sdkman-init.sh"
+export YVM_DIR=/Users/kansei/.yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
