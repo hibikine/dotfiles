@@ -24,7 +24,7 @@ zplug "felixr/docker-zsh-completion"
 zplug load --verbose
 
 # PATH settings
-export PATH="$PATH:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.config/composer/vendor/bin"
+export PATH="$PATH:$HOME/.npm-global/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.config/composer/vendor/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
@@ -147,3 +147,7 @@ source /usr/local/bin/yvm
 # added by travis gem
 [ -f /Users/kansei/.travis/travis.sh ] && source /Users/kansei/.travis/travis.sh
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/hibikine/.sdkman"
+[[ -s "/home/hibikine/.sdkman/bin/sdkman-init.sh" ]] && source "/home/hibikine/.sdkman/bin/sdkman-init.sh"
