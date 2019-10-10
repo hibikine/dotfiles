@@ -49,8 +49,9 @@
   "editor.renderControlCharacters": true,
   "files.autoSave": "onFocusChange",
   "files.associations": {
-    ".stylelintrc": "json"
-  },
+    ".stylelintrc": "json",
+    ".remarkrc": "json"
+},
   "files.trimTrailingWhitespace": true,
   "workbench.startupEditor": "newUntitledFile",
   "git.autofetch": true,
@@ -99,7 +100,7 @@
   "vim.neovimPath": "/usr/local/bin/nvim",
   "explorer.confirmDelete": false,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1569547481814,
+  "php-cs-fixer.lastDownload": 1570677547885,
   "eslint.autoFixOnSave": true,
   "eslint.validate": [
     "javascript",
