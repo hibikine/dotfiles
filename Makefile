@@ -184,3 +184,8 @@ gvm:
 ifndef GVM
 	cd src; ./install_gvm.sh
 endif
+
+.PHONY: tpm
+tpm:
+	cd src; ./install_tpm.sh
+
