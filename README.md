@@ -1,6 +1,6 @@
 # dotfiles
 
-[![CircleCI](https://circleci.com/gh/HibikineKage/dotfiles.svg?style=svg)](https://circleci.com/gh/HibikineKage/dotfiles)
+[![CircleCI](https://circleci.com/gh/hibikine/dotfiles.svg?style=svg)](https://circleci.com/gh/HibikineKage/dotfiles)
 
 Hibikine Kage's dotfiles.
 

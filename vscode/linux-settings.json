@@ -1,6 +1,7 @@
 {
   "[javascript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.tabSize": 2,
@@ -31,10 +32,12 @@
   "prettier.requireConfig": false,
   "files.autoSave": "onFocusChange",
   "workbench.editor.enablePreview": false,
-  "vim.insertModeKeyBindings": [{
-    "before": ["j", "j"],
-    "after": ["<Esc>"]
-  }],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
   "git.enableSmartCommit": true,
   "csharp.format.enable": false,
   "circleci.apiKey": "099d7f5848373c792a0f25bc0f53b71520a0ad2c",
@@ -87,6 +90,14 @@
   "vim.easymotion": true,
   "window.zoomLevel": 0,
   "explorer.confirmDelete": false,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "FSharp.monoPath": "/usr/bin/mono",
+  "FSharp.fsacRuntime": "net",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -98,7 +109,24 @@
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true
+  },
+  "python.jediEnabled": false,
+  "editor.formatOnSave": true,
+  "auto-rename-tag.activationOnLanguage": [
+    "javascriptreact",
+    "html",
+    "vue",
+    "xml",
+    "typescriptreact"
+  ],
+  "prettier.disableLanguages": ["markdown"],
+  "[markdown]": {
+    "editor.defaultFormatter": "mrmlnc.vscode-remark"
+  },
+  "files.associations": {
+    ".remarkrc": "json"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
-
-
 }

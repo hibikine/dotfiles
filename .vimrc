@@ -165,3 +165,6 @@ let g:webdevicons_enable_unite = 1
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_typescript_enabled_makers = ['eslint']
+
+" スワップファイルのディレクトリを指定
+:set directory=$HOME/.vim/tmp
