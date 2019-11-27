@@ -22,6 +22,28 @@ if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/path.zsh.inc
 fi
 
+# History
+
+# 保存先
+export HISTFILE=${HOME}/.zsh_history
+# メモリに保存されるヒストリ件数
+export HISTSIZE=1000
+# 履歴ファイルに保存される履歴件数
+export SAVEHIST=100000
+# 開始と終了を記録する
+setopt EXTENDED_HISTORY
+# historyを共有
+setopt share_history
+# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_all_dups
+# スペースで始まるコマンド行を無視
+setopt hist_ignore_space
+setopt hist_ignore_dups
+setopt hist_verify
+setopt hist_save_no_dups
+setopt hist_expand
+setopt inc_append_history
+
 # pure config
 PURE_PROMPT_SYMBOL=">"
 
