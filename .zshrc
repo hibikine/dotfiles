@@ -22,6 +22,28 @@ if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/path.zsh.inc
 fi
 
+# History
+
+# 保存先
+export HISTFILE=${HOME}/.zsh_history
+# メモリに保存されるヒストリ件数
+export HISTSIZE=1000
+# 履歴ファイルに保存される履歴件数
+export SAVEHIST=100000
+# 開始と終了を記録する
+setopt EXTENDED_HISTORY
+# historyを共有
+setopt share_history
+# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_all_dups
+# スペースで始まるコマンド行を無視
+setopt hist_ignore_space
+setopt hist_ignore_dups
+setopt hist_verify
+setopt hist_save_no_dups
+setopt hist_expand
+setopt inc_append_history
+
 # pure config
 PURE_PROMPT_SYMBOL=">"
 
@@ -113,11 +135,11 @@ alias gpuo='git push -u origin $(git_current_branch)'
 alias gclog='git clog'
 
 # proxy aliases
-alias setproxy='git config --file ~/.gitconfig.local http.proxy ccproxyc.kanagawa-it.ac.jp:10080 && git config --file ~/.gitconfig.local https.proxy ccproxyc.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyc.kanagawa-it.ac.jp:10080'
-alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker'
-alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git config --file ~/.gitconfig.local --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyc.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
-alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyc.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker'
-alias unsetdockerproxy='sudo sed -i -e "s/export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/#export http_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/export https_proxy=https:\/\/ccproxyc.kanagawa-it.ac.jp:10080/#export https_proxy=http:\/\/ccproxyc.kanagawa-it.ac.jp:10080/" /etc/default/docker'
+alias setproxy='git config --file ~/.gitconfig.local http.proxy ccproxyz.kanagawa-it.ac.jp:10080 && git config --file ~/.gitconfig.local https.proxy ccproxyz.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyz.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyz.kanagawa-it.ac.jp:10080'
+alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
+alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git config --file ~/.gitconfig.local --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
+alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
+alias unsetdockerproxy='sudo sed -i -e "s/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
 
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
@@ -151,7 +173,7 @@ export YVM_DIR="${HOME}/.yvm"
 [[ -s "/home/hibikine/.gvm/scripts/gvm" ]] && source "/home/hibikine/.gvm/scripts/gvm"
 
 # added by travis gem
-[ -f /Users/kansei/.travis/travis.sh ] && source /Users/kansei/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

@@ -20,6 +20,7 @@ done
 ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
 mkdir -p ~/.config/nvim
 ln -sf $SCRIPT_DIR/.vimrc ~/.config/nvim/init.vim
+mkdir -p ~/.vim/tmp
 
 # declare OS
 if [ "$(uname)" == 'Darwin' ]; then

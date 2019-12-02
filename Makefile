@@ -82,7 +82,7 @@ ifndef BREW
 	if [ "$$(uname)" = 'Darwin' ]; then \
 		cd src; ./install_homebrew.sh; \
 	fi
-endif
+
 
 .PHONY: go
 go:
@@ -191,3 +191,8 @@ taskwarrior:
 ifndef TASK
 	cd src; ./install_taskwarrior.sh
 endif
+
+.PHONY: tpm
+tpm:
+	cd src; ./install_tpm.sh
+
