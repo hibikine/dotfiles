@@ -26,7 +26,7 @@ GVM := $(shell command -v gvm 2> /dev/null)
 all: init
 
 .PHONY: init
-init: init-sh zplug
+init: init-sh zplug taskwarrior
 
 .PHONY: full
 full: init-full
@@ -36,7 +36,7 @@ install:
 	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek
+init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior
 
 .PHONY: init-sh
 init-sh: install
