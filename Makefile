@@ -18,6 +18,7 @@ NVIM := $(shell command -v nvim 2> /dev/null)
 PHP := $(shell command -v php 2> /dev/null)
 COMPOSER := $(shell command -v composer 2> /dev/null)
 PEEK := $(shell command -v peek 2> /dev/null)
+TASK := $(shell command -v task 2> /dev/null)
 VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
 GVM := $(shell command -v gvm 2> /dev/null)
@@ -183,4 +184,10 @@ endif
 gvm:
 ifndef GVM
 	cd src; ./install_gvm.sh
+endif
+
+.PHONY: taskwarrior
+taskwarrior:
+ifndef TASK
+	cd src; ./install_taskwarrior.sh
 endif
