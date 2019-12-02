@@ -29,8 +29,6 @@
   "php-cs-fixer.allowRisky": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
-  "prettier.requireConfig": false,
-  "prettier.stylelintIntegration": true,
   "files.autoSave": "onFocusChange",
   "workbench.editor.enablePreview": false,
   "vim.insertModeKeyBindings": [
@@ -122,5 +120,9 @@
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.useSystemClipboard": true
 }
