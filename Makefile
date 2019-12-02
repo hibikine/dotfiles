@@ -82,7 +82,7 @@ ifndef BREW
 	if [ "$$(uname)" = 'Darwin' ]; then \
 		cd src; ./install_homebrew.sh; \
 	fi
-
+endif
 
 .PHONY: go
 go:
