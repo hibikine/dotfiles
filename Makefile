@@ -23,6 +23,7 @@ VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
 GVM := $(shell command -v gvm 2> /dev/null)
 RIPGREP := $(shell command -v rg 2> /dev/null)
+RUSTUP := $(shell command -v rustup 2> /dev/null)
 ARG=sample
 
 all: init
@@ -38,7 +39,7 @@ install:
 	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep
+init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep rustup
 
 .PHONY: init-sh
 init-sh: install
@@ -201,3 +202,7 @@ tpm:
 .PHONY: gen-install-script
 gen-install-script: yarn
 	yarn hygen install-script new ${ARG}
+
+.PHONY: rustup
+rustup:
+	cd src; ./install_rustup.sh
