@@ -205,4 +205,12 @@ gen-install-script: yarn
 
 .PHONY: rustup
 rustup:
+ifndef RUSTUP
 	cd src; ./install_rustup.sh
+endif
+
+.PHONY: ripgrep
+ripgrep:
+ifndef RIPGREP
+	cd src; ./install_ripgrep.sh
+endif
