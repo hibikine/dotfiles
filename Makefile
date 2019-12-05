@@ -23,6 +23,7 @@ VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
 GVM := $(shell command -v gvm 2> /dev/null)
 RIPGREP := $(shell command -v rg 2> /dev/null)
+ARG=sample
 
 all: init
 
@@ -197,3 +198,6 @@ endif
 tpm:
 	cd src; ./install_tpm.sh
 
+.PHONY: gen-install-script
+gen-install-script: yarn
+	yarn hygen install-script new ${ARG}
