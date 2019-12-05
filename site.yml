@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+  - shell: hostname
+    register: r_hostname
+  - debug:
+    var: r_hostname.stdout
