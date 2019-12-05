@@ -22,6 +22,7 @@ TASK := $(shell command -v task 2> /dev/null)
 VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
 GVM := $(shell command -v gvm 2> /dev/null)
+RIPGREP := $(shell command -v rg 2> /dev/null)
 
 all: init
 
@@ -36,7 +37,7 @@ install:
 	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior
+init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep
 
 .PHONY: init-sh
 init-sh: install
@@ -115,7 +116,7 @@ ifndef TRAVIS
 endif
 
 .PHONY: hub
-hub: go brew ruby bundler
+hub: brew
 ifndef HUB
 	cd src; ./install_hub.sh
 endif
