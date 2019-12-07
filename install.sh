@@ -8,6 +8,7 @@ do
     [[ "$f" == ".DS_Store" ]] && continue
     [[ "$f" == ".travis.yml" ]] && continue
     [[ "$f" == ".circleci" ]] && continue
+    [[ "$f" == ".github" ]] && continue
 
     echo $f
     if [ -d "${f}" ]; then

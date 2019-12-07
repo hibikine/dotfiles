@@ -18,14 +18,18 @@ NVIM := $(shell command -v nvim 2> /dev/null)
 PHP := $(shell command -v php 2> /dev/null)
 COMPOSER := $(shell command -v composer 2> /dev/null)
 PEEK := $(shell command -v peek 2> /dev/null)
+TASK := $(shell command -v task 2> /dev/null)
 VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
 GVM := $(shell command -v gvm 2> /dev/null)
+RIPGREP := $(shell command -v rg 2> /dev/null)
+RUSTUP := $(shell command -v rustup 2> /dev/null)
+ARG=sample
 
 all: init
 
 .PHONY: init
-init: init-sh zplug
+init: init-sh zplug taskwarrior
 
 .PHONY: full
 full: init-full
@@ -35,7 +39,7 @@ install:
 	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek
+init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep rustup
 
 .PHONY: init-sh
 init-sh: install
@@ -114,7 +118,7 @@ ifndef TRAVIS
 endif
 
 .PHONY: hub
-hub: go brew ruby bundler
+hub: brew
 ifndef HUB
 	cd src; ./install_hub.sh
 endif
@@ -185,7 +189,28 @@ ifndef GVM
 	cd src; ./install_gvm.sh
 endif
 
+.PHONY: taskwarrior
+taskwarrior:
+ifndef TASK
+	cd src; ./install_taskwarrior.sh
+endif
+
 .PHONY: tpm
 tpm:
 	cd src; ./install_tpm.sh
 
+.PHONY: gen-install-script
+gen-install-script: yarn
+	yarn hygen install-script new ${ARG}
+
+.PHONY: rustup
+rustup:
+ifndef RUSTUP
+	cd src; ./install_rustup.sh
+endif
+
+.PHONY: ripgrep
+ripgrep:
+ifndef RIPGREP
+	cd src; ./install_ripgrep.sh
+endif

@@ -8,6 +8,7 @@
 [core]
     autoCRLF = input
     editor = vim
+	excludesfile = $HOME/.gitignore_global
 [push]
     default = simple
 [http]

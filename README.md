@@ -51,3 +51,15 @@ make test
 ```bash
 ./docker-test.sh
 ```
+
+## Development
+
+### Add new install script
+
+```bash
+yarn hygen install-script new hogehoge && chmod +x src/install_hogehoge.sh
+# or
+make add-install-script ARG=hogehoge && chmod +x src/install_hogehoge.sh
+# or
+cp src/install_template.sh src/install_hogehoge.sh
+```
