@@ -94,6 +94,8 @@ alias untbz='tar -xjvf'
 
 alias docker-all-stop='docker stop $(docker ps -a -q)'
 
+alias tasksync='git -C ~/.task add --all && git -C ~/.task commit -m "sync task" && git -C ~/.task push'
+
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
     # export LSCOLORS=xbfxcxdxbxegedabagacad

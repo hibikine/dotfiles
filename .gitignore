@@ -12,3 +12,4 @@ tests/assert.sh
 __pycache__/
 .vim/.netrwhist
 /.ionide/
+.vim/tmp/
