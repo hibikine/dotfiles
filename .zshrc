@@ -186,6 +186,12 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source /usr/local/bin/virtualenvwrapper.sh
+    export WORKON_HOME=~/.virtualenvs
+; fi
+
 # manに色を付ける
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
