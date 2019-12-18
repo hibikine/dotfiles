@@ -1,0 +1,9 @@
+set ignorecase
+set smartcase
+set hlsearch
+
+nnoremap x "_x
+vnoremap x "_x
+
+set clipboard=unnamed
+inoremap jj <Esc>
