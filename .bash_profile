@@ -10,3 +10,5 @@ if [ -e $HOME/.bash_profile.local ]; then
     source $HOME/.bash_profile.local
 fi
 
+
+export PATH="$HOME/.poetry/bin:$PATH"
