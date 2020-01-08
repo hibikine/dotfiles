@@ -62,7 +62,7 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH"
 export XIM_PROGRAM=fcitx
 export XIM=fcitx
 export GTK_IM_MODULE=fcitx

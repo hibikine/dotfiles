@@ -136,5 +136,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vim.useSystemClipboard": true,
-  "python.linting.flake8Enabled": true
+  "python.linting.flake8Enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
