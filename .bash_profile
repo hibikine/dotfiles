@@ -10,3 +10,8 @@ if [ -e $HOME/.bash_profile.local ]; then
     source $HOME/.bash_profile.local
 fi
 
+export XIM_PROGRAM=fcitx
+export XIM=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
