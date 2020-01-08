@@ -214,3 +214,7 @@ ripgrep:
 ifndef RIPGREP
 	cd src; ./install_ripgrep.sh
 endif
+
+.PHONY: proxy-auto-toggle
+proxy-auto-toggle:
+	sudo ln -sf ~/dotfiles/etc_settings/NetworkManager/dispatcher.d/ProxyAutoToggle.zsh /etc/NetworkManager/dispatcher.d/ProxyAutoToggle.zsh
