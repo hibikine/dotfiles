@@ -14,6 +14,9 @@ zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
 zplug load --verbose
 
+# zmvコマンドを有効化
+autoload -U zmv
+
 # PATH settings
 export PATH="$PATH:$HOME/.npm-global/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$HOME/bin/flutter/bin"
 
