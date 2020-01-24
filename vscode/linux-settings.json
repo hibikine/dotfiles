@@ -128,9 +128,16 @@
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+  ,"[python]": {
+    "editor.tabSize": 4
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "vim.useSystemClipboard": true
+  "vim.useSystemClipboard": true,
+  "python.linting.flake8Enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

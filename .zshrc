@@ -18,7 +18,7 @@ zplug load --verbose
 autoload -U zmv
 
 # PATH settings
-export PATH="$PATH:$HOME/.npm-global/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$HOME/bin/flutter/bin"
+export PATH="$PATH:$HOME/.npm-global/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$HOME/bin/flutter/bin:/snap/bin"
 
 if [[ -s "$HOME/src/google-cloud-sdk" ]]; then
     source $HOME/src/google-cloud-sdk/completion.zsh.inc
@@ -96,6 +96,8 @@ alias untgz='tar -xzvf'
 alias untbz='tar -xjvf'
 
 alias docker-all-stop='docker stop $(docker ps -a -q)'
+
+alias tasksync='git -C ~/.task add --all && git -C ~/.task commit -m "sync task" && git -C ~/.task push'
 
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
@@ -188,6 +190,12 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source /usr/local/bin/virtualenvwrapper.sh
+    export WORKON_HOME=~/.virtualenvs
+; fi
 
 # manに色を付ける
 man() {
