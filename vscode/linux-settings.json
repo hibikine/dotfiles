@@ -88,7 +88,7 @@
   "phpcs.executablePath": "/home/hibikine/.config/composer/vendor/bin/phpcs",
   "vim.leader": "<space>",
   "vim.easymotion": true,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "explorer.confirmDelete": false,
   "files.exclude": {
     "**/.classpath": true,
@@ -139,5 +139,8 @@
   "python.linting.flake8Enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "http.proxy": "http://ccproxyz.kanagawa-it.ac.jp:10080",
+  "http.proxyStrictSSL": false,
+  "http.proxySupport": "on"
 }
