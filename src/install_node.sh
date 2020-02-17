@@ -18,6 +18,7 @@ else
             ;;
         osx)
             brew install nodebrew && \
+                mkdir -p $HOME/.nodebrew/src
                 nodebrew install-binary latest && \
                 nodebrew use latest
             ;;
