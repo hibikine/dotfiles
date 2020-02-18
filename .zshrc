@@ -30,7 +30,7 @@ fi
 # 保存先
 export HISTFILE=${HOME}/.zsh_history
 # メモリに保存されるヒストリ件数
-export HISTSIZE=1000
+export HISTSIZE=100000
 # 履歴ファイルに保存される履歴件数
 export SAVEHIST=100000
 # 開始と終了を記録する
@@ -46,6 +46,9 @@ setopt hist_verify
 setopt hist_save_no_dups
 setopt hist_expand
 setopt inc_append_history
+# ヒストリコマンドは履歴に登録しない
+setopt hist_no_store
+
 
 # pure config
 PURE_PROMPT_SYMBOL=">"
@@ -57,18 +60,6 @@ export GOPATH="$HOME/go"
 
 # Home
 WHOAMI=$(whoami)
-
-# History
-export HISTFILE=${HOME}/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=100000
-setopt hist_ignore_dups
-setopt EXTENDED_HISTORY
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_no_store
-setopt hist_expand
-setopt inc_append_history
 
 # Aliases
 alias chstartserver="gcloud compute instances start dev-2"
