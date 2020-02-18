@@ -80,8 +80,7 @@
   },
   "jest.enableSnapshotUpdateMessages": false,
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "es5",
-  "prettier.eslintIntegration": false,
+"prettier.trailingComma": "es5",
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
