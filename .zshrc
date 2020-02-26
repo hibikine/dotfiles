@@ -176,6 +176,11 @@ export YVM_DIR="${HOME}/.yvm"
 export SDKMAN_DIR="/home/hibikine/.sdkman"
 [[ -s "/home/hibikine/.sdkman/bin/sdkman-init.sh" ]] && source "/home/hibikine/.sdkman/bin/sdkman-init.sh"
 
+# use exa when its installed by alternative of ls
+if type "exa" > /dev/null 2>&1; then
+    alias ls=exa
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
