@@ -23,6 +23,7 @@ VIM := $(shell command -v vim 2> /dev/null)
 YVM := $(shell command -v yvm 2> /dev/null)
 GVM := $(shell command -v gvm 2> /dev/null)
 RIPGREP := $(shell command -v rg 2> /dev/null)
+BAT := $(shell command -v bat 2> /dev/null)
 RUSTUP := $(shell command -v rustup 2> /dev/null)
 EXA := $(shell command -v exa 2> /dev/null)
 ARG=sample
@@ -40,7 +41,7 @@ install:
 	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-tools
-init-tools: zplug pet exa
+init-tools: zplug pet exa bat
 
 .PHONY: init-full
 init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep rustup exa
@@ -223,6 +224,12 @@ endif
 exa: rustup
 ifndef EXA
 	cd src; ./install_exa.sh
+endif
+
+.PHONY: bat
+bat: curl
+ifndef BAT
+	cd src; ./install_bat.sh
 endif
 
 .PHONY: proxy-auto-toggle
