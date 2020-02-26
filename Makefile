@@ -26,6 +26,7 @@ RIPGREP := $(shell command -v rg 2> /dev/null)
 BAT := $(shell command -v bat 2> /dev/null)
 RUSTUP := $(shell command -v rustup 2> /dev/null)
 EXA := $(shell command -v exa 2> /dev/null)
+FD := $(shell command -v fd 2> /dev/null)
 ARG=sample
 
 all: init
@@ -41,10 +42,10 @@ install:
 	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-tools
-init-tools: zplug pet exa bat
+init-tools: zplug pet exa bat fd
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep rustup exa
+init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep rustup exa bat fd
 
 .PHONY: init-sh
 init-sh: install
@@ -230,6 +231,12 @@ endif
 bat: curl
 ifndef BAT
 	cd src; ./install_bat.sh
+endif
+
+.PHONY: fd
+fd: curl
+ifndef FD
+	cd src; ./install_fd.sh
 endif
 
 .PHONY: proxy-auto-toggle
