@@ -118,3 +118,8 @@
   description = "search large files in current directory"
   command = "du -h -d 1 | sort -h"
   output = ""
+
+[[snippets]]
+  description = "git checkout from branch log"
+  command = "git clog"
+  output = ""
