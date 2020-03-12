@@ -1,4 +1,10 @@
 {
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.formatOnSave": false
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -51,7 +57,7 @@
   "files.associations": {
     ".stylelintrc": "json",
     ".remarkrc": "json"
-},
+  },
   "files.trimTrailingWhitespace": true,
   "workbench.startupEditor": "newUntitledFile",
   "git.autofetch": true,
@@ -81,7 +87,6 @@
   "jest.enableSnapshotUpdateMessages": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
-  "prettier.eslintIntegration": false,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
@@ -98,7 +103,7 @@
   "vim.neovimPath": "/usr/local/bin/nvim",
   "explorer.confirmDelete": false,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1570677547885,
+  "php-cs-fixer.lastDownload": 1583386591398,
   "eslint.autoFixOnSave": true,
   "eslint.validate": [
     "javascript",
@@ -110,5 +115,8 @@
   "eslint.packageManager": "yarn",
   "editor.formatOnSaveTimeout": 3000,
   "tslint.packageManager": "yarn",
-  "typescriptHero.imports.organizeOnSave": true
+  "typescriptHero.imports.organizeOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
