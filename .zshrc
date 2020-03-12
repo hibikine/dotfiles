@@ -30,7 +30,7 @@ fi
 # 保存先
 export HISTFILE=${HOME}/.zsh_history
 # メモリに保存されるヒストリ件数
-export HISTSIZE=1000
+export HISTSIZE=100000
 # 履歴ファイルに保存される履歴件数
 export SAVEHIST=100000
 # 開始と終了を記録する
@@ -46,6 +46,9 @@ setopt hist_verify
 setopt hist_save_no_dups
 setopt hist_expand
 setopt inc_append_history
+# ヒストリコマンドは履歴に登録しない
+setopt hist_no_store
+
 
 # pure config
 PURE_PROMPT_SYMBOL=">"
@@ -57,18 +60,6 @@ export GOPATH="$HOME/go"
 
 # Home
 WHOAMI=$(whoami)
-
-# History
-export HISTFILE=${HOME}/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=100000
-setopt hist_ignore_dups
-setopt EXTENDED_HISTORY
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_no_store
-setopt hist_expand
-setopt inc_append_history
 
 # Aliases
 alias chstartserver="gcloud compute instances start dev-2"
@@ -145,6 +136,17 @@ alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kan
 alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git config --file ~/.gitconfig.local --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
 alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
 alias unsetdockerproxy='sudo sed -i -e "s/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
+
+# use exa when its installed by alternative of ls
+if type "exa" > /dev/null 2>&1; then
+    alias ls=exa
+fi
+
+# use bat if it exists
+if type "bat" > /dev/null 2>&1; then
+    alias less=bat
+fi
+
 
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
