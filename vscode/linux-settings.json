@@ -40,7 +40,8 @@
     "editor.tabSize": 2
   },
   "[yaml]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[review]": {
     "editor.insertSpaces": false
