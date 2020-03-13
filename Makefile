@@ -16,6 +16,7 @@ PIP := $(shell command -v pip 2> /dev/null)
 CURL := $(shell command -v curl 2> /dev/null)
 NVIM := $(shell command -v nvim 2> /dev/null)
 PHP := $(shell command -v php 2> /dev/null)
+PHP := $(shell command -v gh 2> /dev/null)
 COMPOSER := $(shell command -v composer 2> /dev/null)
 PEEK := $(shell command -v peek 2> /dev/null)
 TASK := $(shell command -v task 2> /dev/null)
@@ -238,6 +239,13 @@ fd: curl
 ifndef FD
 	cd src; ./install_fd.sh
 endif
+
+.PHONY: gh
+gh:
+ifndef GH
+	cd src; ./install_gh.sh
+endif
+
 
 .PHONY: proxy-auto-toggle
 proxy-auto-toggle:
