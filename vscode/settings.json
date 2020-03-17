@@ -1,7 +1,4 @@
 {
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -16,6 +13,12 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
   "[php]": {
     "editor.defaultFormatter": "junstyle.php-cs-fixer"
   },
@@ -27,6 +30,9 @@
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -37,7 +43,15 @@
   "search.exclude": {
     "**/node_modules": true
   },
-  "workbench.colorTheme": "Noctis",
+  "files.autoSave": "onFocusChange",
+  "files.associations": {
+    ".stylelintrc": "json",
+    ".remarkrc": "json"
+  },
+  "files.trimTrailingWhitespace": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "editor.formatOnSave": true,
   "editor.formatOnType": false,
   "editor.formatOnPaste": false,
@@ -47,23 +61,23 @@
   "editor.wordWrap": "on",
   "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。「」【】『』（）！？　てにをはがのともへでや",
   "editor.renderControlCharacters": true,
-  "files.autoSave": "onFocusChange",
-  "files.associations": {
-    ".stylelintrc": "json",
-    ".remarkrc": "json"
-},
-  "files.trimTrailingWhitespace": true,
+  "explorer.confirmDelete": false,
+  "workbench.colorTheme": "Noctis",
+  "workbench.editor.enablePreview": false,
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.feedback.visible": false,
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "html.format.endWithNewline": true,
   "javascript.implicitProjectConfig.checkJs": true,
   "php.validate.run": "onType",
   "typescript.locale": "en",
-  "workbench.editor.enablePreview": false,
-  "workbench.statusBar.feedback.visible": false,
   "diffEditor.ignoreTrimWhitespace": true,
-  "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
+  "gitlens.blame.highlight.locations": [
+    "gutter",
+    "line",
+    "overview"
+  ],
   "gitlens.keymap": "alternate",
   "gitlens.historyExplorer.enabled": true,
   "gitlens.views.fileHistory.enabled": true,
@@ -80,11 +94,16 @@
   },
   "jest.enableSnapshotUpdateMessages": false,
   "prettier.singleQuote": true,
-"prettier.trailingComma": "es5",
+  "prettier.trailingComma": "es5",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.useSystemClipboard": true,
@@ -95,16 +114,8 @@
   "vim.sneak": true,
   "vim.leader": "<space>",
   "vim.neovimPath": "/usr/local/bin/nvim",
-  "explorer.confirmDelete": false,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
   "php-cs-fixer.lastDownload": 1570677547885,
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    { "language": "typescript", "autoFix": true },
-    { "language": "typescriptreact", "autoFix": true }
-  ],
   "eslint.alwaysShowStatus": true,
   "eslint.packageManager": "yarn",
   "editor.formatOnSaveTimeout": 3000,
