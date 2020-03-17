@@ -137,6 +137,17 @@ alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git
 alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
 alias unsetdockerproxy='sudo sed -i -e "s/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
 
+# use exa when its installed by alternative of ls
+if type "exa" > /dev/null 2>&1; then
+    alias ls=exa
+fi
+
+# use bat if it exists
+if type "bat" > /dev/null 2>&1; then
+    alias less=bat
+fi
+
+
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

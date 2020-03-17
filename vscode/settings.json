@@ -31,7 +31,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[yaml]": {
-    "editor.formatOnSave": false
+    "editor.autoIndent": "advanced",
+    "editor.formatOnSave": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
   },
   "files.exclude": {
     "**/.git": true,
@@ -115,10 +118,12 @@
   "vim.leader": "<space>",
   "vim.neovimPath": "/usr/local/bin/nvim",
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1570677547885,
   "eslint.alwaysShowStatus": true,
   "eslint.packageManager": "yarn",
   "editor.formatOnSaveTimeout": 3000,
   "tslint.packageManager": "yarn",
-  "typescriptHero.imports.organizeOnSave": true
+  "typescriptHero.imports.organizeOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
