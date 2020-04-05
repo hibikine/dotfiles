@@ -28,6 +28,7 @@ BAT := $(shell command -v bat 2> /dev/null)
 RUSTUP := $(shell command -v rustup 2> /dev/null)
 EXA := $(shell command -v exa 2> /dev/null)
 FD := $(shell command -v fd 2> /dev/null)
+DOCKER := $(shell command -v docker 2> /dev/null)
 ARG=sample
 
 all: init
@@ -246,6 +247,11 @@ ifndef GH
 	cd src; ./install_gh.sh
 endif
 
+.PHONY: docker
+docker:
+ifndef DOCKER
+	cd src; ./install_docker.sh
+endif
 
 .PHONY: proxy-auto-toggle
 proxy-auto-toggle:
