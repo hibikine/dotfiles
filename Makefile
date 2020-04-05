@@ -33,7 +33,7 @@ ARG=sample
 all: init
 
 .PHONY: init
-init: init-sh zplug taskwarrior
+init: init-sh zplug
 
 .PHONY: full
 full: init-full
