@@ -1,7 +1,7 @@
 DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 PET := $(shell command -v pet 2> /dev/null)
 ZSH := $(shell command -v zsh 2> /dev/null)
-ZPLUG := $(shell command -v zplug 2> /dev/null)
+ZPLUG := $(shell ls ~/.zplug | grep init.zsh)
 NODE := $(shell command -v node 2> /dev/null)
 YARN := $(shell command -v yarn 2> /dev/null)
 HUB := $(shell command -v hub 2> /dev/null)
