@@ -147,4 +147,11 @@
     "xml",
     "typescriptreact"
   ]
+,
+
+"vim.autoSwitchInputMethod.enable": true,
+"vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx-remote",
+"vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx-remote {im}",
+"vim.autoSwitchInputMethod.defaultIM": "-c"
+
 }
