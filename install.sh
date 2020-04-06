@@ -9,6 +9,7 @@ do
     [[ "$f" == ".travis.yml" ]] && continue
     [[ "$f" == ".circleci" ]] && continue
     [[ "$f" == ".github" ]] && continue
+    [[ "$f" == ".config" ]] && continue
 
     echo $f
     if [ -d "${f}" ]; then
@@ -17,6 +18,10 @@ do
       ln -sf $SCRIPT_DIR/$f ~/$f
     fi
 done
+
+mkdir -p ~/.config/pet
+ln -sf $SCRIPT_DIR/.config/pet/config.toml ~/.config/pet/config.toml
+ln -sf $SCRIPT_DIR/.config/pet/snippet.toml ~/.config/pet/snippet.toml
 
 ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
 mkdir -p ~/.config/nvim
