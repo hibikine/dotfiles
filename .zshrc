@@ -12,6 +12,8 @@ zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
+zplug "plugins/docker", from:oh-my-zsh
+zplug "plugins/docker-compose", from:oh-my-zsh
 zplug load --verbose
 
 # zmvコマンドを有効化
