@@ -29,6 +29,7 @@ RUSTUP := $(shell command -v rustup 2> /dev/null)
 EXA := $(shell command -v exa 2> /dev/null)
 FD := $(shell command -v fd 2> /dev/null)
 DOCKER := $(shell command -v docker 2> /dev/null)
+YTOP := $(shell command -v ytop 2> /dev/null)
 ARG=sample
 
 all: init
@@ -251,6 +252,12 @@ endif
 docker:
 ifndef DOCKER
 	cd src; ./install_docker.sh
+endif
+
+.PHONY: ytop
+ytop:
+ifndef YTOP
+	cd src; ./install_ytop.sh
 endif
 
 .PHONY: proxy-auto-toggle
