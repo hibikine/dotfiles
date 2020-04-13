@@ -1,7 +1,7 @@
 DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 PET := $(shell command -v pet 2> /dev/null)
 ZSH := $(shell command -v zsh 2> /dev/null)
-ZPLUG := $(shell command -v zplug 2> /dev/null)
+ZPLUG := $(shell ls ~/.zplug | grep init.zsh)
 NODE := $(shell command -v node 2> /dev/null)
 YARN := $(shell command -v yarn 2> /dev/null)
 HUB := $(shell command -v hub 2> /dev/null)
@@ -16,6 +16,7 @@ PIP := $(shell command -v pip 2> /dev/null)
 CURL := $(shell command -v curl 2> /dev/null)
 NVIM := $(shell command -v nvim 2> /dev/null)
 PHP := $(shell command -v php 2> /dev/null)
+PHP := $(shell command -v gh 2> /dev/null)
 COMPOSER := $(shell command -v composer 2> /dev/null)
 PEEK := $(shell command -v peek 2> /dev/null)
 TASK := $(shell command -v task 2> /dev/null)
@@ -28,12 +29,14 @@ RUSTUP := $(shell command -v rustup 2> /dev/null)
 EXA := $(shell command -v exa 2> /dev/null)
 FD := $(shell command -v fd 2> /dev/null)
 PROCS := $(shell command -v procs 2> /dev/null)
+DOCKER := $(shell command -v docker 2> /dev/null)
+YTOP := $(shell command -v ytop 2> /dev/null)
 ARG=sample
 
 all: init
 
 .PHONY: init
-init: init-sh zplug taskwarrior
+init: init-sh zplug
 
 .PHONY: full
 full: init-full
@@ -244,6 +247,24 @@ endif
 procs: rustup
 ifndef PROCS
 	cd src; ./install_procs.sh
+endif
+
+.PHONY: gh
+gh:
+ifndef GH
+	cd src; ./install_gh.sh
+endif
+
+.PHONY: docker
+docker:
+ifndef DOCKER
+	cd src; ./install_docker.sh
+endif
+
+.PHONY: ytop
+ytop:
+ifndef YTOP
+	cd src; ./install_ytop.sh
 endif
 
 .PHONY: proxy-auto-toggle
