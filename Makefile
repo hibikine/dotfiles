@@ -27,6 +27,7 @@ BAT := $(shell command -v bat 2> /dev/null)
 RUSTUP := $(shell command -v rustup 2> /dev/null)
 EXA := $(shell command -v exa 2> /dev/null)
 FD := $(shell command -v fd 2> /dev/null)
+PROCS := $(shell command -v procs 2> /dev/null)
 ARG=sample
 
 all: init
@@ -42,10 +43,10 @@ install:
 	./install.sh; ./src/config_wsl.sh
 
 .PHONY: init-tools
-init-tools: zplug pet exa bat fd
+init-tools: zplug pet exa bat fd procs
 
 .PHONY: init-full
-init-full: init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep rustup exa bat fd
+init-full: init-tools init-sh-full zplug node yarn pet pip nvim yvm gvm peek taskwarrior ripgrep rustup exa bat fd procs
 
 .PHONY: init-sh
 init-sh: install
@@ -237,6 +238,12 @@ endif
 fd: curl
 ifndef FD
 	cd src; ./install_fd.sh
+endif
+
+.PHONY: procs
+procs: rustup
+ifndef PROCS
+	cd src; ./install_procs.sh
 endif
 
 .PHONY: proxy-auto-toggle
