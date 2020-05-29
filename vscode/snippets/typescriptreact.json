@@ -4,6 +4,13 @@
     "body": ["import * as React from 'react';"],
     "description": "import as react"
   },
+  "import React from 'react';": {
+    "prefix": "imr",
+    "body": [
+      "import React from 'react';"
+    ],
+    "description": "import React by default export."
+  },
   "export default": {
     "prefix": "ed",
     "body": ["export default $1"],
@@ -53,5 +60,17 @@
     "prefix": "sfc",
     "body": ["const $1 = () => $2;", "", "export default $1;"],
     "description": "create react stateless functional component."
+  },
+  "FC": {
+    "prefix": "fc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "type Props = {};",
+      "",
+      "export function $1({}: Props) {",
+      "  return <div>hoge$2</div>;",
+      "}"
+    ]
   }
 }
