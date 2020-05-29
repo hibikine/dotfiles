@@ -1,0 +1,6 @@
+[Unit]
+Description=Shutdown automatically at 10:30PM everyday
+
+[Service]
+Type=simple
+ExecStart=/sbin/shutdown -h +2
