@@ -72,5 +72,20 @@
       "  return <div>hoge$2</div>;",
       "}"
     ]
+  },
+  "ESLint Disable Next Line": {
+    "prefix": "ednl",
+    "body": [
+      "// eslint-disable-next-line"
+    ],
+    "description": "eslint disable next line alias"
+  },
+  "eslint disabled console.log": {
+    "prefix": "clog",
+    "body": [
+      "// eslint-disable-next-line",
+      "console.log($1);"
+    ],
+    "description": "eslint disabled console.log"
   }
 }
