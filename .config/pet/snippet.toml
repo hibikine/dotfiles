@@ -123,3 +123,8 @@
   description = "git checkout from branch log"
   command = "git clog"
   output = ""
+
+[[snippets]]
+  description = "mv twitter image to zips folder"
+  command = "find . -maxdepth 1 -type f -regextype posix-egrep -regex \".*[0-9a-zA-Z_]+-[0-9]+_.*-img\\.zip\" | xargs -I% mv % ./zips/"
+  output = ""
