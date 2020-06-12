@@ -209,3 +209,13 @@ man() {
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
 }
+
+# add explorer alias
+
+if type "explorer" > /dev/null 2>&1; then
+    :
+else
+    if type "xdg-open" > /dev/null 2>&1; then
+        alias explorer=xdg-open
+    fi
+fi
