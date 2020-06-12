@@ -161,7 +161,7 @@
 "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx-remote {im}",
 "vim.autoSwitchInputMethod.defaultIM": "-c",
 "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-"php-cs-fixer.lastDownload": 1590722077806,
+
 "typescript.preferences.importModuleSpecifier": "relative",
 "editor.tokenColorCustomizations": {
     "semanticHighlighting": true

@@ -1,1 +1,2 @@
 .yarnrc filter=ignorelastupdate
+vscode/linux-settings.json filter=ignorephpcsfixerlastdownload

@@ -21,6 +21,9 @@
 [filter "ignoreyvmdir"]
     smudge = cat
     clean = perl -pe 's/^export YVM_DIR=.+\n$//g'
+[filter "ignorephpcsfixerlastdownload"]
+    smudge = cat
+    clean = perl -pe 's/^ *\"php-cs-fixer.lastDownload\" *: *[0-9]+,$//g'
 [color]
     diff = auto
     status = auto
