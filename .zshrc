@@ -125,6 +125,7 @@ alias gp='git push'
 alias gco='git commit'
 alias gcom='git commit -m'
 alias ga='git add'
+alias gacom="gaa && gcom"
 alias git_current_branch='git symbolic-ref --short HEAD'
 alias gpuo='git push -u origin $(git_current_branch)'
 alias gclog='git clog'
