@@ -1,12 +1,19 @@
 {
     "[javascript]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[makefile]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false
     },
     "[typescript]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescriptreact]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[csharp]": {
         "editor.tabSize": 4
@@ -18,33 +25,38 @@
         "editor.tabSize": 4
     },
     "[jsonc]": {
-        "editor.tabSize": 4
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[json]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[review]":{
+        "editor.insertSpaces": false,
         "editor.tabSize": 4
     },
     "files.autoSave": "onFocusChange",
     "files.eol": "\n",
     "files.associations": {
-        "*.js": "javascriptreact"
+        "*.js": "javascriptreact",
+        ".remarkrc": "json"
     },
     "editor.tabSize": 2,
     "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
     "editor.wordWrap": "on",
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.renderControlCharacters": true,
     "editor.suggestSelection": "first",
     "workbench.editor.enablePreview": false,
     "workbench.statusBar.feedback.visible": false,
     "workbench.colorTheme": "Noctis Sereno",
-    "workbench.startupEditor": "welcomePage",
+    "workbench.startupEditor": "newUntitledFile",
     "window.zoomLevel": 0,
     "explorer.confirmDragAndDrop": false,
     "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
-    "prettier.eslintIntegration": true,
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     "eslint.autoFixOnSave": true,
     "eslint.packageManager": "yarn",
     "eslint.alwaysShowStatus": true,
@@ -66,35 +78,42 @@
     "php-cs-fixer.autoFixBySemicolon": true,
     "php-cs-fixer.allowRisky": true,
     "php-cs-fixer.executablePath": "${extensionPath}\\php-cs-fixer.phar",
-    "php-cs-fixer.lastDownload": 1553329970407,
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "es5",
-    "prettier.requireConfig": false,
-    "prettier.stylelintIntegration": true,
+    "php-cs-fixer.lastDownload": 1569869635963,
     "csharp.format.enable": false,
-    "vim.insertModeKeyBindings": [{
-        "before": ["j", "j"],
-        "after": ["<Esc>"]
-    }],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
     "vim.useSystemClipboard": true,
     "vim.easymotion": true,
     "vim.leader": "<space>",
     "vim.sneak": true,
     "vim.hlsearch": true,
-    "sshfs.configs": [{
-        "label": "An optional label for a good name",
-        "root": "/home/goods",
-        "host": "localhost",
-        "port": 3843,
-        "username": "goods",
-        "password": true,
-        "name": "hibikine-me"
-    }],
+    "sshfs.configs": [
+        {
+            "label": "An optional label for a good name",
+            "root": "/home/goods",
+            "host": "localhost",
+            "port": 3843,
+            "username": "goods",
+            "password": true,
+            "name": "hibikine-me"
+        }
+    ],
     "python.jediEnabled": false,
     "python.linting.pylintEnabled": true,
     "git.autofetch": true,
     "git.enableSmartCommit": true,
-    "gitProjectManager.baseProjectsFolders": ["%userprofile%\\src"],
+    "gitProjectManager.baseProjectsFolders": [
+        "%userprofile%\\src"
+    ],
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
     "gitlens.historyExplorer.enabled": true,
@@ -108,38 +127,92 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
-
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "circleci.apiKey": "a722920a28297b61dc95bf7dd8dd83473dc9fc30",
-    "latex-workshop.latex.tools": [{
+    "latex-workshop.latex.tools": [
+        {
             "command": "ptex2pdf",
-            "args": ["-l", "-ot", "-kanji=utf8 -synctex=1", "%DOC%"],
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ],
             "name": "Step 1: ptex2pdf"
         },
         {
             "command": "pbibtex",
-            "args": ["%DOCFILE%", "-kanji=utf8"],
+            "args": [
+                "%DOCFILE%",
+                "-kanji=utf8"
+            ],
             "name": "Step 2: pbibtex"
         },
         {
             "command": "ptex2pdf",
-            "args": ["-l", "-ot", "-kanji=utf8 -synctex=1", "%DOC%"],
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ],
             "name": "Step 3: ptex2pdf"
         },
         {
             "command": "ptex2pdf",
-            "args": ["-l", "-ot", "-kanji=utf8 -synctex=1", "%DOC%"],
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ],
             "name": "Step 4: ptex2pdf"
         }
     ],
-    "latex-workshop.latex.recipes": [{
-        "name": "toolchain",
-        "tools": ["Step 1: ptex2pdf"]
-    }],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "toolchain",
+            "tools": [
+                "Step 1: ptex2pdf"
+            ]
+        }
+    ],
     "latex-workshop.view.pdf.viewer": "external",
     "latex-workshop.latex.clean.enabled": true,
     "latex-workshop.chktex.enabled": true,
     "php-cs-fixer.executablePathWindows": "%AppData%\\Composer\\vendor\\bin\\php-cs-fixer.bat",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.iconTheme": "vscode-icons"
+    "liveshare.featureSet": "insiders",
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "phpcs.executablePath": "C:\\Users\\goods\\scoop\\apps\\composer\\current\\home\\vendor\\bin\\phpcs.bat",
+    "[php]": {
+        "editor.defaultFormatter": "kokororin.vscode-phpfmt"
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    "[markdown]": {
+        "editor.defaultFormatter": "mrmlnc.vscode-remark"
+    },
+    "nim.buildOnSave": true,
+    "nim.lintOnSave": true,
+    "prettier.disableLanguages": [
+        "vue",
+        "markdown"
+    ],
+    "workbench.iconTheme": "vscode-icons",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "default",
+            "filenamePattern": "*.html"
+        }
+    ]
 }

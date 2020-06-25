@@ -17,4 +17,10 @@
     "body": ["export default $1"],
     "description": "export default"
   }
+
+  ,"ESLint Disable Next Line": {
+    "prefix": "ednl",
+    "body": ["// eslint-disable-next-line"],
+    "description": "ESlint Disable Next Line"
+  }
 }

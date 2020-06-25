@@ -54,4 +54,17 @@
     "body": ["const $1 = () => $2;", "", "export default $1;"],
     "description": "create react stateless functional component."
   }
+  ,"ESLint Disable Next Line": {
+    "prefix": "ednl",
+    "body": ["// eslint-disable-next-line"],
+    "description": "ESlint Disable Next Line"
+  }
+  ,"console.log":  {
+    "prefix": "clog","body":["console.log($1)"],"description": "console.log"
+  },"eslint disabled console log": {
+    "prefix":"edclog","body": [
+      "// eslint-disable-next-line",
+      "console.log($1);"
+    ],"description": "eslint disabled console.log"
+  }
 }
