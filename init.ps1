@@ -23,6 +23,6 @@ scoop install vscode
 scoop install nodejs
 scoop install yarn
 scoop install notepadplusplus -y
+scoop install rustup
 
 composer global require friendsofphp/php-cs-fixer
-
