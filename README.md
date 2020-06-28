@@ -1,6 +1,6 @@
 # dotfiles
 
-[![Build Status](https://travis-ci.org/HibikineKage/dotfiles.svg?branch=master)](https://travis-ci.org/HibikineKage/dotfiles) [![CircleCI](https://circleci.com/gh/HibikineKage/dotfiles.svg?style=svg)](https://circleci.com/gh/HibikineKage/dotfiles)
+[![CircleCI](https://circleci.com/gh/hibikine/dotfiles.svg?style=svg)](https://circleci.com/gh/HibikineKage/dotfiles)
 
 Hibikine Kage's dotfiles.
 
@@ -50,4 +50,16 @@ make test
 
 ```bash
 ./docker-test.sh
+```
+
+## Development
+
+### Add new install script
+
+```bash
+yarn hygen install-script new hogehoge && chmod +x src/install_hogehoge.sh
+# or
+make add-install-script ARG=hogehoge && chmod +x src/install_hogehoge.sh
+# or
+cp src/install_template.sh src/install_hogehoge.sh
 ```

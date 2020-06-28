@@ -16,6 +16,21 @@
     "prefix": "ed",
     "body": ["export default $1"],
     "description": "export default"
+  },
+  "ESLint Disable Next Line": {
+    "prefix": "ednl",
+    "body": [
+      "// eslint-disable-next-line"
+    ],
+    "description": "eslint disable next line alias"
+  },
+  "eslint disabled console.log": {
+    "prefix": "clog",
+    "body": [
+      "// eslint-disable-next-line",
+      "console.log($1);"
+    ],
+    "description": "eslint disabled console.log"
   }
 
   ,"ESLint Disable Next Line": {

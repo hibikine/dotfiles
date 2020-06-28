@@ -1,0 +1,8 @@
+[Unit]
+Description=Shutdown automatically at 10:30PM everyday
+
+[Timer]
+OnCalendar=*-*-* 22:28:00
+
+[Install]
+WantedBy=timers.target

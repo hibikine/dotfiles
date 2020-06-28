@@ -1,0 +1,140 @@
+[[snippets]]
+  description = "reinstall and watch yarn project"
+  command = "yarn && yarn watch"
+  output = ""
+
+[[snippets]]
+  description = "Search node zombie instance"
+  command = "ps aux | grep node | grep -v \"Visual Studio\" | grep -v \"Slack\""
+  output = ""
+
+[[snippets]]
+  description = "kill zombie chwatch processes"
+  command = "ps aux | grep node | grep dev_server.js | awk '{print $2}' | xargs kill"
+  output = ""
+
+[[snippets]]
+  description = "Kill VSCode zombie processes."
+  command = "ps aux | grep node | grep code | grep -v grep | awk '{ print \"kill -9\", $2}' | sh"
+  output = ""
+
+[[snippets]]
+  description = "Search VSCode zombie processes."
+  command = "ps aux | grep node | grep code"
+  output = ""
+
+[[snippets]]
+  description = "Kill VSCode extension hosts."
+  command = "ps aux | grep code/code | grep -v grep | awk '{print \"kill -9\", $2 }' | sh"
+  output = ""
+
+[[snippets]]
+  description = "Set wacom tablet area to left display."
+  command = "xsetwacom set \"Wacom Intuos Pro S Pen stylus\" MapToOutput \"1920x1080+0+0\" && xsetwacom set \"Wacom Intuos Pro S Pen eraser\" MapToOutput \"1920x1080+0+0\""
+  output = ""
+
+[[snippets]]
+  description = "Show local ip address"
+  command = "ip addr show"
+  output = ""
+
+[[snippets]]
+  description = "Grep node zombie processes."
+  command = "ps aux | grep node"
+  output = ""
+
+[[snippets]]
+  description = "Show files sorted by dates"
+  command = "ll -lt"
+  output = ""
+
+[[snippets]]
+  description = "git push -u origin current-branch command."
+  command = "git symbolic-ref --short HEAD | git push -u origin"
+  output = ""
+
+[[snippets]]
+  description = "Start python local development web server."
+  command = "python3 -m http.server"
+  output = ""
+
+[[snippets]]
+  description = "start saltyrtc-server"
+  command = "saltyrtc-server -v7 -c serve -sc ./keypair.pub -sk ./keypair -k ./key"
+  output = ""
+
+[[snippets]]
+  description = "open port 19001"
+  command = "sudo ufw allow 19001"
+  output = ""
+
+[[snippets]]
+  description = "Fix compinit and compaudit insecure directories permission error"
+  command = "compaudit | xargs chmod 755"
+  output = ""
+
+[[snippets]]
+  description = "git管理しているファイルの監視から逃れる ignore file in only local"
+  command = "git update-index --skip-worktree"
+  output = ""
+
+[[snippets]]
+  description = "Show installed packages in ubuntu."
+  command = "sudo dpkg -l"
+  output = ""
+
+[[snippets]]
+  description = "show large files/directories in current directory"
+  command = "du -sk ./* | sort -rn | head -10"
+  output = ""
+
+[[snippets]]
+  description = "stop all docker container"
+  command = "docker stop $(docker ps -aq)"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "restart dnsmasq server on mac"
+  command = "sudo launchctl stop homebrew.mxcl.dnsmasq && sudo launchctl start homebrew.mxcl.dnsmasq"
+  output = ""
+
+[[snippets]]
+  description = "kill gulp zombie process on mac"
+  command = "ps aux | grep node | grep gulp | awk '{print $2}' | xargs kill"
+  output = ""
+
+[[snippets]]
+  description = "delete all docker container"
+  command = "docker rm $(docker ps -aq)"
+  output = ""
+
+[[snippets]]
+  description = "Remove all docker images"
+  command = "docker rmi $(docker images -aq)"
+  output = ""
+
+[[snippets]]
+  description = "search large files in current directory"
+  command = "du -h -d 1 | sort -h"
+  output = ""
+
+[[snippets]]
+  description = "git checkout from branch log"
+  command = "git clog"
+  output = ""
+
+[[snippets]]
+  description = "mv twitter image to zips folder"
+  command = "find . -maxdepth 1 -type f -regextype posix-egrep -regex \".*[0-9a-zA-Z_]+-[0-9]+_.*-img[0-9]?\\.(zip|jpe?g|png)\" | xargs -I% mv % ./zips/"
+  output = ""
+
+[[snippets]]
+  description = "Unzip all zip files in current directory"
+  command = "unzip \\*.zip"
+  output = ""
+
+[[snippets]]
+  description = "mv twitter images to zips folder and unzip all of them"
+  command = "find . -maxdepth 1 -type f -regextype posix-egrep -regex \".*[0-9a-zA-Z_]+-[0-9]+_.*-img[0-9]?\\.(zip|jpe?g|png)\" | xargs -I% mv % ./zips/ && mv zips && unzip \\*.zip"
+  output = ""

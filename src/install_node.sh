@@ -8,7 +8,8 @@ else
     case ${info[0]} in
         ubuntu | debian)
             sudo -E apt update && \
-                sudo -E apt install nodejs npm && \
+                sudo -E apt install -y nodejs nodejs-dev node-gyp libssl1.0-dev && \
+                sudo -E apt install -y npm && \
                 sudo -E npm cache clean && \
                 sudo -E npm i -g n && \
                 sudo -E n latest && \
@@ -17,13 +18,10 @@ else
             ;;
         osx)
             brew install nodebrew && \
+                mkdir -p $HOME/.nodebrew/src
                 nodebrew install-binary latest && \
                 nodebrew use latest
             ;;
     esac
 fi
-
-
-
-
 

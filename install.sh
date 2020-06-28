@@ -8,6 +8,8 @@ do
     [[ "$f" == ".DS_Store" ]] && continue
     [[ "$f" == ".travis.yml" ]] && continue
     [[ "$f" == ".circleci" ]] && continue
+    [[ "$f" == ".github" ]] && continue
+    [[ "$f" == ".config" ]] && continue
 
     echo $f
     if [ -d "${f}" ]; then
@@ -17,9 +19,14 @@ do
     fi
 done
 
+mkdir -p ~/.config/pet
+ln -sf $SCRIPT_DIR/.config/pet/config.toml ~/.config/pet/config.toml
+ln -sf $SCRIPT_DIR/.config/pet/snippet.toml ~/.config/pet/snippet.toml
+
 ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
 mkdir -p ~/.config/nvim
 ln -sf $SCRIPT_DIR/.vimrc ~/.config/nvim/init.vim
+mkdir -p ~/.vim/tmp
 
 # declare OS
 if [ "$(uname)" == 'Darwin' ]; then
@@ -40,6 +47,7 @@ case $OS in
         echo "VSCode setting file was installed."
         ;;
     "Linux")
+        mkdir -p $HOME/.config/Code/User
         ln -sf $SCRIPT_DIR/vscode/linux-settings.json $HOME/.config/Code/User/settings.json
         ln -sf $SCRIPT_DIR/vscode/linux-keybindings.json $HOME/.config/Code/User/keybindings.json
         rm -rf $HOME/.config/Code/User/snippets
