@@ -221,3 +221,8 @@ else
         alias explorer=xdg-open
     fi
 fi
+
+# Load private repository zshrc (if exists)
+if [ -f "$HOME/.zshrc-private" ]; then
+    source $HOME/.zshrc-private
+; fi
