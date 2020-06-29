@@ -167,4 +167,5 @@
     "semanticHighlighting": true
 },
 "diffEditor.ignoreTrimWhitespace": false,
+"vim.camelCaseMotion.enable": true,
 }
