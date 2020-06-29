@@ -67,6 +67,7 @@ WHOAMI=$(whoami)
 alias chstartserver="gcloud compute instances start dev-2"
 alias chstopserver="gcloud compute instances stop dev-2"
 alias cd..="cd .."
+alias dotf="cd ~/dotfiles"
 alias winsrc="cd /mnt/c/Users/Kage/src/"
 alias lasimg="cd /mnt/c/Users/Kage/src/lastyearimages/"
 alias webcr="cd /mnt/c/Users/${WHOAMI}/src/webcraft/"
