@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="Windows-1252" ?>
 <NotepadPlus>
-    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no">
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="no" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="yes" isSearch2ButtonsMode="no">
         <Filter name="" />
-        <Find name="diff" />
+        <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
+        <Find name="^.$" />
+        <Find name="^\r$" />
+        <Find name="^\n$" />
+        <Find name="^ +" />
+        <Find name="^ " />
+        <Find name="^$" />
+        <Find name="^ $" />
+        <Find name="^ $\n" />
+        <Find name="^ \n$" />
+        <Find name="        " />
         <Replace name="" />
+        <Replace name="\n" />
     </FindHistory>
     <History nbMaxFile="10" inSubMenu="no" customLength="-1">
-        <File filename="C:\Users\Hibikine Kage\dotfiles\install.bat" />
-        <File filename="C:\Users\Hibikine Kage\AppData\Roaming\Notepad++\config.xml" />
-        <File filename="C:\Users\goods\OneDrive\&#x30C7;&#x30B9;&#x30AF;&#x30C8;&#x30C3;&#x30D7;\tegalog-full\psif.cgi" />
-        <File filename="E:\Programs\wsl-terminal\etc\wsl-terminal.conf" />
+        <File filename="E:\Downloads\unzip.py" />
+        <File filename="E:\ownCloud\files\Kadai10\Assets\Scripts\MapData.cs" />
+        <File filename="C:\Users\goods\.scoop" />
+        <File filename="E:\Programs\php-7.2.7-nts-Win32-VC15-x64\php.ini" />
+        <File filename="E:\ownCloud\documents\important\&#x65B0;&#x3057;&#x3044;&#x30C6;&#x30AD;&#x30B9;&#x30C8; &#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;.txt" />
+        <File filename="E:\ownCloud\5chafukelog.txt" />
+        <File filename="E:\Downloads\&#x65B0;&#x3057;&#x3044;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x30FC; (3)\server.properties" />
+        <File filename="C:\Users\goods\src\auto-twipla\index.js" />
         <File filename="C:\Program Files\Notepad++\change.log" />
-        <File filename="C:\Users\goods\OneDrive\&#x30C7;&#x30B9;&#x30AF;&#x30C8;&#x30C3;&#x30D7;\new 13.txt" />
-        <File filename="C:\Windows\System32\drivers\etc\hosts" />
-        <File filename="C:\Users\goods\AppData\Roaming\.minecraft\config\NEI\client.cfg" />
-        <File filename="E:\Downloads\server\server.properties" />
-        <File filename="C:\Users\goods\src\a\a.html" />
     </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
@@ -24,8 +36,8 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" />
-        <GUIConfig name="AppPosition" x="567" y="252" width="1100" height="687" isMaximized="no" />
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20190131">no</GUIConfig>
+        <GUIConfig name="AppPosition" x="810" y="336" width="1100" height="687" isMaximized="no" />
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20191121">no</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
         <GUIConfig name="TrayIcon">no</GUIConfig>
@@ -57,8 +69,9 @@
         <GUIConfig name="MISC" fileSwitcherWithoutExtColumn="no" backSlashIsEscapeCharacterForSql="yes" newStyleSaveDlg="no" isFolderDroppedOpenFiles="no" docPeekOnTab="no" docPeekOnMap="no" />
         <GUIConfig name="searchEngine" searchEngineChoice="2" searchEngineCustom="" />
         <GUIConfig name="SmartHighLight" matchCase="no" wholeWordOnly="yes" useFindSettings="no" onAnotherView="no">yes</GUIConfig>
-        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" lineWrapMethod="aligned" currentLineHilitingShow="show" scrollBeyondLastLine="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="yes" borderEdge="yes" edge="no" edgeNbColumn="80" zoom="0" zoom2="0" whiteSpaceShow="hide" eolShow="hide" borderWidth="2" smoothFont="no" />
+        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" indentGuideLine="show" folderMarkStyle="box" lineWrapMethod="aligned" currentLineHilitingShow="show" scrollBeyondLastLine="no" disableAdvancedScrolling="no" wrapSymbolShow="hide" Wrap="yes" borderEdge="yes" edge="no" edgeNbColumn="80" zoom="5" zoom2="0" whiteSpaceShow="hide" eolShow="hide" borderWidth="2" smoothFont="no" />
         <GUIConfig name="DockingManager" leftWidth="200" rightWidth="200" topHeight="200" bottomHeight="200">
+            <PluginDlg pluginName="Notepad++::InternalFunction" id="0" curr="3" prev="-1" isVisible="no" />
             <ActiveTabs cont="0" activeTab="-1" />
             <ActiveTabs cont="1" activeTab="-1" />
             <ActiveTabs cont="2" activeTab="-1" />
