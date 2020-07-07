@@ -16,7 +16,11 @@ Hibikine Kage's dotfiles.
 
 ```bash
 cd ~/
-git clone https://github.com/HibikineKage/dotfiles.git
+
+git clone https://github.com/hibikine/dotfiles.git
+# OR use private repo
+git clone --recursive https://github.com/hibikine/dotfiles.git
+
 cd dotfiles
 make
 
@@ -26,6 +30,9 @@ make node
 
 # Install all
 make full
+
+# Update private submodule
+git submodule update --init --recursive
 ```
 
 ### Windows
