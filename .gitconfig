@@ -5,6 +5,7 @@
 [user]
 	email = goodsmile314159@gmail.com
 	name = Hibikine Kage
+	signingkey = 3C274F44D691151A
 [core]
     autoCRLF = input
     editor = vim
@@ -58,3 +59,5 @@
     rh = reset --hard
     clog = "!f() { args=$@; if [ -n \"$args\" ]; then git checkout $args; else git --no-pager reflog | awk '$3 == \"checkout:\" && /moving from/ {print $8}' | uniq | head | fzf | xargs git checkout; fi; }; f"
 
+[commit]
+	gpgsign = true
