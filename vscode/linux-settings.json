@@ -168,4 +168,7 @@
 },
 "diffEditor.ignoreTrimWhitespace": false,
 "vim.camelCaseMotion.enable": true,
+"cSpell.userWords": [
+  "Fursuit"
+],
 }
