@@ -138,3 +138,8 @@
   description = "mv twitter images to zips folder and unzip all of them"
   command = "mkdir -p zips && find . -maxdepth 1 -type f -regextype posix-egrep -regex \".*[0-9a-zA-Z_]+-[0-9]+_.*-img[0-9]?\\.(zip|jpe?g|png)\" | xargs -I% mv % ./zips/ && mv zips && unzip \\*.zip"
   output = ""
+
+[[snippets]]
+  description = "後からsubmoduleをcloneする"
+  command = "git submodule update --init --recursive"
+  output = ""
