@@ -10,4 +10,5 @@ code --install-extension dbaeumer.vscode-eslint
 code --install-extension esbenp.prettier-vscode  
 code --install-extension eamodio.gitlens  
 code --install-extension stringham.move-ts 
+code --install-extension jpoissonnier.vscode-styled-components
 # code --install-extension _  
