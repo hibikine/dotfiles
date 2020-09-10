@@ -154,3 +154,5 @@ repo = 'w0rp/ale'
 [[plugins]]
 repo = 'thinca/vim-ref'
 
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
