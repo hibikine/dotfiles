@@ -143,3 +143,8 @@
   description = "後からsubmoduleをcloneする"
   command = "git submodule update --init --recursive"
   output = ""
+
+[[snippets]]
+  description = "search WSL local ip address"
+  command = "ip a | grep -E '172\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' -m1 -o | head -n 1"
+  output = ""
