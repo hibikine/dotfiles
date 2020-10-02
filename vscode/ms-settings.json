@@ -40,7 +40,8 @@
     "files.eol": "\n",
     "files.associations": {
         "*.js": "javascriptreact",
-        ".remarkrc": "json"
+        ".remarkrc": "json",
+        ".textlintrc": "jsonc"
     },
     "editor.tabSize": 2,
     "editor.fontFamily": "Ricty Diminished, Consolas, 'Courier New', monospace",
@@ -57,7 +58,6 @@
     "explorer.confirmDragAndDrop": false,
     "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-    "eslint.autoFixOnSave": true,
     "eslint.packageManager": "yarn",
     "eslint.alwaysShowStatus": true,
     "eslint.validate": [
@@ -191,7 +191,7 @@
     },
     "phpcs.executablePath": "C:\\Users\\goods\\scoop\\apps\\composer\\current\\home\\vendor\\bin\\phpcs.bat",
     "[php]": {
-        "editor.defaultFormatter": "kokororin.vscode-phpfmt"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "vsicons.dontShowNewVersionMessage": true,
     "[markdown]": {
@@ -214,5 +214,10 @@
             "viewType": "default",
             "filenamePattern": "*.html"
         }
-    ]
+    ],
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "git.enableCommitSigning": true,
+    "editor.accessibilitySupport": "off"
 }
