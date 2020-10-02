@@ -87,5 +87,12 @@
       "console.log($1);"
     ],
     "description": "eslint disabled console.log"
+  },"create new functional component":  {
+    "prefix": "fc",
+    "body": [
+      "import React, { ReactElement } from 'react';",
+      "",
+      "export const Component = ({}: {}): ReactElement  => <div></div>",
+    ]
   }
 }

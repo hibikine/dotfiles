@@ -139,7 +139,6 @@
   ],
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "html.format.endWithNewline": true,
-  "phpcs.executablePath": "/home/hibikine/.config/composer/vendor/bin/phpcs",
   "python.jediEnabled": false,
   "python.linting.flake8Enabled": true,
   "ruby.format": "rubocop",
@@ -153,10 +152,7 @@
     "vue",
     "xml",
     "typescriptreact"
-  ]
-,
-
-"vim.autoSwitchInputMethod.enable": true,
+  ],
 "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx-remote",
 "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx-remote {im}",
 "vim.autoSwitchInputMethod.defaultIM": "-c",
@@ -168,4 +164,7 @@
 },
 "diffEditor.ignoreTrimWhitespace": false,
 "vim.camelCaseMotion.enable": true,
+"cSpell.userWords": [
+  "Fursuit"
+],
 }

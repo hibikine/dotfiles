@@ -149,8 +149,6 @@ if type "bat" > /dev/null 2>&1; then
 fi
 
 
-[ -f ~/.dotzconfig ] && source ~/.dotzconfig
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # pet regist alias
@@ -226,3 +224,8 @@ fi
 if [ -f "$HOME/.zshrc-private" ]; then
     source $HOME/.zshrc-private
 ; fi
+
+[ -f ~/.dotzconfig ] && source ~/.dotzconfig
+
+export GPG_TTY=$(tty)
+

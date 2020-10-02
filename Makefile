@@ -270,3 +270,8 @@ endif
 .PHONY: proxy-auto-toggle
 proxy-auto-toggle:
 	sudo ln -sf ~/dotfiles/etc_settings/NetworkManager/dispatcher.d/ProxyAutoToggle.zsh /etc/NetworkManager/dispatcher.d/ProxyAutoToggle.zsh
+
+.PHONY: vscode-extensions
+vscode-extensions:
+	cd src; ./install_vscode_extensions.sh
+
