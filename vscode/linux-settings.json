@@ -72,7 +72,8 @@
     "**/.factorypath": true
   },
   "files.associations": {
-    ".remarkrc": "json"
+    ".remarkrc": "json",
+    ".stylelintrc": "json"
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -167,4 +168,5 @@
 "cSpell.userWords": [
   "Fursuit"
 ],
+"workbench.colorTheme": "Tokyo Night",
 }
