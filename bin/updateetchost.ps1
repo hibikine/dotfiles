@@ -17,7 +17,8 @@ if ((Test-Admin) -eq $false) {
 
 'running with full privileges'
 
-
-$(Get-Content "C:\Windows\System32\drivers\etc\hosts" -Raw) -replace "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\s*socialdog", $($(wsl /home/hibikine/dotfiles/bin/getwslip.sh) + " socialdog") | Set-Content -Path "C:\Windows\System32\drivers\etc\hosts"
+Copy-Item C:\Windows\System32\drivers\etc\hosts ~/dotfiles/tmp/hosts
+$domain = "socialdog"
+$($(Get-Content "C:\Windows\System32\drivers\etc\hosts" -Raw) -replace "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\s*$domain", $($(wsl ip a | wsl grep --extended-regexp "172\.\[0-9]\{1,3}\.\[0-9]\{1,3}\.\[0-9]\{1,3\}" -m1 -o | wsl head -n 1) + " $domain") | out-string).trim() | Set-Content -Path "C:\Windows\System32\drivers\etc\hosts"
 
 Stop-Process -Name "powershell"
