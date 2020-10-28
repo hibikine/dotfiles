@@ -78,26 +78,32 @@ fi
 echo "4. Install vscode settings (if needed)"
 echo ""
 
-case $OS in
-    "Mac")
-        ln -sf $SCRIPT_DIR/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-        ln -sf $SCRIPT_DIR/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
-        rm -rf $HOME/Library/Application\ Support/Code/User/snippets
-        ln -sf $SCRIPT_DIR/vscode/snippets $HOME/Library/Application\ Support/Code/User/
-        echo "VSCode setting file was installed."
-        ;;
-    "Linux")
-        mkdir -p $HOME/.config/Code/User
-        ln -sf $SCRIPT_DIR/vscode/linux-settings.json $HOME/.config/Code/User/settings.json
-        ln -sf $SCRIPT_DIR/vscode/linux-keybindings.json $HOME/.config/Code/User/keybindings.json
-        rm -rf $HOME/.config/Code/User/snippets
-        ln -sf $SCRIPT_DIR/vscode/snippets $HOME/.config/Code/User/
-        echo "VSCode setting file was installed."
-        ;;
-    *)
-        echo "this os does not supported to install vscode setting file by this script."
-        ;;
-esac
+if [ -d $SCRIPT_DIR/dotfiles-priv ]; then
+    case $OS in
+        "Mac")
+            ln -sf $SCRIPT_DIR/dotfiles-priv/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+            ln -sf $SCRIPT_DIR/dotfiles-priv/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+            rm -rf $HOME/Library/Application\ Support/Code/User/snippets
+            ln -sf $SCRIPT_DIR/dotfiles-priv/vscode/snippets $HOME/Library/Application\ Support/Code/User/
+            echo "VSCode setting file was installed."
+            ;;
+        "Linux")
+            mkdir -p $HOME/.config/Code/User
+            ln -sf $SCRIPT_DIR/dotfiles-priv/vscode/linux-settings.json $HOME/.config/Code/User/settings.json
+            ln -sf $SCRIPT_DIR/dotfiles-priv/vscode/linux-keybindings.json $HOME/.config/Code/User/keybindings.json
+            rm -rf $HOME/.config/Code/User/snippets
+            ln -sf $SCRIPT_DIR/dotfiles-priv/vscode/snippets $HOME/.config/Code/User/
+            echo "VSCode setting file was installed."
+            ;;
+        *)
+            echo "this os does not supported to install vscode setting file by this script."
+            ;;
+    esac
+else
+    echo "There is not private dotfiles folder. Please install by the command:"
+    echo "git submodule update --init --recursive"
+    echo ""
+fi
 
 echo "done."
 echo ""
