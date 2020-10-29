@@ -1,7 +1,7 @@
 #!/bin/bash
 declare -a info=($(./get_os_info.sh))
 
-if type "template" > /dev/null 2>&1
+if type "fd" > /dev/null 2>&1
 then
     :
 else

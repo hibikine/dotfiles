@@ -2,7 +2,7 @@
 declare -a info=($(./get_os_info.sh))
 RIPGREP_DEB_PATH="./ripgrep.deb"
 
-if type "ripgrep" > /dev/null 2>&1
+if type "rg" > /dev/null 2>&1
 then
     :
 else

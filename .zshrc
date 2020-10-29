@@ -12,6 +12,8 @@ zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
+zplug "plugins/docker", from:oh-my-zsh
+zplug "plugins/docker-compose", from:oh-my-zsh
 zplug load --verbose
 
 # zmvコマンドを有効化
@@ -65,14 +67,12 @@ WHOAMI=$(whoami)
 alias chstartserver="gcloud compute instances start dev-2"
 alias chstopserver="gcloud compute instances stop dev-2"
 alias cd..="cd .."
+alias dotf="cd ~/dotfiles"
 alias winsrc="cd /mnt/c/Users/Kage/src/"
 alias lasimg="cd /mnt/c/Users/Kage/src/lastyearimages/"
 alias webcr="cd /mnt/c/Users/${WHOAMI}/src/webcraft/"
 alias winHome="cd /mnt/c/Users/$USER/"
 alias owcl="cd /mnt/e/ownCloud/"
-alias ch="cd ~/src/cheetah_app/"
-alias chdocker="cd ~/src/cheetah_app/web/cheetah_docker/ && docker-compose up -d"
-alias chwatch="cd ~/src/cheetah_app/web/ && yarn watch"
 alias getmyip="curl inet-ip.info"
 alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
 alias startdevserver="gcloud compute instances start dev-2"
@@ -82,6 +82,7 @@ alias df='df -h'
 alias dusc='du -s -c *'
 alias password='python3 -c "from secrets import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
 alias passwordalt='python -c "from random import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
+alias getwslip="ip a | grep -E '172\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' -m1 -o | head -n 1"
 
 alias untgz='tar -xzvf'
 alias untbz='tar -xjvf'
@@ -126,6 +127,7 @@ alias gp='git push'
 alias gco='git commit'
 alias gcom='git commit -m'
 alias ga='git add'
+alias gacom="gaa && gcom"
 alias git_current_branch='git symbolic-ref --short HEAD'
 alias gpuo='git push -u origin $(git_current_branch)'
 alias gclog='git clog'
@@ -133,7 +135,7 @@ alias gclog='git clog'
 # proxy aliases
 alias setproxy='git config --file ~/.gitconfig.local http.proxy ccproxyz.kanagawa-it.ac.jp:10080 && git config --file ~/.gitconfig.local https.proxy ccproxyz.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyz.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyz.kanagawa-it.ac.jp:10080'
 alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
-alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git config --file ~/.gitconfig.local --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy=""'
+alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git config --file ~/.gitconfig.local --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy="" && npm -g config delete proxy && npm -g config delete https-proxy'
 alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
 alias unsetdockerproxy='sudo sed -i -e "s/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
 
@@ -147,8 +149,6 @@ if type "bat" > /dev/null 2>&1; then
     alias less=bat
 fi
 
-
-[ -f ~/.dotzconfig ] && source ~/.dotzconfig
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -210,3 +210,23 @@ man() {
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
 }
+
+# add explorer alias
+
+if type "explorer" > /dev/null 2>&1; then
+    :
+else
+    if type "xdg-open" > /dev/null 2>&1; then
+        alias explorer=xdg-open
+    fi
+fi
+
+# Load private repository zshrc (if exists)
+if [ -f "$HOME/.zshrc-private" ]; then
+    source $HOME/.zshrc-private
+; fi
+
+[ -f ~/.dotzconfig ] && source ~/.dotzconfig
+
+export GPG_TTY=$(tty)
+

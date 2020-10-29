@@ -29,3 +29,7 @@ function gp {
 function gs {
   git status
 }
+
+function youtube-dl-best() {
+  youtube-dl -f bestvideo+bestaudio --merge-output-format mp4 $args[0]
+}

@@ -150,7 +150,14 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'w0rp/ale'
+hook_add = '''
+let g:ale_statusline_format = ['E%d', 'W%d', 'OK']
+nmap <silent> <C-w>j <Plug>(ale_next_wrap)
+nmap <silent> <C-w>k <Plug>(ale_previous_wrap)
+'''
 
 [[plugins]]
 repo = 'thinca/vim-ref'
 
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
