@@ -1,0 +1,3 @@
+[submodule "dotfiles-priv"]
+	path = dotfiles-priv
+	url = git@github.com:hibikine/dotfiles-priv.git
