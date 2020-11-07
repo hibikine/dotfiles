@@ -53,7 +53,10 @@ setopt hist_no_store
 
 
 # pure config
+autoload -U promptinit; promptinit
+prompt pure
 PURE_PROMPT_SYMBOL=">"
+zstyle :prompt:pure:path color cyan
 
 # enhancd config
 #export ENHANCD_DISABLE_DOT=1
@@ -102,8 +105,8 @@ fi
 alias ll='ls -la --color=auto'
 alias la='ls -la --color=auto'
 alias sl='ls'
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export LSCOLORS=gxfxcxdxbxegedabagacad
+export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 # git aliases
