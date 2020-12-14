@@ -135,13 +135,6 @@ alias git_current_branch='git symbolic-ref --short HEAD'
 alias gpuo='git push -u origin $(git_current_branch)'
 alias gclog='git clog'
 
-# proxy aliases
-alias setproxy='git config --file ~/.gitconfig.local http.proxy ccproxyz.kanagawa-it.ac.jp:10080 && git config --file ~/.gitconfig.local https.proxy ccproxyz.kanagawa-it.ac.jp:10080 && sed -i -e "s/#ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy=http://ccproxyz.kanagawa-it.ac.jp:10080 && export https_proxy=http://ccproxyz.kanagawa-it.ac.jp:10080'
-alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
-alias unsetproxy='git config --file ~/.gitconfig.local --unset http.proxy && git config --file ~/.gitconfig.local --unset https.proxy && sed -i -e "s/ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/#ProxyCommand connect -H ccproxyz.kanagawa-it.ac.jp:10080 %h %p/" ~/.ssh/config && export http_proxy="" && export https_proxy="" && npm -g config delete proxy && npm -g config delete https-proxy'
-alias setdockerproxy='sudo sed -i -e "s/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/#export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
-alias unsetdockerproxy='sudo sed -i -e "s/export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export http_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker && sudo sed -i -e "s/export https_proxy=https:\/\/ccproxyz.kanagawa-it.ac.jp:10080/#export https_proxy=http:\/\/ccproxyz.kanagawa-it.ac.jp:10080/" /etc/default/docker'
-
 # use exa when its installed by alternative of ls
 if type "exa" > /dev/null 2>&1; then
     alias ls=exa
@@ -230,6 +223,7 @@ if [ -f "$HOME/.zshrc-private" ]; then
 ; fi
 
 [ -f ~/.dotzconfig ] && source ~/.dotzconfig
+source $HOME/dotfiles/bin/startsshagent.sh
 
 export GPG_TTY=$(tty)
 
