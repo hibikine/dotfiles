@@ -139,3 +139,10 @@ export SDKMAN_DIR="/home/hibikine/.sdkman"
 [[ -s "/home/hibikine/.sdkman/bin/sdkman-init.sh" ]] && source "/home/hibikine/.sdkman/bin/sdkman-init.sh"
 export YVM_DIR=/Users/kansei/.yvm
 [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+
+if [ -d ~/Android ]; then
+    export ANDROID_HOME=$HOME/Android
+    export ANDROID_SDK_ROOT=$ANDROID_HOME/Sdk
+    export PATH=$ANDROID_SDK_ROOT/tools/bin:$PATH
+    export PATH=$ANDROID_SDK_ROOT/emulator:$PATH
+fi

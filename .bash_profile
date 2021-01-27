@@ -14,3 +14,8 @@ export XIM=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
+
+# rbenv
+if [ -d $HOME/.rbenv/bin ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+fi
