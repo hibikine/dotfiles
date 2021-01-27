@@ -31,6 +31,7 @@ FD := $(shell command -v fd 2> /dev/null)
 PROCS := $(shell command -v procs 2> /dev/null)
 DOCKER := $(shell command -v docker 2> /dev/null)
 YTOP := $(shell command -v ytop 2> /dev/null)
+IMWHEEL := $(shell command -v imwheel 2> /dev/null)
 ARG=sample
 
 all: init
@@ -275,3 +276,8 @@ proxy-auto-toggle:
 vscode-extensions:
 	cd src; ./install_vscode_extensions.sh
 
+.PHONY: imwheel
+imwheel:
+ifndef IMWHEEL
+	cd src; ./install_imwheel.sh
+endif

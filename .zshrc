@@ -227,3 +227,14 @@ source $HOME/dotfiles/bin/startsshagent.sh
 
 export GPG_TTY=$(tty)
 
+if [ -d ~/Android ]; then
+    export ANDROID_HOME=$HOME/Android
+    export ANDROID_SDK_ROOT=$ANDROID_HOME/Sdk
+    export PATH=$ANDROID_SDK_ROOT/tools/bin:$PATH
+    export PATH=$ANDROID_SDK_ROOT/emulator:$PATH
+    export PATH=$ANDROID_SDK_ROOT/platform-tools:$PATH
+fi
+if [ -d $HOME/.rbenv/bin ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
