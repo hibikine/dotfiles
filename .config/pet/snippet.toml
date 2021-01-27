@@ -158,3 +158,8 @@
   description = "clone submodule and initialize after git clone"
   command = "git submodule update --init --recursive"
   output = ""
+
+[[snippets]]
+  description = "move image and videos"
+  command = "mkdir -p images videos; mv *.png ./images/; mv *.jpg ./images/; mv *.mp4 ./videos/; mv *.mov ./videos/"
+  output = ""
