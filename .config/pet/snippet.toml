@@ -163,3 +163,8 @@
   description = "move image and videos"
   command = "mkdir -p images videos; mv *.png ./images/; mv *.jpg ./images/; mv *.mp4 ./videos/; mv *.mov ./videos/"
   output = ""
+
+[[snippets]]
+  description = "kill gpg-agent"
+  command = "gpgconf --kill gpg-agent"
+  output = ""
