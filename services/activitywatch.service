@@ -1,0 +1,8 @@
+[Unit]
+Description=Activitywatch
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/kage/bin/activitywatch/aw-server
+
