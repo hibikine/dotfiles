@@ -67,31 +67,20 @@ export GOPATH="$HOME/go"
 WHOAMI=$(whoami)
 
 # Aliases
-alias chstartserver="gcloud compute instances start dev-2"
-alias chstopserver="gcloud compute instances stop dev-2"
 alias cd..="cd .."
 alias dotf="cd ~/dotfiles"
 alias winsrc="cd /mnt/c/Users/Kage/src/"
-alias lasimg="cd /mnt/c/Users/Kage/src/lastyearimages/"
-alias webcr="cd /mnt/c/Users/${WHOAMI}/src/webcraft/"
 alias winHome="cd /mnt/c/Users/$USER/"
-alias owcl="cd /mnt/e/ownCloud/"
 alias getmyip="curl inet-ip.info"
-alias cdnol="cd /mnt/c/Users/goods/src/nolose-backend"
-alias startdevserver="gcloud compute instances start dev-2"
-alias stopdevserver="gcloud compute instances stop dev-2"
 alias grep='grep --color'
 alias df='df -h'
 alias dusc='du -s -c *'
 alias password='python3 -c "from secrets import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
 alias passwordalt='python -c "from random import choice;from string import ascii_letters, digits;print(\"\".join([choice(ascii_letters+digits) for _ in range(12)]))"'
 alias getwslip="ip a | grep -E '172\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' -m1 -o | head -n 1"
-
 alias untgz='tar -xzvf'
 alias untbz='tar -xjvf'
-
 alias docker-all-stop='docker stop $(docker ps -a -q)'
-
 alias tasksync='git -C ~/.task add --all && git -C ~/.task commit -m "sync task" && git -C ~/.task push'
 
 # ls aliases
@@ -105,6 +94,9 @@ fi
 alias ll='ls -la --color=auto'
 alias la='ls -la --color=auto'
 alias sl='ls'
+if type xsel >/dev/null 2>&1; then
+    alias clipboard='xsel --clipboard --input'
+fi
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
@@ -158,6 +150,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # added by travis gem
 [ -f /home/hibikine/.travis/travis.sh ] && source /home/hibikine/.travis/travis.sh
+
 
 [[ -z "$TMUX" && -n "$USE_TMUX" ]] && {
     [[ -n "$ATTACH_ONLY" ]] && {
