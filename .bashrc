@@ -146,3 +146,4 @@ if [ -d ~/Android ]; then
     export PATH=$ANDROID_SDK_ROOT/tools/bin:$PATH
     export PATH=$ANDROID_SDK_ROOT/emulator:$PATH
 fi
+source "$HOME/.cargo/env"

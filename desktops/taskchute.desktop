@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=TaskChute Cloud
+Comment=TaskChute Cloud
+Exec="/home/kage/bin/TaskChute Cloud-linux-ia32/TaskChute Cloud"
+#Icon=
+
