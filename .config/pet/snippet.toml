@@ -163,3 +163,18 @@
   description = "move image and videos"
   command = "mkdir -p images videos; mv *.png ./images/; mv *.jpg ./images/; mv *.mp4 ./videos/; mv *.mov ./videos/"
   output = ""
+
+[[snippets]]
+  description = "kill gpg-agent"
+  command = "gpgconf --kill gpg-agent"
+  output = ""
+
+[[snippets]]
+  description = "make zips folder, move all twitter zips and unzip them all. Twitter unzip v3"
+  command = "mkdir -p zips && find . -maxdepth 1 -type f -regextype posix-egrep -regex \".*[0-9a-zA-Z_]+-[0-9]+_.*-img[0-9]?\\.(zip|jpe?g|png)\" | xargs -I% mv % ./zips/; find . -maxdepth 1 -type f -regextype posix-egrep -regex \"\\./[0-9a-zA-Z_]+-[0-9]+\\.zip\" | xargs -I% mv % ./zips/; unzip -o ./zips/\\*.zip -d ./zips/ && rm ./zips/*.zip"
+  output = ""
+
+[[snippets]]
+  description = "mkdir zips and find twitter zips and vids and move them into zips and unzip them all. twitter v4"
+  command = "mkdir -p zips && find . -maxdepth 1 -type f -regextype posix-egrep -regex \".*[0-9a-zA-Z_]+-[0-9]+_.*-img[0-9]?\\.(zip|jpe?g|png)\" | xargs -I% mv % ./zips/; find . -maxdepth 1 -type f -regextype posix-egrep -regex \"\\./[0-9a-zA-Z_]+-[0-9]+\\.zip\" | xargs -I% mv % ./zips/; find . -maxdepth 1 -type f -regextype posix-egrep -regex \"\\./[0-9a-zA-Z_]+-[0-9]+-[0-9]+_[0-9]+-vid1.mp4\" | xargs -I% mv % ./zips/; unzip -o ./zips/\\*.zip -d ./zips/ && rm ./zips/*.zip"
+  output = ""
