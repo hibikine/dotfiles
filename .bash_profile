@@ -19,4 +19,4 @@ export XMODIFIERS="@im=fcitx"
 if [ -d $HOME/.rbenv/bin ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
 fi
-source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
