@@ -68,9 +68,11 @@ WHOAMI=$(whoami)
 
 # Aliases
 alias cd..="cd .."
+alias cddl="cd /mnt/c/Users/goods/Downloads"
 alias dotf="cd ~/dotfiles"
 alias winsrc="cd /mnt/c/Users/Kage/src/"
 alias winHome="cd /mnt/c/Users/$USER/"
+alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --merge-output-format mkv"
 alias getmyip="curl inet-ip.info"
 alias grep='grep --color'
 alias df='df -h'
@@ -82,6 +84,7 @@ alias untgz='tar -xzvf'
 alias untbz='tar -xjvf'
 alias docker-all-stop='docker stop $(docker ps -a -q)'
 alias tasksync='git -C ~/.task add --all && git -C ~/.task commit -m "sync task" && git -C ~/.task push'
+alias findpwd='find . -maxdepth 1 -type f -regextype posix-egrep -regex'
 
 # ls aliases
 if [ "$(uname)" = 'Darwin' ]; then
@@ -239,3 +242,30 @@ if [ -d $HOME/.rbenv/bin ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
+export DENO_INSTALL="/home/kage/.deno"
+export PATH="$PATH:$DENO_INSTALL/bin"
+
+# SSHのホストに合わせて背景色を変える
+# @see https://bacchi.me/linux/change-terminal-bgcolor/
+function ssh() {
+  # tmux起動時
+  if [[ -n $(printenv TMUX) ]] ; then
+      # 現在のペインIDを記録
+      local pane_id=$(tmux display -p '#{pane_id}')
+      # 接続先ホスト名に応じて背景色を切り替え
+      if [[ `echo $1 | grep 'prd'` ]] ; then
+          tmux select-pane -P 'bg=colour52,fg=white'
+      elif [[ `echo $1 | grep 'stg'` ]] ; then
+          tmux select-pane -P 'bg=colour25,fg=white'
+      fi
+
+      # 通常通りssh続行
+      command ssh $@
+
+      # デフォルトの背景色に戻す
+      tmux select-pane -t $pane_id -P 'default'
+  else
+      command ssh $@
+  fi
+}
+
