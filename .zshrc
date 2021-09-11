@@ -177,10 +177,18 @@ export SDKMAN_DIR="/home/hibikine/.sdkman"
 [[ -s "/home/hibikine/.sdkman/bin/sdkman-init.sh" ]] && source "/home/hibikine/.sdkman/bin/sdkman-init.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
+    source "$HOME/google-cloud-sdk/path.zsh.inc";
+elif [ -f "/snap/google-cloud-sdk/current/path.zsh.inc" ]; then
+    source "/snap/google-cloud-sdk/current/path.zsh.inc"
+fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
+    source "$HOME/google-cloud-sdk/completion.zsh.inc";
+elif [ -f "/snap/google-cloud-sdk/current/completion.zsh.inc" ]; then
+    source "/snap/google-cloud-sdk/current/completion.zsh.inc"
+fi
 
 if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
     export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
