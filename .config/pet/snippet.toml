@@ -168,3 +168,8 @@
   description = "kill gpg-agent"
   command = "gpgconf --kill gpg-agent"
   output = ""
+
+[[snippets]]
+  description = "Unzip current directory zip files into the same name folder"
+  command = "for f in *.zip; do unzip -d \"${f%*.zip}\" \"$f\"; done\\n"
+  output = ""
