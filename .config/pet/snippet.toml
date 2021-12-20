@@ -170,6 +170,11 @@
   output = ""
 
 [[snippets]]
+  description = "Unzip current directory zip files into the same name folder"
+  command = "for f in *.zip; do unzip -d \"${f%*.zip}\" \"$f\"; done\\n"
+  output = ""
+
+[[snippets]]
   description = "make zips folder, move all twitter zips and unzip them all. Twitter unzip v3"
   command = "mkdir -p zips && find . -maxdepth 1 -type f -regextype posix-egrep -regex \".*[0-9a-zA-Z_]+-[0-9]+_.*-img[0-9]?\\.(zip|jpe?g|png)\" | xargs -I% mv % ./zips/; find . -maxdepth 1 -type f -regextype posix-egrep -regex \"\\./[0-9a-zA-Z_]+-[0-9]+\\.zip\" | xargs -I% mv % ./zips/; unzip -o ./zips/\\*.zip -d ./zips/ && rm ./zips/*.zip"
   output = ""
@@ -177,4 +182,19 @@
 [[snippets]]
   description = "mkdir zips and find twitter zips and vids and move them into zips and unzip them all. twitter v4"
   command = "mkdir -p zips && find . -maxdepth 1 -type f -regextype posix-egrep -regex \".*[0-9a-zA-Z_]+-[0-9]+_.*-img[0-9]?\\.(zip|jpe?g|png)\" | xargs -I% mv % ./zips/; find . -maxdepth 1 -type f -regextype posix-egrep -regex \"\\./[0-9a-zA-Z_]+-[0-9]+\\.zip\" | xargs -I% mv % ./zips/; find . -maxdepth 1 -type f -regextype posix-egrep -regex \"\\./[0-9a-zA-Z_]+-[0-9]+-[0-9]+_[0-9]+-vid1.mp4\" | xargs -I% mv % ./zips/; unzip -o ./zips/\\*.zip -d ./zips/ && rm ./zips/*.zip"
+  output = ""
+
+[[snippets]]
+  description = "sort vital files"
+  command = "mkdir vital && mv ./*.vital ./vital/ && mv ./*.vitalbank ./vital/"
+  output = ""
+
+[[snippets]]
+  description = "mv vital files"
+  command = "mkdir vital && mv ./*.vital ./vital/ && mv ./*.vitalbank ./vital/"
+  output = ""
+
+[[snippets]]
+  description = "install all you need for react project with pnpm"
+  command = "pnpm i react react-dom immer && pnpm i -D esbuild eslint eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-config-airbnb @typescript-eslint/parser @typescript-eslint/eslint-plugin @hibikine/eslint-config husky lint-staged @hibikine/eslint-config-base @types/react @types/react-dom eslint-import-resolver-node eslint-plugin-jsx-a11y eslint-config-prettier typescript"
   output = ""
