@@ -14,3 +14,4 @@ __pycache__/
 .vim/.netrwhist
 /.ionide/
 .vim/tmp/
+/bin/vrc_shot_folder
