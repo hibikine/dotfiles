@@ -109,6 +109,7 @@ alias hyperlog="git log --oneline --graph --decorate=full"
 alias lg=hyperlog
 alias gaa='git add --all'
 alias gc='git checkout'
+alias gcz='git cz'
 alias gk='git checkout'
 alias gcb='git checkout -b'
 alias gkb='git checkout -b'
