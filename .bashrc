@@ -148,3 +148,8 @@ if [ -d ~/Android ]; then
 fi
 source "$HOME/.cargo/env"
 . "$HOME/.cargo/env"
+
+# pnpm
+export PNPM_HOME="/home/kage/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
