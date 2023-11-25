@@ -153,3 +153,9 @@ source "$HOME/.cargo/env"
 export PNPM_HOME="/home/kage/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# direnv
+if [ -x "$(command -v direnv)" ]; then
+    eval "$(direnv hook bash)"
+fi
+

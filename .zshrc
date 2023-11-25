@@ -291,3 +291,9 @@ export NVM_DIR="$HOME/.nvm"
 if [ -d $HOME/.pyenv ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
+
+# direnv
+if [ -x "$(command -v direnv)" ]; then
+    eval "$(direnv hook zsh)"
+fi
+

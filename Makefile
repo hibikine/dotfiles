@@ -33,6 +33,7 @@ DOCKER := $(shell command -v docker 2> /dev/null)
 YTOP := $(shell command -v ytop 2> /dev/null)
 IMWHEEL := $(shell command -v imwheel 2> /dev/null)
 DENO := $(shell command -v deno 2> /dev/null)
+DIRENV := $(shell command -v direnv 2> /dev/null)
 ARG=sample
 
 all: init
@@ -287,4 +288,10 @@ endif
 deno:
 ifndef DENO
 	cd src; ./install_deno.sh
+endif
+
+.PHONY: direnv
+direnv:
+ifndef DIRENV
+	cd src; ./install_direnv.sh
 endif
