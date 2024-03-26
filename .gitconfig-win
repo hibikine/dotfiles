@@ -10,6 +10,7 @@
     autoCRLF = input
     editor = vim
 	excludesfile = $HOME/.gitignore_global
+	sparsecheckout = true
 [push]
     default = simple
 [http]
@@ -61,3 +62,5 @@
 
 [commit]
 	gpgsign = true
+[safe]
+	directory = G:/bk/src/VRCShooting
