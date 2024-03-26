@@ -72,7 +72,7 @@ alias cddl="cd /mnt/c/Users/goods/Downloads"
 alias dotf="cd ~/dotfiles"
 alias winsrc="cd /mnt/c/Users/Kage/src/"
 alias winHome="cd /mnt/c/Users/$USER/"
-alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --merge-output-format mkv"
+alias youtube-dl-best="yt-dlp -f bestvideo+bestaudio --merge-output-format mkv"
 alias getmyip="curl inet-ip.info"
 alias grep='grep --color'
 alias df='df -h'
@@ -269,4 +269,31 @@ function ssh() {
       command ssh $@
   fi
 }
+
+export PNPM_HOME="/home/kage/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+export WINDOWS_IP=$(ip route | grep 'default via' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    export NODE_PATH="$NODE_PATH:/home/kage/.nvm/versions/node/v19.9.0/lib/node_modules"
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -s "$HOME/src/auto-commit/target/release/auto-commit" ] && export PATH="$PATH:$HOME/src/auto-commit/target/release/"
+
+#export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+#export TEXMFLOCAL="/usr/local/texlive/2023"
+
+if [ -d $HOME/.pyenv ]; then
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+# direnv
+if [ -x "$(command -v direnv)" ]; then
+    eval "$(direnv hook zsh)"
+fi
 
