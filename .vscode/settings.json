@@ -3,5 +3,5 @@
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "python.formatting.provider": "none",
-  "conventionalCommits.scopes": ["git"]
+  "conventionalCommits.scopes": ["git", "install.ps1"]
 }
