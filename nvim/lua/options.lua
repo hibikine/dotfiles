@@ -69,6 +69,20 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+function set_filetype_settings()
+	local filetype = vim.bo.filetype
+
+	if filetype == "ps1" then
+		vim.opt.tabstop = 4
+		vim.opt.shiftwidth = 4
+	elseif filetype == "sshconfig" then
+		vim.opt.tabstop = 4
+		vim.opt.shiftwidth = 4
+	end
+end
+
+vim.api.nvim_command("autocmd FileType * lua set_filetype_settings()")
+
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]])
