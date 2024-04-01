@@ -11,6 +11,12 @@ if (Test-Path -Path "$PROFILE\..\Local\" -PathType Container) {
         . $_.FullName
     }
 }
+
+function Get-ChildItem-Sort-By-Date {
+    Get-Childitem | Sort-Object -Property LastWriteTime -Descending
+}
+Set-Alias -Name ls-lt -Value Get-ChildItem-Sort-By-Date
+
 function gcom {
     git commit -m $args
 }
