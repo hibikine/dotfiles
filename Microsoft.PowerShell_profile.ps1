@@ -12,6 +12,11 @@ if (Test-Path -Path "$PROFILE\..\Local\" -PathType Container) {
     }
 }
 
+function Set-Touch($fileName) {
+    New-Item -Path $fileName -ItemType File
+}
+Set-Alias -Name touch -Value Set-Touch
+
 function Get-ChildItem-Sort-By-Date {
     Get-Childitem | Sort-Object -Property LastWriteTime -Descending
 }
