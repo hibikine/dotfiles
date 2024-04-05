@@ -72,7 +72,50 @@ function Git-Hyperlog {
     git log --oneline --graph --decorate=full
 }
 Set-Alias -Name hyperlog -Value Git-Hyperlog
-function prompt { "`r`nPS " + $(Get-Location) + "`r`n> " }
+
+# @see https://stackoverflow.com/questions/1287718/how-can-i-display-my-current-git-branch-name-in-my-powershell-prompt
+# (c) @tamj0rd2
+function Write-BranchName () {
+    try {
+        $branch = git rev-parse --abbrev-ref HEAD
+
+        if ($branch -eq "HEAD") {
+            # we're probably in detached HEAD state, so print the SHA
+            $branch = git rev-parse --short HEAD
+            Write-Host " ($branch)" -NoNewLine -ForegroundColor "red"
+        }
+        else {
+            # we're on an actual branch, so print it
+            Write-Host " ($branch)" -NoNewLine -ForegroundColor "blue"
+        }
+    } catch {
+        # we'll end up here if we're in a newly initiated git repo
+        Write-Host " (no branches yet)" -NoNewLine -ForegroundColor "yellow"
+    }
+}
+
+function Write-Git-Diff {
+    $gitStatus = git status -s
+    if ($gitStatus) {
+        Write-Host " *" -NoNewLine -ForegroundColor "red"
+    }
+}
+
+function prompt {
+    Write-Host "`r`nPS " -NoNewline
+    Write-Host $(Get-Location) -NoNewLine -ForegroundColor "green"
+    $dir = Get-Location
+    while ($dir -ne [System.IO.Path]::GetPathRoot($dir)) {
+        $gitPath = Join-Path $dir '.git'
+        if (Test-Path $gitPath) {
+            Write-BranchName
+            Write-Git-Diff
+            break
+        }
+        $dir = Split-Path $dir -Parent
+    }
+    return "`r`n> "
+}
 
 function youtube-dl-best() {
     youtube-dl -f bestvideo+bestaudio --merge-output-format mp4 $args[0]
