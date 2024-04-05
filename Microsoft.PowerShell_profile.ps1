@@ -17,6 +17,21 @@ function Set-Touch($fileName) {
 }
 Set-Alias -Name touch -Value Set-Touch
 
+function Get-Less-Bat {
+    bat $args
+}
+function Get-Less-Cat {
+    cat $args
+}
+
+if (Get-Command bat -ErrorAction SilentlyContinue) {
+    Set-Alias -Name less -Value Get-Less-Bat
+}
+
+if (Get-Command cat -ErrorAction SilentlyContinue) {
+    Set-Alias -Name less -Value Get-Less-Cat
+}
+
 function Get-ChildItem-Sort-By-Date {
     Get-Childitem | Sort-Object -Property LastWriteTime -Descending
 }
