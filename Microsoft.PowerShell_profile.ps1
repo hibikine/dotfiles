@@ -37,6 +37,11 @@ function Get-ChildItem-Sort-By-Date {
 }
 Set-Alias -Name ls-lt -Value Get-ChildItem-Sort-By-Date
 
+function Get-ChildItem-All {
+    Get-ChildItem
+}
+Set-Alias -Name ls-al -Value Get-ChildItem-All
+
 function gcom {
     git commit -m $args
 }
