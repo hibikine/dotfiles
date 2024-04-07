@@ -101,6 +101,43 @@ function Write-Git-Diff {
     }
 }
 
+function Show-Notification {
+    [cmdletbinding()]
+    Param (
+        [string]
+        $ToastTitle,
+        [string]
+        [parameter(ValueFromPipeline)]
+        $ToastText
+    )
+
+    if (-not (Test-Path -Path "$PROFILE/../WinRT.Runtime.dll")) {
+        Invoke-WebRequest https://github.com/Windos/BurntToast/raw/main/BurntToast/lib/Microsoft.Windows.SDK.NET/WinRT.Runtime.dll -OutFile $PROFILE/../WinRT.Runtime.dll
+    }
+    if (-not(Test-Path -Path "$PROFILE/../Microsoft.Windows.SDK.NET.dll")) {
+        Invoke-WebRequest https://github.com/Windos/BurntToast/raw/main/BurntToast/lib/Microsoft.Windows.SDK.NET/Microsoft.Windows.SDK.NET.dll -OutFile $PROFILE/../Microsoft.Windows.SDK.NET.dll
+    }
+    Add-Type -Path $PROFILE/../WinRT.Runtime.dll
+    Add-Type -Path $PROFILE/../Microsoft.Windows.SDK.NET.dll
+
+    $Template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText02)
+
+    $RawXml = [xml] $Template.GetXml()
+    ($RawXml.toast.visual.binding.text|where {$_.id -eq "1"}).AppendChild($RawXml.CreateTextNode($ToastTitle)) > $null
+    ($RawXml.toast.visual.binding.text|where {$_.id -eq "2"}).AppendChild($RawXml.CreateTextNode($ToastText)) > $null
+
+    $SerializedXml = New-Object Windows.Data.Xml.Dom.XmlDocument
+    $SerializedXml.LoadXml($RawXml.OuterXml)
+
+    $Toast = [Windows.UI.Notifications.ToastNotification]::new($SerializedXml)
+    $Toast.Tag = "PowerShell"
+    $Toast.Group = "PowerShell"
+    $Toast.ExpirationTime = [DateTimeOffset]::Now.AddMinutes(1)
+
+    $Notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("PowerShell")
+    $Notifier.Show($Toast);
+}
+
 function prompt {
     Write-Host "`r`nPS " -NoNewline
     Write-Host $(Get-Location) -NoNewLine -ForegroundColor "green"
