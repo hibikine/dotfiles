@@ -151,7 +151,13 @@ function prompt {
         }
         $dir = Split-Path $dir -Parent
     }
-    return "`r`n> "
+    $out = "`r`n> "
+
+    $loc = $executionContext.SessionState.Path.CurrentLocation;
+    if ($loc.Provider.Name -eq "FileSystem") {
+        $out = "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\" + $out
+    }
+    return $out
 }
 
 function youtube-dl-best() {
