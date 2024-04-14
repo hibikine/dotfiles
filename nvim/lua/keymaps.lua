@@ -45,7 +45,7 @@ keymap("n", "ss", ":split<Return><C-w>w", opts)
 keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
 keymap("n", "<C-a>", "gg<S-v>G", opts)
 keymap("n", "x", '"_x', opts)
-keymap("n", "dw", 'vb"_d', opts)
+-- keymap("n", "dw", 'vb"_d', opts)
 keymap("n", "<Space>h", "^", opts)
 keymap("n", "<Space>l", "$", opts)
 
