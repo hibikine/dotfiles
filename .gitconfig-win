@@ -8,9 +8,10 @@
 	signingkey = 3C274F44D691151A
 [core]
     autoCRLF = input
-    editor = vim
+	editor = nvim
 	excludesfile = $HOME/.gitignore_global
 	sparsecheckout = true
+	quotepath = false
 [push]
     default = simple
 [http]
@@ -64,3 +65,5 @@
 	gpgsign = true
 [safe]
 	directory = G:/bk/src/VRCShooting
+[init]
+  defaultBranch = main
