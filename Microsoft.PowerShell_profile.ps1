@@ -88,7 +88,8 @@ function Write-BranchName () {
             # we're on an actual branch, so print it
             Write-Host " ($branch)" -NoNewLine -ForegroundColor "blue"
         }
-    } catch {
+    }
+    catch {
         # we'll end up here if we're in a newly initiated git repo
         Write-Host " (no branches yet)" -NoNewLine -ForegroundColor "yellow"
     }
@@ -123,8 +124,8 @@ function Show-Notification {
     $Template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText02)
 
     $RawXml = [xml] $Template.GetXml()
-    ($RawXml.toast.visual.binding.text|where {$_.id -eq "1"}).AppendChild($RawXml.CreateTextNode($ToastTitle)) > $null
-    ($RawXml.toast.visual.binding.text|where {$_.id -eq "2"}).AppendChild($RawXml.CreateTextNode($ToastText)) > $null
+    ($RawXml.toast.visual.binding.text | where { $_.id -eq "1" }).AppendChild($RawXml.CreateTextNode($ToastTitle)) > $null
+    ($RawXml.toast.visual.binding.text | where { $_.id -eq "2" }).AppendChild($RawXml.CreateTextNode($ToastText)) > $null
 
     $SerializedXml = New-Object Windows.Data.Xml.Dom.XmlDocument
     $SerializedXml.LoadXml($RawXml.OuterXml)
@@ -160,6 +161,10 @@ function prompt {
     return $out
 }
 
+function rm-rf {
+    Remove-Item -Path $args -Force -Recurse
+}
+
 function youtube-dl-best() {
     youtube-dl -f bestvideo+bestaudio --merge-output-format mp4 $args[0]
 }
@@ -169,3 +174,11 @@ Import-Module ZLocation
 
 Start-Service ssh-agent
 ssh-add $env:USERPROFILE/.ssh/id_ed25519
+
+try {
+    Import-Module npm-completion
+} catch {
+    if (Get-Command npm) {
+        Write-Host "npm-completion is not installed. Please install by install.ps1 script."
+    }
+}
