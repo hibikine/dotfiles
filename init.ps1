@@ -6,6 +6,7 @@ winget install
 [Environment]::SetEnvironmentVariable("GIT_SSH", (Resolve-Path (scoop which ssh)), 'USER')
 winget install -e Microsoft.VisualStudioCode
 winget install -e Schniz.fnm
+winget install -e sharkdp.bat
 winget install -e Rye.Rye
 winget install -e GnuPG.Gpg4win
 winget install -e Google.Chrome
