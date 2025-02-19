@@ -15,3 +15,4 @@ __pycache__/
 /.ionide/
 .vim/tmp/
 /bin/vrc_shot_folder
+/nvim/plugin/packer_compiled.lua
