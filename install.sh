@@ -23,6 +23,9 @@ do
     fi
 done
 
+echo ".config/nvim"
+ln -sf $SCRIPT_DIR/nvim/ ~/.config/nvim
+
 echo "done."
 echo ""
 
@@ -59,7 +62,6 @@ echo ""
 
 ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
 mkdir -p ~/.config/nvim
-ln -sf $SCRIPT_DIR/.vimrc ~/.config/nvim/init.vim
 mkdir -p ~/.vim/tmp
 
 echo "done."

@@ -222,6 +222,8 @@ else
     fi
 fi
 
+alias code.="code ."
+
 # Load private repository zshrc (if exists)
 if [ -f "$HOME/.zshrc-private" ]; then
     source $HOME/.zshrc-private
@@ -275,14 +277,6 @@ export PATH="$PNPM_HOME:$PATH"
 
 export WINDOWS_IP=$(ip route | grep 'default via' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    export NODE_PATH="$NODE_PATH:/home/kage/.nvm/versions/node/v19.9.0/lib/node_modules"
-fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 [ -s "$HOME/src/auto-commit/target/release/auto-commit" ] && export PATH="$PATH:$HOME/src/auto-commit/target/release/"
 
 #export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
@@ -297,3 +291,15 @@ if [ -x "$(command -v direnv)" ]; then
     eval "$(direnv hook zsh)"
 fi
 
+# nvim alias
+if [ -x "$(command -v nvim)" ]; then
+    alias vi=nvim
+    alias vim=nvim
+fi
+
+
+# fnm
+if [ -d "$HOME/.local/share/fnm" ]; then
+    export PATH="$HOME/.local/share/fnm:$PATH"
+    eval "`fnm env`"
+fi
