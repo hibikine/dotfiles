@@ -74,6 +74,7 @@ telescope.setup({
 })
 
 telescope.load_extension("file_browser")
+telescope.load_extension("projects")
 
 vim.keymap.set("n", ";f", function()
 	builtin.find_files({
@@ -109,4 +110,7 @@ vim.keymap.set("n", "sf", function()
 		initial_mode = "normal",
 		layout_config = { height = 40 },
 	})
+end)
+vim.keymap.set("n", ";p", function()
+	telescope.extensions.projects.projects()
 end)

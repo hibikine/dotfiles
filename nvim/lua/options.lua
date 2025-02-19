@@ -61,6 +61,7 @@ local options = {
 	sidescrolloff = 8,
 	splitbelow = false,
 	splitright = false,
+	clipboard = "unnamedplus",
 }
 
 vim.opt.shortmess:append("c")
