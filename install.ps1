@@ -10,15 +10,12 @@ class LinkPath {
     [string] $Link
     LinkPath([hashtable]$Properties) {
         foreach ($Property in $Properties.Keys) {
-            echo $Property
+            Write-Output $Property
             $this.$Property = $Properties.$Property
         }
     }
     [bool] IsAlreadyExists() {
         return Test-Path -Path $this.Link
-    }
-    [void] MakeLink() {
-        $this.MakeLink($false)
     }
     [void] MakeLink([bool]$Force ) {
         if ($this.IsAlreadyExists()) {
@@ -36,7 +33,7 @@ class LinkPath {
     }
 }
 
-$LinkPathItems = (
+$LinkPathItems = @(
     # Use Neovim
     #@{
     #    Link   = "$Env:USERPROFILE\.vimrc";
@@ -95,71 +92,100 @@ if (Test-Path -Path "$Env:USERPROFILE\dotfiles\dotfiles-priv") {
 
 foreach ($LinkPathItem in $LinkPathItems) {
     $LinkPathInstance = New-Object LinkPath($LinkPathItem)
-    $LinkPathInstance.MakeLink()
+    $LinkPathInstance.MakeLink($false)
 }
 
-if (Test-Path $profile) {
-    Remove-Item $profile
+if (Test-Path -LiteralPath "./Microsoft.PowerShell_profile.ps1") {
+    if (Test-Path -LiteralPath $profile) {
+        Remove-Item $profile
+    }
+    New-Item -Path ($profile -replace "\\[\w.]+$", "") -Name ((New-Object regex("[\w.]+$")).Matches($profile).Groups[0].Value) -Value (Convert-Path -LiteralPath "./Microsoft.PowerShell_profile.ps1") -ItemType SymbolicLink
 }
-New-Item -Path ($profile -replace "\\[\w\d.]+$", "") -Name ((New-Object regex("[\w\d.]+$")).Matches($profile).Groups[0].Value) -Value (Convert-Path .\Microsoft.PowerShell_profile.ps1) -ItemType SymbolicLink
 
-if (Get-Command rye -ErrorAction SilentlyContinue -eq $null) {
+if (-not(Get-Command rye -ErrorAction SilentlyContinue)) {
     Write-Output "Install rye"
-    [environment]::setEnvironmentVariable('RYE_TOOLCHAIN', 'E:/Programs/rye', 'User')
-    [environment]::setEnvironmentVariable('RYE_TOOLCHAIN_VERSION', 'cpython@3.10.6', 'User')
+    $ryeToolchain = Convert-Path -LiteralPath 'E:/Programs/rye'
+    $ryeToolchainVersion = 'cpython@3.10.6'
+    [environment]::setEnvironmentVariable('RYE_TOOLCHAIN', $ryeToolchain, 'User')
+    [environment]::setEnvironmentVariable('RYE_TOOLCHAIN_VERSION', $ryeToolchainVersion, 'User')
+    $env:RYE_TOOLCHAIN = $ryeToolchain
+    $env:RYE_TOOLCHAIN_VERSION = $ryeToolchainVersion
     winget install -e --id rye.rye
 }
 
-if (Get-Command rye -ErrorAction SilentlyContinue -and -not (Test-Path -Path "$CompletionsDirectory\rye_completion.ps1")) {
+if ((Get-Command rye -ErrorAction SilentlyContinue) -and -not (Test-Path -Path "$CompletionsDirectory\rye_completion.ps1")) {
     # Install rye-completion
     Write-Output "Install rye-completion"
     rye self completion -s powershell | Out-File -Encoding utf8 "$CompletionsDirectory\rye_completion.ps1"
 }
 
-if (Get-Command nvm -ErrorAction SilentlyContinue -eq $null) {
+if (-not (Get-Command nvm -ErrorAction SilentlyContinue)) {
     Write-Output "Install nvm"
-    [environment]::setEnvironmentVariable('NVM_HOME', 'E:/Programs/nvm', 'User')
-    [environment]::setEnvironmentVariable('NVM_HOME', 'E:/Programs/nvm4w/nodejs', 'User')
+    $nvmHome = Convert-Path -LiteralPath "E:\Programs\nvm"
+    $nvmSymLink = Convert-Path -LiteralPath "E:\Programs\nvm4w\nodejs"
+    [environment]::setEnvironmentVariable('NVM_HOME', $nvmHome, 'User')
+    [environment]::setEnvironmentVariable('NVM_SYMLINK', $nvmSymLink, 'User')
+    $env:NVM_HOME = $nvmHome
+    $env:NVM_SYMLINK = $nvmSymLink
     winget install -e --id CoreyButler.NVMforWindows
 }
 
-if (Get-Command nvm -ErrorAction SilentlyContinue -and -not (Get-Command npm -ErrorAction SilentlyContinue)) {
+if ((Get-Command nvm -ErrorAction SilentlyContinue) -and -not (Get-Command npm -ErrorAction SilentlyContinue)) {
     Write-Output "Install npm"
     nvm install lts
     nvm use lts
 }
 
-if (Get-Command npm -ErrorAction SilentlyContinue -and -not (Get-InstalledModule npm-completion -ErrorAction SilentlyContinue)) {
+if ((Get-Command npm -ErrorAction SilentlyContinue) -and -not (Get-InstalledModule npm-completion -ErrorAction SilentlyContinue)) {
     Write-Output "Install npm-completion"
     Install-Module npm-completion -Scope CurrentUser
 }
 
-if (Get-Command pnpm -ErrorAction SilentlyContinue -eq $null) {
+if (-not (Get-Command pnpm -ErrorAction SilentlyContinue)) {
     Write-Output "Install pnpm"
-    [environment]::setEnvironmentVariable('PNPM_HOME', 'E:/Programs/pnpm', 'User')
+
+    $pnpmPath = Convert-Path -LiteralPath 'E:/Programs/pnpm'
+    [environment]::setEnvironmentVariable('PNPM_HOME', $pnpmPath, 'User')
+    $env:PNPM_HOME = $pnpmPath
+
+    $currentPath = [environment]::getEnvironmentVariable('PATH', 'User')
+    if ($currentPath -notlike "*$pnpmPath") {
+        $updatedPath = "$currentPath;$pnpmPath"
+        [environment]::setEnvironmentVariable("PATH", $updatedPath, 'User')
+    }
+    if ($env:PATH -notlike "*$pnpmPath") {
+        $env:PATH = "$env:PATH;$pnpmPath"
+    }
+
     winget install -e --id pnpm.pnpm --location E:/Programs/pnpm
 }
 
-if (Get-Command scoop -ErrorAction SilentlyContinue -eq $null) {
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     # Scoopのインストール
-    Write-Output "Install scoop" 
-    [environment]::setEnvironmentVariable('SCOOP', 'E:/Programs/scoop', 'User')
+    Write-Output "Install scoop"
+    $scoopPath = Convert-Path -LiteralPath 'E:\Programs\scoop'
+    [environment]::setEnvironmentVariable('SCOOP', $scoopPath, 'User')
+    $env:SCOOP = $scoopPath
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 }
 
-if (Get-Command rustup -ErrorAction SilentlyContinue -eq $null) {
-    [environment]::setEnvironmentVariable('CARGO_HOME', 'E:/Programs/cargo', 'User')
-    [environment]::setEnvironmentVariable('RUSTUP_HOME', 'E:/Programs/rustup', 'User')
+if (-not (Get-Command rustup -ErrorAction SilentlyContinue)) {
+    $cargoHome = Convert-Path 'E:/Programs/cargo'
+    $rustupHome = Convert-Path 'E:/Programs/rustup'
+    [environment]::setEnvironmentVariable('CARGO_HOME', $cargoHome, 'User')
+    [environment]::setEnvironmentVariable('RUSTUP_HOME', $rustupHome, 'User')
+    $env:CARGO_HOME = $cargoHome
+    $env:RUSTUP_HOME = $rustupHome
     winget install -e --id rustlang.rustup
 }
 
-if (Get-Command nvim -ErrorAction SilentlyContinue -eq $null) {
+if (-not (Get-Command nvim -ErrorAction SilentlyContinue)) {
     winget install -e --id Neovim.Neovim --override "/qf INSTALL_ROOT=E:/Programs/nvim"
     New-Item -ItemType SymbolicLink -Path $env:LOCALAPPDATA\nvim -Value $env:USERPROFILE\dotfiles\nvim
 }
 
-if (Get-Command nvim -ErrorAction SilentlyContinue -and (Get-Command scoop -ErrorAction SilentlyContinue)) {
+if ((Get-Command nvim -ErrorAction SilentlyContinue) -and (Get-Command scoop -ErrorAction SilentlyContinue)) {
     if (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe") {
         $output = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
         if ($output) {
@@ -174,6 +200,6 @@ if (Get-Command nvim -ErrorAction SilentlyContinue -and (Get-Command scoop -Erro
     }
 }
 
-if (Get-Command nvim -ErrorAction SilentlyContinue -and (Get-Command pnpm -ErrorAction SilentlyContinue) -and ([string]::IsNullOrEmpty((pnpm list -g @fsouza/prettierd)))) {
+if ((Get-Command nvim -ErrorAction SilentlyContinue) -and (Get-Command pnpm -ErrorAction SilentlyContinue) -and ([string]::IsNullOrEmpty((pnpm list -g @fsouza/prettierd)))) {
     pnpm i -g @fsouza/prettierd
 }
