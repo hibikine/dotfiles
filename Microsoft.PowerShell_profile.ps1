@@ -73,6 +73,13 @@ function Git-Hyperlog {
 }
 Set-Alias -Name hyperlog -Value Git-Hyperlog
 
+function ls-grep {
+    param (
+        [string]$searchText
+    )
+    Get-ChildItem | Where-Object { $_.Name -match $searchText }
+}
+
 # @see https://stackoverflow.com/questions/1287718/how-can-i-display-my-current-git-branch-name-in-my-powershell-prompt
 # (c) @tamj0rd2
 function Write-BranchName () {
