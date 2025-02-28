@@ -205,48 +205,7 @@ if ((Get-Command nvim -ErrorAction SilentlyContinue) -and (Get-Command pnpm -Err
 }
 
 if ((Get-Command nvim -ErrorAction SilentlyContinue) -and -not ((Get-Command clang -ErrorAction SilentlyContinue) -or (Get-Command gcc -ErrorAction SilentlyContinue))) {
-    $llvmPath = Convert-Path -LiteralPath 'E:/Programs/llvm'
-    winget install -e --id llvm.llvm --location $llvmPath
-
-    $currentLlvmHome = [environment]::getEnvironmentVariable('LLVM_HOME', 'User')
-    if ($currentLlvmHome -ne $llvmPath) {
-        [environment]::setEnvironmentVariable('LLVM_HOME', $llvmPath, 'User')
-    }
-    if ($env:LLVM_HOME -ne $llvmPath) {
-        $env:LLVM_HOME = $llvmPath
-    }
-    $currentPath = [environment]::getEnvironmentVariable('PATH', 'User')
-    if ($currentPath -notlike "*$llvmPath\bin*") {
-        $updatedPath = "$currentPath;$llvmPath\bin"
-        [environment]::setEnvironmentVariable("PATH", $updatedPath, 'User')
-    }
-    if ($env:PATH -notlike "*$llvmPath\bin*") {
-        $env:PATH = "$env:PATH;$llvmPath\bin"
-    }
-    $currentLib = [environment]::getEnvironmentVariable('LIB', 'User')
-    if ($currentLib -notlike "*$llvmPath\lib*") {
-        $updatedLib = "$currentLib;$llvmPath\lib;$llvmPath\lib\clang\19\lib"
-        [environment]::setEnvironmentVariable("LIB", $updatedLib, 'User')
-    }
-    if ($env:LIB -notlike "*$llvmPath\lib*") {
-        $env:LIB = "$env:LIB;$llvmPath\lib"
-    }
-    $currentInclude = [environment]::getEnvironmentVariable('INCLUDE', 'User')
-    if ($currentInclude -notlike "*$llvmPath\include*") {
-        $updatedInclude = "$currentInclude;$llvmPath\include;$llvmPath\lib\clang\19\include;E:\Programs\llvm\lib\clang\19\include\llvm_libc_wrappers"
-        [environment]::setEnvironmentVariable("INCLUDE", $updatedInclude, 'User')
-    }
-    if ($env:INCLUDE -notlike "*$llvmPath\include*") {
-        $env:INCLUDE = "$env:INCLUDE;$llvmPath\include;$llvmPath\lib\clang\19\include;E:\Programs\llvm\lib\clang\19\include\llvm_libc_wrappers"
-    }
-    $currentcpath = [environment]::getEnvironmentVariable('CPATH', 'User')
-    if ($currentcpath -notlike "*$llvmPath\include*") {
-        $updatedcpath = "$currentcpath;$llvmPath\include;$llvmPath\lib\clang\19\include;E:\Programs\llvm\lib\clang\19\include\llvm_libc_wrappers"
-        [environment]::setEnvironmentVariable("CPATH", $updatedcpath, 'User')
-    }
-    if ($env:CPATH -notlike "*$llvmPath\include*") {
-        $env:CPATH = "$env:CPATH;$llvmPath\include;$llvmPath\lib\clang\19\include;E:\Programs\llvm\lib\clang\19\include\llvm_libc_wrappers"
-    }
+    winget install -e -i --id llvm.llvm --location $llvmPath
 }
 
 if (-not (Get-Command bat -ErrorAction SilentlyContinue)) {
