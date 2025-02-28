@@ -35,18 +35,23 @@ ts.setup {
     disable = {},
   },
   ensure_installed = {
+    "c",
+    "cpp",
     "markdown",
     "markdown_inline",
+    "javascript",
+    "typescript",
     "tsx",
     "toml",
-    "fish",
-    "php",
+    -- "fish",
+    -- "php",
     -- "swift",
     "json",
     "yaml",
     "css",
     "html",
-    "lua"
+    "lua",
+    "powershell"
   },
   autotag = {
     enable = true,
