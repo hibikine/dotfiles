@@ -1,3 +1,10 @@
+# 管理者権限で実行されているかどうかを判定する関数
+function Test-Admin {
+    $currentUser = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = [Security.Principal.WindowsPrincipal]$currentUser
+    return $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
 if (Get-Command fnm -ErrorAction SilentlyContinue) {
     fnm env --use-on-cd | Out-String | Invoke-Expression
 }
@@ -109,41 +116,43 @@ function Write-Git-Diff {
     }
 }
 
-function Show-Notification {
-    [cmdletbinding()]
-    Param (
-        [string]
-        $ToastTitle,
-        [string]
-        [parameter(ValueFromPipeline)]
-        $ToastText
-    )
+if (-not (Test-Admin)) {
+    function Show-Notification {
+        [cmdletbinding()]
+        Param (
+            [string]
+            $ToastTitle,
+            [string]
+            [parameter(ValueFromPipeline)]
+            $ToastText
+        )
 
-    if (-not (Test-Path -Path "$PROFILE/../WinRT.Runtime.dll")) {
-        Invoke-WebRequest https://github.com/Windos/BurntToast/raw/main/BurntToast/lib/Microsoft.Windows.SDK.NET/WinRT.Runtime.dll -OutFile $PROFILE/../WinRT.Runtime.dll
+        if (-not (Test-Path -Path "$PROFILE/../WinRT.Runtime.dll")) {
+            Invoke-WebRequest https://github.com/Windos/BurntToast/raw/main/BurntToast/lib/Microsoft.Windows.SDK.NET/WinRT.Runtime.dll -OutFile $PROFILE/../WinRT.Runtime.dll
+        }
+        if (-not(Test-Path -Path "$PROFILE/../Microsoft.Windows.SDK.NET.dll")) {
+            Invoke-WebRequest https://github.com/Windos/BurntToast/raw/main/BurntToast/lib/Microsoft.Windows.SDK.NET/Microsoft.Windows.SDK.NET.dll -OutFile $PROFILE/../Microsoft.Windows.SDK.NET.dll
+        }
+        Add-Type -Path $PROFILE/../WinRT.Runtime.dll
+        Add-Type -Path $PROFILE/../Microsoft.Windows.SDK.NET.dll
+
+        $Template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText02)
+
+        $RawXml = [xml] $Template.GetXml()
+        ($RawXml.toast.visual.binding.text | where { $_.id -eq "1" }).AppendChild($RawXml.CreateTextNode($ToastTitle)) > $null
+        ($RawXml.toast.visual.binding.text | where { $_.id -eq "2" }).AppendChild($RawXml.CreateTextNode($ToastText)) > $null
+
+        $SerializedXml = New-Object Windows.Data.Xml.Dom.XmlDocument
+        $SerializedXml.LoadXml($RawXml.OuterXml)
+
+        $Toast = [Windows.UI.Notifications.ToastNotification]::new($SerializedXml)
+        $Toast.Tag = "PowerShell"
+        $Toast.Group = "PowerShell"
+        $Toast.ExpirationTime = [DateTimeOffset]::Now.AddMinutes(1)
+
+        $Notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("PowerShell")
+        $Notifier.Show($Toast);
     }
-    if (-not(Test-Path -Path "$PROFILE/../Microsoft.Windows.SDK.NET.dll")) {
-        Invoke-WebRequest https://github.com/Windos/BurntToast/raw/main/BurntToast/lib/Microsoft.Windows.SDK.NET/Microsoft.Windows.SDK.NET.dll -OutFile $PROFILE/../Microsoft.Windows.SDK.NET.dll
-    }
-    Add-Type -Path $PROFILE/../WinRT.Runtime.dll
-    Add-Type -Path $PROFILE/../Microsoft.Windows.SDK.NET.dll
-
-    $Template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText02)
-
-    $RawXml = [xml] $Template.GetXml()
-    ($RawXml.toast.visual.binding.text | where { $_.id -eq "1" }).AppendChild($RawXml.CreateTextNode($ToastTitle)) > $null
-    ($RawXml.toast.visual.binding.text | where { $_.id -eq "2" }).AppendChild($RawXml.CreateTextNode($ToastText)) > $null
-
-    $SerializedXml = New-Object Windows.Data.Xml.Dom.XmlDocument
-    $SerializedXml.LoadXml($RawXml.OuterXml)
-
-    $Toast = [Windows.UI.Notifications.ToastNotification]::new($SerializedXml)
-    $Toast.Tag = "PowerShell"
-    $Toast.Group = "PowerShell"
-    $Toast.ExpirationTime = [DateTimeOffset]::Now.AddMinutes(1)
-
-    $Notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("PowerShell")
-    $Notifier.Show($Toast);
 }
 
 function prompt {
@@ -175,25 +184,56 @@ function rm-rf {
 function youtube-dl-best() {
     youtube-dl -f bestvideo+bestaudio --merge-output-format mp4 $args[0]
 }
-Import-Module PSFzf
-Enable-PsFzfAliases
-Import-Module ZLocation
+if (-not (Test-Admin)) {
+    # ユーザーモード
+    $module = Get-Module -ListAvailable -Name PSFzf
+    if (-not $module) {
+        Write-Host "PSFzf is not installed."
+        Write-Host "Please run this command:"
+        Write-Host "Install-Module -Name PSFzf -Scope CurrentUser -Force"
+    } else {
+        Import-Module PSFzf
+        Enable-PsFzfAliases
+    }
 
-Start-Service ssh-agent
-# ssh-add $env:USERPROFILE/.ssh/id_ed25519
+    $module = Get-Module -ListAvailable -Name ZLocation
+    if (-not $module) {
+        Write-Host "ZLocation is not installed."
+        Write-Host "Please run this command:"
+        Write-Host "Install-Module -Name ZLocation -Scope CurrentUser -Force"
+    } else {
+        Import-Module ZLocation
+    }
+} else {
+    # 管理者
+}
 
-try {
-    Import-Module npm-completion
-} catch {
-    if (Get-Command npm) {
-        Write-Host "npm-completion is not installed. Please install by install.ps1 script."
+$service = Get-Service -Name ssh-agent
+if ($service.StartType -eq 'Disabled') {
+    Write-Host "ssh-agent service is disabled."
+} else {
+    Write-Host "ssh-agent service is not disabled."
+    Start-Service ssh-agent
+    # ssh-add $env:USERPROFILE/.ssh/id_ed25519
+}
+
+if (-not (Test-Admin)) {
+    $module = Get-Module -ListAvailable -Name npm-completion
+    if (-not $module) {
+        Write-Host "npm-completion is not installed."
+        Write-Host "Please run this command:"
+        Write-Host "Install-Module -Name npm-completion -Scope CurrentUser -Force"
+    } else {
+        Import-Module npm-completion
     }
 }
 
-chcp 65001
+# chcp 65001
+# [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('utf-8')
 
-[Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('utf-8')
-Import-Module Posh-Git
+if (-not (Test-Admin)) {
+    Import-Module Posh-Git
+}
 
 # https://learn.microsoft.com/ja-jp/windows/package-manager/winget/tab-completion
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
