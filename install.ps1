@@ -41,7 +41,7 @@ $LinkPathItems = @(
     #},
     @{
         Link   = "$Env:USERPROFILE\.gitconfig"
-        Target = "$Env:USERPROFILE\dotfiles\.gitconfig-win"
+        Target = "$Env:USERPROFILE\dotfiles\dotfiles-priv\.gitconfig-win"
     }#,
     # Notepad++は使わない
     #@{
