@@ -1,3 +1,5 @@
+
+
 # Make SymbolicLink
 
 # @see https://qiita.com/sakekasunuts/items/63a4023887348722b416
@@ -183,21 +185,6 @@ if (-not (Get-Command rustup -ErrorAction SilentlyContinue)) {
 if (-not (Get-Command nvim -ErrorAction SilentlyContinue)) {
     winget install -e --id Neovim.Neovim --override "/qf INSTALL_ROOT=E:/Programs/nvim"
     New-Item -ItemType SymbolicLink -Path $env:LOCALAPPDATA\nvim -Value $env:USERPROFILE\dotfiles\nvim
-}
-
-if ((Get-Command nvim -ErrorAction SilentlyContinue) -and (Get-Command scoop -ErrorAction SilentlyContinue)) {
-    if (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe") {
-        $output = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
-        if ($output) {
-            scoop install lua-language-server
-        }
-        else {
-            write-host "Visual Studio is not installed."
-        }
-    }
-    else {
-        write-host "Visual Studio is not installed."
-    }
 }
 
 if ((Get-Command nvim -ErrorAction SilentlyContinue) -and (Get-Command pnpm -ErrorAction SilentlyContinue) -and ([string]::IsNullOrEmpty((pnpm list -g @fsouza/prettierd)))) {
