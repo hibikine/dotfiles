@@ -228,8 +228,19 @@ if (-not (Test-Admin)) {
     }
 }
 
-# chcp 65001
-# [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('utf-8')
+Function gig {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string[]]$list
+    )
+    $params = ($list | ForEach-Object { [uri]::EscapeDataString($_) }) -join ","
+    $wc = New-Object System.Net.WebClient
+    $wc.Headers["User-Agent"] = "PowerShell/" + $PSVersionTable["PSVersion"].ToString()
+    $wc.DownloadFile("https://www.toptal.com/developers/gitignore/api/$params", "$PWD\.gitignore")
+}
+
+chcp 65001
+[Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('utf-8')
 
 if (-not (Test-Admin)) {
     Import-Module Posh-Git
