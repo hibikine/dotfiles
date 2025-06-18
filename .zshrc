@@ -141,6 +141,9 @@ if type "bat" > /dev/null 2>&1; then
     alias less=bat
 fi
 
+if type "zoxide" > /dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -272,8 +275,12 @@ function ssh() {
   fi
 }
 
-export PNPM_HOME="/home/kage/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 export WINDOWS_IP=$(ip route | grep 'default via' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
 
@@ -303,3 +310,8 @@ if [ -d "$HOME/.local/share/fnm" ]; then
     export PATH="$HOME/.local/share/fnm:$PATH"
     eval "`fnm env`"
 fi
+
+export MANPATH="$MANPATH:/usr/local/texlive/2025/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/usr/local/texlive/2025/texmf-dist/doc/info"
+
+export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
