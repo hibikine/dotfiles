@@ -34,6 +34,7 @@ YTOP := $(shell command -v ytop 2> /dev/null)
 IMWHEEL := $(shell command -v imwheel 2> /dev/null)
 DENO := $(shell command -v deno 2> /dev/null)
 DIRENV := $(shell command -v direnv 2> /dev/null)
+Z := $(shell command -v z 2> /dev/null)
 ARG=sample
 
 all: init
@@ -295,3 +296,10 @@ direnv:
 ifndef DIRENV
 	cd src; ./install_direnv.sh
 endif
+
+.PHONY: z
+z:
+ifndef Z
+	cd src; ./install_z.sh
+endif
+
